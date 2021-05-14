@@ -12,12 +12,12 @@ calculo () {
     count=0;
     total=0;
     max=0;
-    min=$(cat salidaInVar | head -2);
+    min=$( echo $salidaInVar | awk '{print $1}' );
 
-    for elemento in $(cat salidaInVar)
+    for elemento in $(echo $salidaInVar)
     do
-        total=$(echo $total+$elemento | bc )
-        ((count++))
+        total=$(echo $total + $elemento | bc );
+        ((count++));
 
         if (( $(echo "$elemento > $max" |bc -l) )); then
             max=$elemento;
@@ -30,9 +30,9 @@ calculo () {
 
     if [ "$VERBOSE" = true ]; then
         echo -n "Avg: ";
-        echo "scale=2; $total / $count" | bc;
-        echo 'Max: ' $max;
-        echo 'Min: ' $min;
+        echo "scale=4; $total / $count" | bc;
+        echo 'Max:' $max;
+        echo 'Min:' $min;
     else
         echo "scale=2; $total / $count" | bc;
         echo $max;
@@ -82,16 +82,16 @@ if [ -f /tmp/salidaMprof ]; then
     if [ "$VERBOSE" = true ]; then
         echo '[*]Successfully executed';
     fi
-    
-    cat /tmp/salidaMprof | awk -v var=val '{print $3}' > salidaInVar; 
+
+    salidaInVar=$( cat /tmp/salidaMprof | awk -v var=val '{print $3}');
     calculo;
-    
+
 else
 
     if [ "$VERBOSE" = true ]; then
-        echo '[!]Ejecutado con problemas, Funcionamiento:';
+        echo '[!]Executed with problems, Use:';
         echo '      -v or --verbose for activate comments';
         echo '      -b or -binary to pass binary to execute';
     fi
-    
+
 fi

@@ -116,15 +116,15 @@ void mezclar( int array[], int size ){
 }
 
 int main(){
-    
-    int size = 1000;
+
+    int size = 100000;
     int vector[size]; //generado aleatoriamente con talla size
     int i;
     for (i = 0; i < size; i++) {
         vector[i] = rand();
     }
 
-    
+
     int *vector1 = vector;
     mezclar(vector1, size);
     //imprimir(vector1, size);
@@ -144,7 +144,7 @@ int main(){
         //imprimir(vector2, size);
         //imprimir(vector3, size);
         return 0;
-        
+
     }
     if (sonIguales(vector3 , vector2, size)){
         printf("True\n");
@@ -152,7 +152,7 @@ int main(){
         //imprimir(vector2, size);
         //imprimir(vector3, size);
         return 0;
-        
+
     }
     if (sonIguales(vector1 , vector3, size)){
         printf("True\n");
@@ -160,7 +160,7 @@ int main(){
         //imprimir(vector2, size);
         //imprimir(vector3, size);
         return 0;
-        
+
     }
     printf("False\n");
     return 1;
