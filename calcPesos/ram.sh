@@ -1,7 +1,7 @@
 #!/bin/bash
 #Author: Sergio Benlloch, serbenl1
 #Script to get the average, maximum and minimum use of the ram of an executable
-#Data in 
+#Data in
 #Use:
 #    -v or --verbose for activate comments';
 #    -b or -binary to pass binary to execute';

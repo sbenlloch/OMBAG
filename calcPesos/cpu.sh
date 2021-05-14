@@ -47,8 +47,7 @@ if [ -f /tmp/salidaCPU ]; then
     rm /tmp/salidaCPU;
 fi
 
-pidstat $N -u -e $BINARY > /tmp/salidaCPU
-
+pidstat $N -u -e $BINARY > /tmp/salidaCPU;
 
 if [ -f /tmp/salidaCPU ]; then
 
@@ -56,26 +55,33 @@ if [ -f /tmp/salidaCPU ]; then
         echo '[*]Successfully executed';
     fi
 
+    all=$(cat /tmp/salidaCPU | awk '{print $8}' | head --lines=-3 | tail --lines=+2);
+
     if [ "$all" ]; then
-        echo 'aqui';
-        avg=$(cat /tmp/salidaCPU | awk '{print $8}' | tail -1);
-        ecxho 'tarda';
+
+        avg=$(cat /tmp/salidaCPU | grep Average: | awk '{print $8}' | tail -1 | tr ',' '.');
         if [ "$VERBOSE" = true ]; then
-            echo "AVG CPU: " $avg;
+            echo "scale=4; $avg/100" | bc | sed 's/^\./0./';
+            exit;
             exit;
         fi
-        echo $avg;
+        echo "scale=4; $avg/100" | bc | sed 's/^\./0./';
+        exit;
+
     else
+
         /usr/bin/time -o /tmp/salidaCPU -v $BINARY &>/dev/null;
         avg=$( cat /tmp/salidaCPU | head -4 | tail -1 | awk '{print $7}' );
         avg2=$( echo $avg | sed 's/%//' );
         if [ "$VERBOSE" = true ]; then
             echo -n "AVG CPU: ";
-            echo "scale=2; $avg2/100" | bc | sed 's/^\./0./';
+            echo "scale=4; $avg2/100" | bc | sed 's/^\./0./';
             exit;
         fi
-        echo "scale=2; $avg2/100" | bc | sed 's/^\./0./';
+        echo "scale=4; $avg2/100" | bc | sed 's/^\./0./';
+
     fi
+
 else
 
     if [ "$VERBOSE" = true ]; then
@@ -84,4 +90,5 @@ else
         echo '      -b or -binary to pass binary to execute';
         echo '      -t or -time to pass interval to pidstat, default 2';
     fi
+
 fi
