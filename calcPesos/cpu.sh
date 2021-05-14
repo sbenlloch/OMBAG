@@ -1,7 +1,7 @@
 #!/bin/bash
 #Author: Sergio Benlloch, serbenl1
 #Script to measure the cpu usage of an executable
-#[!]Executed with problems, Use:
+#Use:
 # -v or --verbose for activate comments
 # -b or -binary to pass binary to execute
 #-t or -time to pass interval to pidstat, default 2
