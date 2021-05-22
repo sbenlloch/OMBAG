@@ -38,8 +38,12 @@ Gen = 0
 Max_Gen = int(parser['Limites']['Max_Gen'])
 #Binario a optimizar
 Binario = sys.argv[1]
+#Matriz de Nx5 para guardar los resultados de los test
+result = []
 
 def createPop(N):
+    global population
+    population = []
     for i in range(0, N):
         cromo = []
         for flag in flags:
@@ -51,14 +55,13 @@ def tiempo():
     epoch = time.time()
     local = time.localtime(epoch)
     return '%d.%d.%d.%d.%d.%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
+
 def inicializacionLog():
     global timestamp
     global pathGlobal
     global logGlobal
-    epoch = time.time()
-    local = time.localtime(epoch)
-    timestamp = '%d.%d.%d.%d.%d.%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
-    print('Ejecución iniciada en ' + timestamp)
+    timestamp = tiempo()
+    print('Execution started at ' + timestamp)
     os.system('mkdir /tmp/algorithmExecution'+timestamp)
     pathGlobal = '/tmp/algorithmExecution'+timestamp
     pathGlobalFile = '/tmp/algorithmExecution'+timestamp+'/logGlobal.txt'
@@ -76,23 +79,24 @@ def inicializacionLog():
     logGlobal.write('\t' + str(flags) + '\n')
 
 def inicializaGen(N, pob):
-    global pathGen
-    global logLocalGen
+    global pathGen, logLocalGen
     pathGen =  pathGlobal + '/Gen' + str(N)
     os.system('mkdir ' + pathGen)
     pathLocalFile = pathGen + '/localFileGen' + str(N)
     os.system('touch ' + pathLocalFile)
     logLocalGen = open(pathLocalFile , 'a')
-    epoch = time.time()
-    local = time.localtime(epoch)
-    timestamp = '%d.%d.%d.%d.%d.%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
+    timestamp = tiempo()
     logLocalGen.write('Generation start: ' + timestamp + '\n')
     for ind in range(0, pob):
         pathChromo = pathGen + '/Chromo' + str(ind)
         os.system('mkdir ' + pathChromo)
         os.system('touch ' + pathChromo + '/log' + 'Gen' + str(N) + '_Ind' + str(ind))
 
-def test(chromosoma, N):
+def executionWithOutput(command):
+    result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, shell=True)
+    return (result.stdout, result.stderr)
+
+def compilation(chromosoma, N):
     pathChromo = pathGen + '/Chromo' + str(N)
     logChromo = pathGen + '/Chromo' + str(N) + '/logGen' + str(Gen) + '_Ind' + str(N)
     log = open(logChromo, 'a')
@@ -106,12 +110,24 @@ def test(chromosoma, N):
     line = 'gcc ' + Binario + ' -o ' + pathChromo + '/Chromo' + str(N) + ' ' + line
     log.write('Compilation line: \n')
     log.write('\t' + line + '\n')
-    log.write('Output after compile: \n\t')
-    os.popen(line) # falta salida de errores a archivo de logs
+    log.write('Output after compiling: \n\t')
+    (out, err) = executionWithOutput(line)
+    log.write(out + '\n')
+    log.write('Error after compiling: \n\t')
+    log.write(err + '\n')
+    log.close()
 
+def test(chromosoma, N):
+    global result
+    compilation(chromosoma, N)
+    executable = pathGen + '/Chromo' + str(N) + '/Chromo' + str(N)
+    if os.path.isfile(executable) and os.access(executable, os.X_OK):
+        result.insert(N, [1,1,1,1,1])#comprobar pesos y testear
+    else:
+        result.insert(N, [0,0,0,0,0])#comprobar pesos y testear
 
 def main():
-    global Gen, Max_Gen
+    global Gen, Max_Gen, result
     file = open(Path , 'r' ).read().split('\n')
     for line in file:
         if line:
@@ -119,11 +135,23 @@ def main():
     inicializacionLog()
     createPop(Num_Pob)
     #para bucle de generaciones
-    for i in range(0,Max_Gen):
+    for num_gen in range(0,Max_Gen):
         inicializaGen(Gen, Num_Pob)
+        ini = tiempo()
+        ini_t= time.time()
+        logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n')
+        print('[+] Test and Compilation')
         for i in range(0, len(population)):
             test(population[i], i)
         Gen+=1
+        logLocalGen.write('Test results: \n')
+        logLocalGen.write('\t' + str(result) + '\n')
+        fin = tiempo()
+        fin_t= time.time()
+        logLocalGen.write('Tiempo de salida: ' + str(fin) + '\n')
+        logLocalGen.write('Duración: ' + str(fin_t - ini_t) + '\n')
+        result = []
+        createPop(Num_Pob)
     #...
 
 
