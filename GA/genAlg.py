@@ -1,8 +1,9 @@
 import random
 import os
+import sys
 import time
 import configparser
-
+import subprocess
 """
     Declaracion de variables globales
 """
@@ -31,7 +32,12 @@ logGlobal = ''
 pathGen = ''
 #Path log generacion actual
 logLocalGen = ''
-
+#Número de Generación
+Gen = 0
+#Limites
+Max_Gen = int(parser['Limites']['Max_Gen'])
+#Binario a optimizar
+Binario = sys.argv[1]
 
 def createPop(N):
     for i in range(0, N):
@@ -41,6 +47,10 @@ def createPop(N):
             cromo.append(tupla)
         population.append(cromo)
 
+def tiempo():
+    epoch = time.time()
+    local = time.localtime(epoch)
+    return '%d.%d.%d.%d.%d.%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
 def inicializacionLog():
     global timestamp
     global pathGlobal
@@ -82,16 +92,39 @@ def inicializaGen(N, pob):
         os.system('mkdir ' + pathChromo)
         os.system('touch ' + pathChromo + '/log' + 'Gen' + str(N) + '_Ind' + str(ind))
 
-def main():
+def test(chromosoma, N):
+    pathChromo = pathGen + '/Chromo' + str(N)
+    logChromo = pathGen + '/Chromo' + str(N) + '/logGen' + str(Gen) + '_Ind' + str(N)
+    log = open(logChromo, 'a')
+    log.write('Executed at ' + tiempo() + '\n')
+    log.write('Chromosoma: \n')
+    log.write('\t' + str(chromosoma) + '\n')
+    line = ''
+    for flag in chromosoma:
+        if flag[0]:
+            line += flag[1] + ' '
+    line = 'gcc ' + Binario + ' -o ' + pathChromo + '/Chromo' + str(N) + ' ' + line
+    log.write('Compilation line: \n')
+    log.write('\t' + line + '\n')
+    log.write('Output after compile: \n\t')
+    os.popen(line) # falta salida de errores a archivo de logs
 
+
+def main():
+    global Gen, Max_Gen
     file = open(Path , 'r' ).read().split('\n')
     for line in file:
         if line:
             flags.append(line)
     inicializacionLog()
     createPop(Num_Pob)
-    Gen = 0
-    inicializaGen(Gen, Num_Pob)
+    #para bucle de generaciones
+    for i in range(0,Max_Gen):
+        inicializaGen(Gen, Num_Pob)
+        for i in range(0, len(population)):
+            test(population[i], i)
+        Gen+=1
+    #...
 
 
 
@@ -100,6 +133,7 @@ if __name__ == "__main__":
 
 logGlobal.close()
 logLocalGen.close()
+
 """
     todas = ''
     for flag in flags:

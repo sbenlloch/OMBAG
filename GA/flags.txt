@@ -1,9 +1,2 @@
--o
 -fno-pie
 -no-pie
-
-
-
-
-
--fomit
