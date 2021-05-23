@@ -12,12 +12,14 @@ flags = []
 population = []
 parser = configparser.ConfigParser()
 parser.read('conf.ini')
-# Peso objetivos
+# Peso objetivos [Ram, Cpu, Peso, Rob, Tiempo]
 Ram = float(parser['Settings']['Ram'])
 Cpu = float(parser['Settings']['CPU'])
 Peso = float(parser['Settings']['Peso'])
 Rob = float(parser['Settings']['Robustez'])
 Tiempo = float(parser['Settings']['Tiempo'])
+#Ajustes tests
+Executions = int(parser['Test']['Ejecuciones_Robustez'])
 #tamaño población
 Num_Pob = int(parser['Settings']['N_Poblacion'])
 #path a archivo con flags elegidas
@@ -38,7 +40,7 @@ Gen = 0
 Max_Gen = int(parser['Limites']['Max_Gen'])
 #Binario a optimizar
 Binario = sys.argv[1]
-#Matriz de Nx5 para guardar los resultados de los test
+#Matriz de Nx5 para guardar los resultados de los test [Ram, Cpu, Peso, Robustez, Tiempo]
 result = []
 
 def createPop(N):
@@ -117,14 +119,57 @@ def compilation(chromosoma, N):
     log.write(err + '\n')
     log.close()
 
+def ram(executable):
+    (out, err) = executionWithOutput('./test/ram.sh -b ' + executable)
+    return out
+
+def cpuUse(executable):
+    (out, err) = executionWithOutput('./test/cpu.sh -b ' + executable + ' -t 1')
+    return out
+
+def peso(executable):
+    (out, err) = executionWithOutput('./test/peso.sh ' + executable)
+    return out
+
+def robustness(executable):
+    (out, err) = executionWithOutput('./test/robustez.sh -b ' + executable + ' -e ' + str(Executions))
+    return out
+
+def exTime(executable):
+    (out, err) = executionWithOutput('./test/tiempo.sh ' + executable)
+    numero = err.split(',')
+    out = float(numero[0] + '.' + numero[1])
+    return out
+
 def test(chromosoma, N):
     global result
     compilation(chromosoma, N)
     executable = pathGen + '/Chromo' + str(N) + '/Chromo' + str(N)
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
-        result.insert(N, [1,1,1,1,1])#comprobar pesos y testear
+        cantRam = 0
+        cantCpu = 0
+        cantPeso = 0
+        cantRob = 0
+        cantTiempo = 0
+        if Ram:
+            cantRam = ram(executable).split('\n')
+            cantRam = cantRam[0] # !! revisar esta forma de quitar salto de linea
+        if Cpu:
+            cantCpu = cpuUse(executable).split('\n')
+            cantCpu = cantCpu[0]
+        if Peso:
+            cantPeso = peso(executable).split('\n')
+            cantPeso = cantPeso[0]
+        if Rob:
+            cantRob = robustness(executable).split('\n')
+            cantRob = cantRob[:4]
+        if Tiempo:
+            cantTiempo = exTime(executable)
+
+        result.insert(N, [cantRam, cantCpu, cantPeso, cantRob, cantTiempo])
+
     else:
-        result.insert(N, [0,0,0,0,0])#comprobar pesos y testear
+        result.insert(N, [0,0,0,0,0])
 
 def main():
     global Gen, Max_Gen, result
