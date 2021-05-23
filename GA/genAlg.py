@@ -5,10 +5,16 @@ import time
 import configparser
 import subprocess
 import threading
+import signal
+
+def signal_handler(sig, frame):
+    print('\n[!]Saliendo...')
+    sys.exit(0)
+
 """
     Declaracion de variables globales
 """
-
+signal.signal(signal.SIGINT, signal_handler)
 flags = []
 population = []
 parser = configparser.ConfigParser()
@@ -200,12 +206,12 @@ def main():
     inicializacionLog()
     createPop(Num_Pob)
     #para bucle de generaciones
-    for num_gen in range(0,Max_Gen): #De momento solo hay este límite, podría implementar ( tiempo, genercion, convergencia )
+    for _ in range(Max_Gen): #De momento solo hay este límite, podría implementar ( tiempo, genercion, convergencia )
         inicializaGen(Gen, Num_Pob)
         ini = tiempo()
         ini_t= time.time()
         logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n')
-        print('[+] Test and Compilation')
+        print('[+]Compilation and test Generation ' + str(Gen) )
         threads = []
         try:
             for i in range(0, len(population)):
