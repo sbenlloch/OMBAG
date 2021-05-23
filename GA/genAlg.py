@@ -217,11 +217,11 @@ def main():
         Gen+=1
         logLocalGen.write('Test results: \n')
         logLocalGen.write('\t' + str(result) + '\n')
-        fin = tiempo()
-        fin_t= time.time()
         #Normalizar
         #WSM
         #Fin de Generacion:
+        fin = tiempo()
+        fin_t= time.time()
         logLocalGen.write('Tiempo de salida: ' + str(fin) + '\n')
         logLocalGen.write('Duración: ' + str(fin_t - ini_t) + '\n')
         result = [None] * Num_Pob
