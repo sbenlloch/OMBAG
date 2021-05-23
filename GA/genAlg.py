@@ -4,6 +4,7 @@ import sys
 import time
 import configparser
 import subprocess
+import threading
 """
     Declaracion de variables globales
 """
@@ -24,6 +25,8 @@ Executions = int(parser['Test']['Ejecuciones_Robustez'])
 Num_Pob = int(parser['Settings']['N_Poblacion'])
 #path a archivo con flags elegidas
 Path = parser['Flags']['Path']
+#Número de hilos máximos
+maxthreads = int(parser['Settings']['Threads'])
 #Tiempo inicial
 timestamp = ''
 #directorio global
@@ -41,8 +44,11 @@ Max_Gen = int(parser['Limites']['Max_Gen'])
 #Binario a optimizar
 Binario = sys.argv[1]
 #Matriz de Nx5 para guardar los resultados de los test [Ram, Cpu, Peso, Robustez, Tiempo]
-result = []
+result = [None] * Num_Pob
+#Pool de hilos para asegurar el máximo de hilos a vez
+pool = threading.Semaphore(value=maxthreads)
 
+#Crear población de tamaño N aleatoria
 def createPop(N):
     global population
     population = []
@@ -52,12 +58,13 @@ def createPop(N):
             tupla = (random.randint(0,1) , flag)
             cromo.append(tupla)
         population.append(cromo)
-
+#Devuelve un string con el timestamp de la forma deseada
 def tiempo():
     epoch = time.time()
     local = time.localtime(epoch)
     return '%d.%d.%d.%d.%d.%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
 
+#Inicialización y creación de la estructura para logging
 def inicializacionLog():
     global timestamp
     global pathGlobal
@@ -80,6 +87,7 @@ def inicializacionLog():
     logGlobal.write('\nFlags:\n')
     logGlobal.write('\t' + str(flags) + '\n')
 
+#Inicialización de archivos para cada Generación de individuos
 def inicializaGen(N, pob):
     global pathGen, logLocalGen
     pathGen =  pathGlobal + '/Gen' + str(N)
@@ -94,10 +102,12 @@ def inicializaGen(N, pob):
         os.system('mkdir ' + pathChromo)
         os.system('touch ' + pathChromo + '/log' + 'Gen' + str(N) + '_Ind' + str(ind))
 
+#Ejecución de comandos con vuelta de outpur y errores
 def executionWithOutput(command):
     result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, shell=True)
     return (result.stdout, result.stderr)
 
+#Compilación de programa y loggeo
 def compilation(chromosoma, N):
     pathChromo = pathGen + '/Chromo' + str(N)
     logChromo = pathGen + '/Chromo' + str(N) + '/logGen' + str(Gen) + '_Ind' + str(N)
@@ -119,38 +129,46 @@ def compilation(chromosoma, N):
     log.write(err + '\n')
     log.close()
 
+#Uso de ram
 def ram(executable):
     (out, err) = executionWithOutput('./test/ram.sh -b ' + executable)
     return out
 
+#Uso de CPU
 def cpuUse(executable):
     (out, err) = executionWithOutput('./test/cpu.sh -b ' + executable + ' -t 1')
     return out
 
+#Peso del binario
 def peso(executable):
     (out, err) = executionWithOutput('./test/peso.sh ' + executable)
     return out
 
+#Robustez del binario
 def robustness(executable):
     (out, err) = executionWithOutput('./test/robustez.sh -b ' + executable + ' -e ' + str(Executions))
     return out
 
+#Tiempo de ejecución
 def exTime(executable):
     (out, err) = executionWithOutput('./test/tiempo.sh ' + executable)
-    numero = err.split(',')
+    numero = err.split(',') #Time usa stderr para la salida
     out = float(numero[0] + '.' + numero[1])
     return out
 
+#Función para obtener los pesos antes de normalizar
 def test(chromosoma, N):
+    pool.acquire()
+
     global result
     compilation(chromosoma, N)
     executable = pathGen + '/Chromo' + str(N) + '/Chromo' + str(N)
+    cantRam = 0
+    cantCpu = 0
+    cantPeso = 0
+    cantRob = 0
+    cantTiempo = 0
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
-        cantRam = 0
-        cantCpu = 0
-        cantPeso = 0
-        cantRob = 0
-        cantTiempo = 0
         if Ram:
             cantRam = ram(executable).split('\n')
             cantRam = cantRam[0] # !! revisar esta forma de quitar salto de linea
@@ -165,12 +183,14 @@ def test(chromosoma, N):
             cantRob = cantRob[:4]
         if Tiempo:
             cantTiempo = exTime(executable)
-
-        result.insert(N, [cantRam, cantCpu, cantPeso, cantRob, cantTiempo])
+        result[N] = [cantRam, cantCpu, cantPeso, cantRob, cantTiempo]
 
     else:
-        result.insert(N, [0,0,0,0,0])
+        result[N] = [0,0,0,0,0]
 
+    pool.release()
+
+#Main
 def main():
     global Gen, Max_Gen, result
     file = open(Path , 'r' ).read().split('\n')
@@ -186,8 +206,14 @@ def main():
         ini_t= time.time()
         logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n')
         print('[+] Test and Compilation')
-        for i in range(0, len(population)):
-            test(population[i], i)
+        threads = []
+        try:
+            for i in range(0, len(population)):
+                threads.append(threading.Thread(target=test, args=(population[i], i)))
+            [t.start() for t in threads]
+        except Exception as e: print('Exception in threading: ' + e)
+        finally :
+            [t.join() for t in threads]
         Gen+=1
         logLocalGen.write('Test results: \n')
         logLocalGen.write('\t' + str(result) + '\n')
@@ -195,7 +221,7 @@ def main():
         fin_t= time.time()
         logLocalGen.write('Tiempo de salida: ' + str(fin) + '\n')
         logLocalGen.write('Duración: ' + str(fin_t - ini_t) + '\n')
-        result = []
+        result = [None] * Num_Pob
         createPop(Num_Pob)
     #...
 
@@ -206,10 +232,3 @@ if __name__ == "__main__":
 
 logGlobal.close()
 logLocalGen.close()
-
-"""
-    todas = ''
-    for flag in flags:
-        todas += flag + ' '
-    print(todas)
-"""
