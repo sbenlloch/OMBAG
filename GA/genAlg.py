@@ -7,6 +7,7 @@ import threading
 import subprocess
 import configparser
 
+
 def signal_handler(sig, frame):
     print('\n[!]Saliendo...')
     sys.exit(0)
@@ -199,33 +200,64 @@ def test(chromosoma, N):
     global result
     compilation(chromosoma, N)
     executable = pathGen + '/Chromo' + str(N) + '/Chromo' + str(N)
-    cantRam = 0
-    cantCpu = 0
-    cantPeso = 0
-    cantRob = 0
-    cantTiempo = 0
+    cantRam = 1.0
+    cantCpu = 1.0
+    cantPeso = 1.0
+    cantRob = 1.0
+    cantTiempo = 1.0
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
         if Ram:
             cantRam = ram(executable).split('\n')
             # !! revisar esta forma de quitar salto de linea
-            cantRam = cantRam[0]
+            cantRam = cantRam[0] or 1.0
         if Cpu:
             cantCpu = cpuUse(executable).split('\n')
-            cantCpu = cantCpu[0]
+            cantCpu = cantCpu[0] or 1.0
         if Peso:
             cantPeso = peso(executable).split('\n')
-            cantPeso = cantPeso[0]
+            cantPeso = cantPeso[0] or 1.0
         if Rob:
             cantRob = robustness(executable).split('\n')
-            cantRob = cantRob[:4]
+            if len(cantRob) > 1:
+                cantRob = 1.0 - (float(cantRob[0]) + float(cantRob[1]))  # probablemente varíe
+            else:
+                cantRob = 1.0
         if Tiempo:
-            cantTiempo = exTime(executable)
-        result[N] = [cantRam, cantCpu, cantPeso, cantRob, cantTiempo]
+            cantTiempo = exTime(executable) or 1.0
+
+        result[N] = [float(cantRam), float(cantCpu), float(cantPeso), cantRob, float(cantTiempo)]
 
     else:
-        result[N] = [0, 0, 0, 0, 0]
+        result[N] = [1.0, 1.0, 1.0, 1.0, 1.0]
 
     pool.release()
+
+# Normalizar pesos
+
+
+def normalizar(matrix, N): #revisar
+    # buscando maximos y minimos
+    for i in range(5):
+        max = 0.0
+        min = float('inf') #revisar
+        for j in range(N):
+            if matrix[i][j] == 1.0 :
+                break;
+            if min > matrix[i][j]:
+                min = matrix[i][j]
+            if max < matrix[i][j]:
+                max = matrix[i][j]
+
+        print(max)
+        print(min)
+        if (max - min) == 0.0:
+            break
+
+        for j in range(N):
+            print(matrix[i][j])
+            matrix[i][j] = (matrix[i][j] - min) / (max - min)
+            print(matrix[i][j])
+    return matrix
 
 # Main
 
@@ -259,7 +291,10 @@ def main():
         Gen += 1
         logLocalGen.write('Test results: \n')
         logLocalGen.write('\t' + str(result) + '\n')
-        # Normalizar
+        resultAfterNorm = normalizar(result, Num_Pob)
+        logLocalGen.write('Normalization results: \n')
+        logLocalGen.write('\t' + str(resultAfterNorm) + '\n')
+        print(str(resultAfterNorm))
         # WSM
         # Fin de Generacion:
         fin = tiempo()
