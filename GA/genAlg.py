@@ -200,7 +200,7 @@ def main():
     inicializacionLog()
     createPop(Num_Pob)
     #para bucle de generaciones
-    for num_gen in range(0,Max_Gen):
+    for num_gen in range(0,Max_Gen): #De momento solo hay este límite, podría implementar ( tiempo, genercion, convergencia )
         inicializaGen(Gen, Num_Pob)
         ini = tiempo()
         ini_t= time.time()
@@ -219,11 +219,14 @@ def main():
         logLocalGen.write('\t' + str(result) + '\n')
         fin = tiempo()
         fin_t= time.time()
+        #Normalizar
+        #WSM
+        #Fin de Generacion:
         logLocalGen.write('Tiempo de salida: ' + str(fin) + '\n')
         logLocalGen.write('Duración: ' + str(fin_t - ini_t) + '\n')
         result = [None] * Num_Pob
-        createPop(Num_Pob)
-    #...
+        createPop(Num_Pob)#Sustituir por eleccion/mutacion/descendientes
+        #Cambio de Generacion
 
 
 
