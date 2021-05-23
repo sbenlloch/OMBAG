@@ -1,4 +1,3 @@
-
 import os
 import sys
 import time
@@ -49,10 +48,10 @@ pathGen = ''
 logLocalGen = ''
 # Número de Generación
 Gen = 0
-# Limites
+# Límites
 Max_Gen = int(parser['Limites']['Max_Gen'])
-# Binario a optimizar
-Binario = sys.argv[1]
+# Programa a optimizar
+Programa = sys.argv[1]
 # Matriz de Nx5 para guardar los resultados de los test [Ram, Cpu, Peso, Robustez, Tiempo]
 result = [None] * Num_Pob
 # Pool de hilos para asegurar el máximo de hilos a vez
@@ -82,9 +81,7 @@ def tiempo():
 
 
 def inicializacionLog():
-    global timestamp
-    global pathGlobal
-    global logGlobal
+    global timestamp, pathGlobal, logGlobal
     timestamp = tiempo()
     print('Execution started at ' + timestamp)
     os.system('mkdir /tmp/algorithmExecution'+timestamp)
@@ -144,7 +141,7 @@ def compilation(chromosoma, N):
     for flag in chromosoma:
         if flag[0]:
             line += flag[1] + ' '
-    line = 'gcc ' + Binario + ' -o ' + \
+    line = 'gcc ' + Programa + ' -o ' + \
         pathChromo + '/Chromo' + str(N) + ' ' + line
     log.write('Compilation line: \n')
     log.write('\t' + line + '\n')
