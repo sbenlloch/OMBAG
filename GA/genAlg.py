@@ -10,7 +10,7 @@ import configparser
 
 def signal_handler(sig, frame):
     print('\n[!]Saliendo...')
-    sys.exit(0)
+    os._exit(1)
 
 
 signal.signal(signal.SIGINT, signal_handler)
@@ -32,7 +32,7 @@ Tiempo = float(parser['Settings']['Tiempo'])
 # Ajustes tests
 Executions = int(parser['Test']['Ejecuciones_Robustez'])
 # tamaño población
-Num_Pob = int(parser['Settings']['N_Poblacion'])
+Num_Pob = int(parser['Settings']['N_Poblacion']) + 1
 # path a archivo con flags elegidas
 Path = parser['Flags']['Path']
 # Número de hilos máximos
@@ -246,7 +246,7 @@ def normalizar(vector, N):  # revisar
     # buscando maximos y minimos
     max = 0.0
     min = float('inf')  # revisar
-    for j in range(N):
+    for j in range(0, N):
 
         if min > vector[j] and not(vector[j] < 0):
             min = vector[j]
@@ -256,7 +256,7 @@ def normalizar(vector, N):  # revisar
     if (max - min) == 0.0:
         return [1.0]*N
 
-    for j in range(N):
+    for j in range(0, N):
         if vector[j] < 0:
             vector[j] = 1.0
         else:
@@ -266,9 +266,15 @@ def normalizar(vector, N):  # revisar
 
 # Main
 
+def WSM(matrix, N):
+    result = []
+    for i in range(0, N - 1):
+        wsm = matrix[0][i]*Ram + matrix[1][i]*Cpu + matrix[2][i]*Peso + matrix[3][i]*Rob + matrix[4][i]*Tiempo
+        result.append(wsm)
+    return result
 
 def main():
-    global Gen, Max_Gen, result
+    global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo
     file = open(Path, 'r').read().split('\n')
     for line in file:
         if line:
@@ -281,11 +287,11 @@ def main():
         inicializaGen(Gen, Num_Pob)
         ini = tiempo()
         ini_t = time.time()
-        logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n')
+        logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n\n')
         print('[+]Compilation and test Generation ' + str(Gen))
         threads = []
         try:
-            for i in range(0, len(population)):
+            for i in range(0, Num_Pob):
                 threads.append(threading.Thread(
                     target=test, args=(population[i], i)))
             [t.start() for t in threads]
@@ -293,7 +299,6 @@ def main():
             print('Exception in threading: ' + e)
         finally:
             [t.join() for t in threads]
-        Gen += 1
         logLocalGen.write('Test results: \n\n')
         logLocalGen.write('Ram:' + '\n')
         logLocalGen.write('\t' + str(resultRam) + '\n\n')
@@ -322,13 +327,23 @@ def main():
         logLocalGen.write('\t' + str(normRob) + '\n\n')
         logLocalGen.write('Tiempo:' + '\n')
         logLocalGen.write('\t' + str(normTiempo) + '\n\n')
+        norm = [normRam, normCpu, normPeso, normRob, normTiempo]
         # WSM
+        print('[+]WSM Generation ' + str(Gen))
+        pesos = WSM(norm, Num_Pob)
+        logLocalGen.write('WSM results: \n')
+        logLocalGen.write('\t'+ str(pesos) + '\n\n')
         # Fin de Generacion:
         fin = tiempo()
         fin_t = time.time()
-        logLocalGen.write('Tiempo de salida: ' + str(fin) + '\n')
-        logLocalGen.write('Duración: ' + str(fin_t - ini_t) + '\n')
-        result = [None] * Num_Pob
+        logLocalGen.write('Tiempo de salida: ' + str(fin) + '\n\n')
+        logLocalGen.write('Duración: ' + str(fin_t - ini_t) + '\n\n')
+        Gen += 1
+        resultRam = [-1.0] * Num_Pob
+        resultCpu = [-1.0] * Num_Pob
+        resultTiempo = [-1.0] * Num_Pob
+        resultPeso = [-1.0] * Num_Pob
+        resultRob = [-1.0] * Num_Pob
         createPop(Num_Pob)  # Sustituir por eleccion/mutacion/descendientes
         # Cambio de Generacion
 
