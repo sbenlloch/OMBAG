@@ -53,8 +53,12 @@ Gen = 0
 Max_Gen = int(parser['Limites']['Max_Gen'])
 # Programa a optimizar
 Programa = sys.argv[1]
-# Matriz de Nx5 para guardar los resultados de los test [Ram, Cpu, Peso, Robustez, Tiempo]
-result = [None] * Num_Pob
+# Vectores de Nx5 para guardar los resultados de los test [Ram, Cpu, Peso, Robustez, Tiempo]
+resultRam = [-1.0] * Num_Pob
+resultCpu = [-1.0] * Num_Pob
+resultTiempo = [-1.0] * Num_Pob
+resultPeso = [-1.0] * Num_Pob
+resultRob = [-1.0] * Num_Pob
 # Pool de hilos para asegurar el máximo de hilos a vez
 pool = threading.Semaphore(value=maxthreads)
 
@@ -117,7 +121,7 @@ def inicializaGen(N, pob):
         pathChromo = pathGen + '/Chromo' + str(ind)
         os.system('mkdir ' + pathChromo)
         os.system('touch ' + pathChromo + '/log' +
-                    'Gen' + str(N) + '_Ind' + str(ind))
+                  'Gen' + str(N) + '_Ind' + str(ind))
 
 # Ejecución de comandos con vuelta de outpur y errores
 
@@ -197,67 +201,68 @@ def exTime(executable):
 def test(chromosoma, N):
     pool.acquire()
 
-    global result
+    global resultRam, resultCpu, resultPeso, resultRob, resultTiempo
     compilation(chromosoma, N)
     executable = pathGen + '/Chromo' + str(N) + '/Chromo' + str(N)
-    cantRam = 1.0
-    cantCpu = 1.0
-    cantPeso = 1.0
-    cantRob = 1.0
-    cantTiempo = 1.0
+    cantRam = -1.0
+    cantCpu = -1.0
+    cantPeso = -1.0
+    cantRob = -1.0
+    cantTiempo = -1.0
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
         if Ram:
             cantRam = ram(executable).split('\n')
             # !! revisar esta forma de quitar salto de linea
-            cantRam = cantRam[0] or 1.0
+            cantRam = cantRam[0] or -1.0
+            resultRam[N] = float(cantRam)
         if Cpu:
             cantCpu = cpuUse(executable).split('\n')
-            cantCpu = cantCpu[0] or 1.0
+            cantCpu = cantCpu[0] or -1.0
+            resultCpu[N] = float(cantCpu)
         if Peso:
             cantPeso = peso(executable).split('\n')
-            cantPeso = cantPeso[0] or 1.0
+            cantPeso = cantPeso[0] or -1.0
+            resultPeso[N] = float(cantPeso)
         if Rob:
             cantRob = robustness(executable).split('\n')
             if len(cantRob) > 1:
-                cantRob = 1.0 - (float(cantRob[0]) + float(cantRob[1]))  # probablemente varíe
+                # probablemente varíe
+                cantRob = 1.0 - (float(cantRob[0]) + float(cantRob[1]))
             else:
-                cantRob = 1.0
+                cantRob = -1.0
+
+            resultRob[N] = float(cantRob)
+
         if Tiempo:
-            cantTiempo = exTime(executable) or 1.0
-
-        result[N] = [float(cantRam), float(cantCpu), float(cantPeso), cantRob, float(cantTiempo)]
-
-    else:
-        result[N] = [1.0, 1.0, 1.0, 1.0, 1.0]
+            cantTiempo = exTime(executable) or -1.0
+            resultTiempo[N] = float(cantTiempo)
 
     pool.release()
 
 # Normalizar pesos
 
 
-def normalizar(matrix, N): #revisar
+def normalizar(vector, N):  # revisar
     # buscando maximos y minimos
-    for i in range(5):
-        max = 0.0
-        min = float('inf') #revisar
-        for j in range(N):
-            if matrix[i][j] == 1.0 :
-                break;
-            if min > matrix[i][j]:
-                min = matrix[i][j]
-            if max < matrix[i][j]:
-                max = matrix[i][j]
+    max = 0.0
+    min = float('inf')  # revisar
+    for j in range(N):
 
-        print(max)
-        print(min)
-        if (max - min) == 0.0:
-            break
+        if min > vector[j] and not(vector[j] < 0):
+            min = vector[j]
+        if max < vector[j] and not(vector[j] < 0):
+            max = vector[j]
 
-        for j in range(N):
-            print(matrix[i][j])
-            matrix[i][j] = (matrix[i][j] - min) / (max - min)
-            print(matrix[i][j])
-    return matrix
+    if (max - min) == 0.0:
+        return [1.0]*N
+
+    for j in range(N):
+        if vector[j] < 0:
+            vector[j] = 1.0
+        else:
+            vector[j] = (vector[j] - min) / (max - min)
+
+    return vector
 
 # Main
 
@@ -289,12 +294,34 @@ def main():
         finally:
             [t.join() for t in threads]
         Gen += 1
-        logLocalGen.write('Test results: \n')
-        logLocalGen.write('\t' + str(result) + '\n')
-        resultAfterNorm = normalizar(result, Num_Pob)
-        logLocalGen.write('Normalization results: \n')
-        logLocalGen.write('\t' + str(resultAfterNorm) + '\n')
-        print(str(resultAfterNorm))
+        logLocalGen.write('Test results: \n\n')
+        logLocalGen.write('Ram:' + '\n')
+        logLocalGen.write('\t' + str(resultRam) + '\n\n')
+        logLocalGen.write('Cpu:' + '\n')
+        logLocalGen.write('\t' + str(resultCpu) + '\n\n')
+        logLocalGen.write('Peso:' + '\n')
+        logLocalGen.write('\t' + str(resultPeso) + '\n\n')
+        logLocalGen.write('Robustez:' + '\n')
+        logLocalGen.write('\t' + str(resultRob) + '\n\n')
+        logLocalGen.write('Tiempo:' + '\n')
+        logLocalGen.write('\t' + str(resultTiempo) + '\n\n')
+        print('[+]Normalization Generation ' + str(Gen))
+        normRam = normalizar(resultRam, Num_Pob)
+        normCpu = normalizar(resultCpu, Num_Pob)
+        normPeso = normalizar(resultPeso, Num_Pob)
+        normRob = normalizar(resultRob, Num_Pob)
+        normTiempo = normalizar(resultTiempo, Num_Pob)
+        logLocalGen.write('Normalization results: \n\n')
+        logLocalGen.write('Ram:' + '\n')
+        logLocalGen.write('\t' + str(normRam) + '\n\n')
+        logLocalGen.write('Cpu:' + '\n')
+        logLocalGen.write('\t' + str(normCpu) + '\n\n')
+        logLocalGen.write('Peso:' + '\n')
+        logLocalGen.write('\t' + str(normPeso) + '\n\n')
+        logLocalGen.write('Robustez:' + '\n')
+        logLocalGen.write('\t' + str(normRob) + '\n\n')
+        logLocalGen.write('Tiempo:' + '\n')
+        logLocalGen.write('\t' + str(normTiempo) + '\n\n')
         # WSM
         # Fin de Generacion:
         fin = tiempo()
