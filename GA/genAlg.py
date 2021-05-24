@@ -61,7 +61,11 @@ resultPeso = [-1.0] * Num_Pob
 resultRob = [-1.0] * Num_Pob
 # Pool de hilos para asegurar el máximo de hilos a vez
 pool = threading.Semaphore(value=maxthreads)
-
+#Número de chromosomas a seleccionat
+N_Select = int(parser['Limites']['N_Selecciones'])
+if N_Select > Num_Pob:
+    N_Select = Num_Pob
+Por_Random = float(parser['Limites']['Por_Aleatorios'])
 # Crear población de tamaño N aleatoria
 
 
@@ -264,7 +268,7 @@ def normalizar(vector, N):  # revisar
 
     return vector
 
-# Main
+# WSM
 
 def WSM(matrix, N):
     result = []
@@ -272,6 +276,16 @@ def WSM(matrix, N):
         wsm = matrix[0][i]*Ram + matrix[1][i]*Cpu + matrix[2][i]*Peso + matrix[3][i]*Rob + matrix[4][i]*Tiempo
         result.append(wsm)
     return result
+
+#Selection function
+
+def selection(vector, to_select):
+    sorted_vector = sorted(vector)
+    selected_index = []
+    for N in range(to_select):
+        selected_index.append(vector.index(sorted_vector[N]))
+    return (sorted(selected_index), sorted_vector[:to_select])
+
 
 def main():
     global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo
@@ -333,6 +347,12 @@ def main():
         pesos = WSM(norm, Num_Pob)
         logLocalGen.write('WSM results: \n')
         logLocalGen.write('\t'+ str(pesos) + '\n\n')
+        #Selection
+        print('[+]Selection Generation ' + str(Gen))
+        (selectionIndex, selected) = selection(pesos, N_Select)
+        logLocalGen.write('Selected index and data: \n\n')
+        logLocalGen.write('\t ( ' + str(selectionIndex) + ', ' + str(selectioned) + ' )\n\n')
+        #generacion de poblacion siguiente (mutacion y aleatorios)
         # Fin de Generacion:
         fin = tiempo()
         fin_t = time.time()
@@ -344,8 +364,8 @@ def main():
         resultTiempo = [-1.0] * Num_Pob
         resultPeso = [-1.0] * Num_Pob
         resultRob = [-1.0] * Num_Pob
-        createPop(Num_Pob)  # Sustituir por eleccion/mutacion/descendientes
-        # Cambio de Generacion
+        createPop(Num_Pob)
+        # Cambio de Generacion y analisis de si cambia
 
 
 if __name__ == "__main__":
