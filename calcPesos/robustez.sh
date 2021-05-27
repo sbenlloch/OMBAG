@@ -5,6 +5,7 @@
 #      -v or --verbose for activate comments
 #      -b or -binary to pass binary to execute
 #      -e or -executions to pass number of executions to zofi, default 50
+#      -a or --arguments for pass arguments, if there are arguments pass as follows: 'ARGUMENTS'
 #Zofi is needed for the execution of this script
 
 VERBOSE=false
@@ -26,6 +27,11 @@ do
         shift
         shift
         ;;
+        -a|--arguments)
+        ARGS=$2
+        shift
+        shift
+        ;;
     esac
 done
 
@@ -35,11 +41,12 @@ then
     echo '[*]Running zofi with' $BINARY
     fi
 else
-    echo "File '$BINARY' is not executable or found"
+    echo "File '$BINARY' not executable or not found"
     echo '[!]   Use:';
     echo '      -v or --verbose for activate comments';
-    echo '      -b or -binary to pass binary to execute';
-    echo '      -e or -executions to pass number of executions to zofi, default 50';
+    echo '      -b or --binary to pass binary to execute';
+    echo '      -e or --executions to pass number of executions to zofi, default 50';
+    echo "      -a or --arguments for pass arguments, if there are arguments pass as follows: 'ARGUMENTS' "
     exit;
 fi
 
@@ -47,7 +54,7 @@ if [ -f /tmp/salidaZofi ]; then
     rm /tmp/salidaZofi;
 fi
 
-zofi -bin $BINARY -test-runs $N &>/tmp/salidaZofi;
+zofi -bin $BINARY -test-runs $N -args $ARGS &>/tmp/salidaZofi;
 
 if [ -f /tmp/salidaZofi ]; then
 
@@ -67,8 +74,9 @@ else
     if [ "$VERBOSE" = true ]; then
         echo '[!]Executed with problems, Use:';
         echo '      -v or --verbose for activate comments';
-        echo '      -b or -binary to pass binary to execute';
-        echo '      -e or -executions to pass number of executions to zofi, default 50';
+        echo '      -b or --binary to pass binary to execute';
+        echo '      -e or --executions to pass number of executions to zofi, default 50';
+        echo "      -a or --arguments for pass arguments, if there are arguments pass as follows: 'ARGUMENTS' "
     fi
 
 fi

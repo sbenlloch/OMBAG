@@ -115,9 +115,12 @@ void mezclar( int array[], int size ){
     }
 }
 
-int main(){
-
-    int size = 100000;
+int main(int argc, char *argv[ ]){
+    if(argc < 2){
+        printf("Pass INTEGER for array size: ./EXECUTABLE [INTEGER]\n");
+        exit(1);
+    }
+    int size = atoi(argv[1]);
     int vector[size]; //generado aleatoriamente con talla size
     int i;
     for (i = 0; i < size; i++) {

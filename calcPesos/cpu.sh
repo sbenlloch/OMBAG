@@ -3,7 +3,7 @@
 #Script to measure the cpu usage of an executable
 #Use:
 # -v or --verbose for activate comments
-# -b or -binary to pass binary to execute
+# -b or -binary to pass binary to execute, If there are arguments pass as follows: '/path/to/binary <ARGS>'
 #-t or -time to pass interval to pidstat, default 2
 #pidstat is needed for the execution of this script
 
@@ -29,19 +29,11 @@ do
     esac
 done
 
-if [[ -x "$BINARY" ]]
-then
-    if [ "$VERBOSE" = true ]; then
+
+if [ "$VERBOSE" = true ]; then
     echo '[*]Running pidstat with' $BINARY
-    fi
-else
-    echo "File '$BINARY' is not executable or found"
-    echo '[!]   Use:';
-    echo '      -v or --verbose for activate comments';
-    echo '      -b or -binary to pass binary to execute';
-    echo '      -t or -time to pass interval to pidstat, default 2';
-    exit;
 fi
+
 
 if [ -f /tmp/salidaCPU ]; then
     rm /tmp/salidaCPU;
@@ -60,6 +52,8 @@ if [ -f /tmp/salidaCPU ]; then
     if [ "$all" ]; then
 
         avg=$(cat /tmp/salidaCPU | grep Average: | awk '{print $8}' | tail -1 | tr ',' '.');
+
+
         if [ "$VERBOSE" = true ]; then
             echo "scale=4; $avg/100" | bc | sed 's/^\./0./';
             exit;
@@ -68,11 +62,15 @@ if [ -f /tmp/salidaCPU ]; then
         echo "scale=4; $avg/100" | bc | sed 's/^\./0./';
         exit;
 
+
     else
 
         /usr/bin/time -o /tmp/salidaCPU -v $BINARY &>/dev/null;
         avg=$( cat /tmp/salidaCPU | head -4 | tail -1 | awk '{print $7}' );
         avg2=$( echo $avg | sed 's/%//' );
+        if [ $avg2=='?' ]; then
+            avg2=100
+        fi
         if [ "$VERBOSE" = true ]; then
             echo -n "AVG CPU: ";
             echo "scale=4; $avg2/100" | bc | sed 's/^\./0./';
@@ -87,7 +85,7 @@ else
     if [ "$VERBOSE" = true ]; then
         echo '[!]Executed with problems, Use:';
         echo '      -v or --verbose for activate comments';
-        echo '      -b or -binary to pass binary to execute';
+        echo "      -b or -binary to pass binary to execute, if there are arguments pass as follows: '/path/to/binary <ARGS>' ";
         echo '      -t or -time to pass interval to pidstat, default 2';
     fi
 

@@ -3,8 +3,8 @@
 #Script to get the average, maximum and minimum use of the ram of an executable
 #Data in
 #Use:
-#    -v or --verbose for activate comments';
-#    -b or -binary to pass binary to execute';
+#    -v or --verbose for activate comments;
+#    -b or -binary to pass binary to execute, if there are arguments pass as follows: '/path/to/binary <ARGS>';
 #Mprof is needed for the execution of this script
 
 calculo () {
@@ -58,18 +58,11 @@ do
     esac
 done
 
-if [[ -x "$BINARY" ]]
-then
-    if [ "$VERBOSE" = true ]; then
+
+if [ "$VERBOSE" = true ]; then
     echo '[*]Running mprof with' $BINARY
-    fi
-else
-    echo "File '$BINARY' is not executable or found"
-    echo '[!]   Use:';
-    echo '      -v or --verbose for activate comments';
-    echo '      -b or -binary to pass binary to execute';
-    exit;
 fi
+
 
 if [ -f /tmp/salidaMprof ]; then
     rm /tmp/salidaMprof;
@@ -91,7 +84,7 @@ else
     if [ "$VERBOSE" = true ]; then
         echo '[!]Executed with problems, Use:';
         echo '      -v or --verbose for activate comments';
-        echo '      -b or -binary to pass binary to execute';
+        echo "      -b or -binary to pass binary to execute, if there are arguments pass as follows: '/path/to/binary <ARGS>'";
     fi
 
 fi
