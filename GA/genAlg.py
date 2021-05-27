@@ -319,21 +319,58 @@ def selection(vector, to_select):
         vector[index] = None
     return (sorted(selected_index), sorted_vector[:to_select])
 
+def gen_aleatorios(populationIni, aleatorios):
+    for i in range(0, aleatorios):
+        cromo = []
+        for flag in flags:
+            tupla = (random.randint(0, 1), flag)
+            cromo.append(tupla)
+        populationIni.append(cromo)
+    return populationIni
 
-def generarDescendientes(population, selectionIndex, Num_Pob, Radiacion):
-    '''
-    print(selectionIndex)
-    selected = []
-    binaryFlags = [None]*len(selectionIndex)
+def mutar(individuo, n_flags):
+    for i in range(Radiacion%len(individuo)):
+        individuo[random.randint(0, n_flags-1)] =  abs(individuo[random.randint(0, n_flags-1)] - 1)
+    return individuo
+
+def mezclar(antecesores):
+    individuo = []
+    n_antecesores = len(antecesores)
+    n_flags = len(flags)
+    for i in range (n_flags):
+        gen = antecesores[i%n_antecesores][i]
+        individuo.append(gen)
+    individuo = mutar(individuo, n_flags)
+    individuo_final = []
+    for j in range(n_flags):
+        individuo_final.append((individuo[i], flags[i]))
+    return individuo_final
+
+def gen_mutados(poblacionIni, antecesores, N_mutar):
+    for i in range(N_mutar):
+        mezclado = mezclar(antecesores)
+        poblacionIni.append(mezclado)
+    return poblacionIni
+
+def generarDescendientes(selectionIndex):
+    selected =  []
+    binaryFlags = []
+    auxiliar = []
+    populationAux = []
+
     for i in selectionIndex:
         selected.append(population[i])
-        for i in range(len(selectionIndex)-1):
+        populationAux.append(population[i])
+        for binary in population[i]:
+            auxiliar.append(binary[0])
+        binaryFlags.append(auxiliar)
+        auxiliar = []
+    aleatorios = int((Num_Pob - N_Select) * Por_Random)
+    mutados = Num_Pob - aleatorios - N_Select
+    populationAux = gen_aleatorios(populationAux, aleatorios)
+    populationAux = gen_mutados(populationAux, binaryFlags, mutados)
 
-            binaryFlags.insert(i, selected[i])
-
-    print(binaryFlags)
-    '''
-    return population
+    return populationAux
 
 def main():
     global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo, population
@@ -382,7 +419,7 @@ def main():
         logLocalGen.write('Selected index and data: \n\n\t ( ' + str(selectionIndex) +
                             ', ' + str(selected) + ' )\n\n')
         # generacion de poblacion siguiente (mutacion y aleatorios)
-        population = generarDescendientes(population, selectionIndex, Num_Pob, Radiacion)
+        population = generarDescendientes(selectionIndex)
         # Fin de Generacion:
         fin = tiempo()
         fin_t = time.time()
@@ -395,7 +432,7 @@ def main():
         resultPeso = [-1.0] * Num_Pob
         resultRob = [1.0] * Num_Pob
         # Cambio de Generacion y analisis de si cambia
-
+    print(selected)
 
 if __name__ == "__main__":
     main()
