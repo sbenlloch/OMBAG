@@ -20,8 +20,10 @@ signal.signal(signal.SIGINT, signal_handler)
     Declaracion de variables globales
 """
 argparser = argparse.ArgumentParser()
-argparser.add_argument("-p", "--program", dest = "program", help="Program to optimize")
-argparser.add_argument("-a", "--arguments",dest = "arguments", help="Arguments for the program to work")
+argparser.add_argument("-p", "--program", dest="program",
+                        help="Programa a optimizar")
+argparser.add_argument("-a", "--arguments", dest="arguments",
+                        help="Aregumentos del programa para hacer pruebas")
 args = argparser.parse_args()
 flags = []
 population = []
@@ -74,8 +76,11 @@ if N_Select > Num_Pob:
     N_Select = Num_Pob
     # Crear población de tamaño N aleatoria
 Por_Random = float(parser['Limites']['Por_Aleatorios'])
-#Simboliza la cantidad de genomas que van a mutar en cada chromosoma
+# Simboliza la cantidad de genomas que van a mutar en cada chromosoma
 Radiacion = int(parser['Limites']['Radiacion'])
+
+# Función para crear población inicial aleatoria, recibe el tamaño de la población
+
 
 def createPop(N):
     global population
@@ -86,13 +91,14 @@ def createPop(N):
             tupla = (random.randint(0, 1), flag)
             cromo.append(tupla)
         population.append(cromo)
-# Devuelve un string con el timestamp de la forma deseada
+
+# Devuelve un string con el timestamp con el formato deseado
 
 
 def tiempo():
     epoch = time.time()
     local = time.localtime(epoch)
-    return '%d.%d.%d.%d.%d.%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
+    return '%d-%d-%d_%d:%d:%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
 
 # Inicialización y creación de la estructura para logging
 
@@ -100,20 +106,20 @@ def tiempo():
 def inicializacionLog():
     global timestamp, pathGlobal, logGlobal
     timestamp = tiempo()
-    print('Execution started at ' + timestamp)
+    print('Ejecución iniciada en ' + timestamp)
     os.system('mkdir /tmp/algorithmExecution'+timestamp)
     pathGlobal = '/tmp/algorithmExecution'+timestamp
     pathGlobalFile = '/tmp/algorithmExecution'+timestamp+'/logGlobal.txt'
     os.system('touch ' + pathGlobalFile)
     logGlobal = open(pathGlobalFile, 'a')
-    logGlobal.write('Execution started in ' + timestamp + '\n')
-    logGlobal.write('Population Size: ' + str(Num_Pob) + '\n')
-    logGlobal.write('Weight: ' + '\n')
+    logGlobal.write('Ejecución iniciada en ' + timestamp + '\n')
+    logGlobal.write('Tamaño de la población: ' + str(Num_Pob) + '\n')
+    logGlobal.write('Pesos dados: ' + '\n')
     logGlobal.write('\tRam: ' + str(Ram) + '\n')
-    logGlobal.write('\tTime: ' + str(Tiempo) + '\n')
-    logGlobal.write('\tCpu load: ' + str(Cpu) + '\n')
-    logGlobal.write('\tRobustness: ' + str(Rob) + '\n')
-    logGlobal.write('\tBinary Weigth: ' + str(Peso) + '\n')
+    logGlobal.write('\tTiempo: ' + str(Tiempo) + '\n')
+    logGlobal.write('\tCarga de la CPU: ' + str(Cpu) + '\n')
+    logGlobal.write('\tRobustez: ' + str(Rob) + '\n')
+    logGlobal.write('\tPeso del binario: ' + str(Peso) + '\n')
     logGlobal.write('\nFlags:\n')
     logGlobal.write('\t' + str(flags) + '\n')
 
@@ -128,14 +134,15 @@ def inicializaGen(N, pob):
     os.system('touch ' + pathLocalFile)
     logLocalGen = open(pathLocalFile, 'a')
     timestamp = tiempo()
-    logLocalGen.write('Generation start: ' + timestamp + '\n')
+    logLocalGen.write(
+        'Ejecución de la Generación actual a ' + timestamp + '\n')
     for ind in range(0, pob):
         pathChromo = pathGen + '/Chromo' + str(ind)
         os.system('mkdir ' + pathChromo)
         os.system('touch ' + pathChromo + '/log' +
-                  'Gen' + str(N) + '_Ind' + str(ind))
+                    'Gen' + str(N) + '_Ind' + str(ind))
 
-# Ejecución de comandos con vuelta de outpur y errores
+# Ejecución de comandos con vuelta de output y errores
 
 
 def executionWithOutput(command):
@@ -143,7 +150,7 @@ def executionWithOutput(command):
                             stderr=subprocess.PIPE, universal_newlines=True, shell=True)
     return (result.stdout, result.stderr)
 
-# Compilación de programa y loggeo
+# Compilación de programa y salida en archivo local individuo
 
 
 def compilation(chromosoma, N):
@@ -151,8 +158,8 @@ def compilation(chromosoma, N):
     logChromo = pathGen + '/Chromo' + \
         str(N) + '/logGen' + str(Gen) + '_Ind' + str(N)
     log = open(logChromo, 'a')
-    log.write('Executed at ' + tiempo() + '\n')
-    log.write('Chromosoma: \n')
+    log.write('Ejecutado a ' + tiempo() + '\n')
+    log.write('Cromosoma: \n')
     log.write('\t' + str(chromosoma) + '\n')
     line = ''
     for flag in chromosoma:
@@ -160,12 +167,12 @@ def compilation(chromosoma, N):
             line += flag[1] + ' '
     line = 'gcc ' + Programa + ' -o ' + \
         pathChromo + '/Chromo' + str(N) + ' ' + line
-    log.write('Compilation line: \n')
+    log.write('Línea de compilación: \n')
     log.write('\t' + line + '\n')
-    log.write('Output after compiling: \n\t')
     (out, err) = executionWithOutput(line)
+    log.write('Salida de la compilación: \n\t')
     log.write(out + '\n')
-    log.write('Error after compiling: \n\t')
+    log.write('Error en compilación: \n\t')
     log.write(err + '\n')
     return log
 
@@ -174,7 +181,8 @@ def compilation(chromosoma, N):
 
 def ram(executable):
     if Argumentos:
-        (out, err) = executionWithOutput("./test/ram.sh -b \'" + executable + " " + Argumentos + "\'")
+        (out, err) = executionWithOutput(
+            "./test/ram.sh -b \'" + executable + " " + Argumentos + "\'")
     else:
         (out, err) = executionWithOutput("./test/ram.sh -b " + executable)
     return out
@@ -184,9 +192,11 @@ def ram(executable):
 
 def cpuUse(executable):
     if Argumentos:
-        (out, err) = executionWithOutput('./test/cpu.sh -b \'' + executable + " " + Argumentos + "\'" + ' -t 1')
+        (out, err) = executionWithOutput('./test/cpu.sh -b \'' +
+                                            executable + " " + Argumentos + "\'" + ' -t 1')
     else:
-        (out, err) = executionWithOutput('./test/cpu.sh -b ' + executable + ' -t 1')
+        (out, err) = executionWithOutput(
+            './test/cpu.sh -b ' + executable + ' -t 1')
     return out
 
 # Peso del binario
@@ -202,7 +212,7 @@ def peso(executable):
 def robustness(executable):
     if Argumentos:
         (out, err) = executionWithOutput(
-            './test/robustez.sh -b ' + executable + ' -e ' + str(Executions) +' -a \'' + Argumentos + '\'')
+            './test/robustez.sh -b ' + executable + ' -e ' + str(Executions) + ' -a \'' + Argumentos + '\'')
     else:
         (out, err) = executionWithOutput(
             './test/robustez.sh -b ' + executable + ' -e ' + str(Executions))
@@ -213,7 +223,8 @@ def robustness(executable):
 
 def exTime(executable):
     if Argumentos:
-        (out, err) = executionWithOutput('./test/tiempo.sh \'' + executable + " " + Argumentos + "\'")
+        (out, err) = executionWithOutput(
+            './test/tiempo.sh \'' + executable + " " + Argumentos + "\'")
     else:
         (out, err) = executionWithOutput('./test/tiempo.sh ' + executable)
     numero = err.split(',')  # Time usa stderr para la salida
@@ -239,7 +250,6 @@ def test(chromosoma, N):
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
         if Ram:
             cantRam = ram(executable).split('\n')
-            # !! revisar esta forma de quitar salto de linea
             cantRam = cantRam[0] or -1.0
             resultRam[N] = float(cantRam)
         if Cpu:
@@ -253,8 +263,6 @@ def test(chromosoma, N):
         if Rob:
             cantRob = robustness(executable).split('\n')
             if len(cantRob) > 1:
-                # probablemente varíe
-                #cantRob = 1.0 - (float(cantRob[0]) + float(cantRob[1]))
                 cantRob = 1.0 - float(cantRob[0])
             else:
                 cantRob = 1.0
@@ -266,18 +274,19 @@ def test(chromosoma, N):
             resultTiempo[N] = float(cantTiempo)
 
     resultChromo = [cantRam, cantCpu, cantPeso, cantRob, cantTiempo]
-    logChromo.write('\n\nResultados pruebas[Ram, Cpu, Peso, Rob, Tiempo]:\n\n\t' + str(resultChromo) + '\n')
+    logChromo.write(
+        '\n\nResultados pruebas\n\n\t' + str(resultChromo) + '\n')
     logChromo.close()
 
     pool.release()
 
-# Normalizar pesos
+# Normalizar pesos, dato un vector y su tamaño se normalizan entre 0 y 1, devuelve el vector normalizado
 
 
-def normalizar(vector, N):  # revisar
+def normalizar(vector, N):
     # buscando maximos y minimos
     max = 0.0
-    min = float('inf')  # revisar
+    min = float('inf')
     for j in range(0, N):
 
         if min > vector[j] and not(vector[j] < 0):
@@ -296,7 +305,7 @@ def normalizar(vector, N):  # revisar
 
     return vector
 
-# WSM
+# WSM, dado los resultados de las diferentes pruebas aplica los pesos y devuelve un vector con el resultado
 
 
 def WSM(matrix, N):
@@ -307,7 +316,7 @@ def WSM(matrix, N):
         result.append(wsm)
     return result
 
-# Selection function
+# Selection function, se seleccionan los mejores, indicando cuantos en el campo 'to_select', devuelve su posicion en la población y los valores elejidos
 
 
 def selection(vector, to_select):
@@ -319,6 +328,9 @@ def selection(vector, to_select):
         vector[index] = None
     return (sorted(selected_index), sorted_vector[:to_select])
 
+# Genera un número indicado en 'aleatorios' y devuelve añadiendo en 'populationIni' individuos aleatorios
+
+
 def gen_aleatorios(populationIni, aleatorios):
     for i in range(0, aleatorios):
         cromo = []
@@ -328,17 +340,24 @@ def gen_aleatorios(populationIni, aleatorios):
         populationIni.append(cromo)
     return populationIni
 
+# Muta(Cambia) de forma aleatoria tantos bits como se indique en Radiación
+
+
 def mutar(individuo, n_flags):
-    for i in range(Radiacion%len(individuo)):
-        individuo[random.randint(0, n_flags-1)] =  abs(individuo[random.randint(0, n_flags-1)] - 1)
+    for i in range(Radiacion % len(individuo)):
+        individuo[random.randint(
+            0, n_flags-1)] = abs(individuo[random.randint(0, n_flags-1)] - 1)
     return individuo
+
+# Genera un individuo a partir de los que se pasen en 'antecesores'
+
 
 def mezclar(antecesores):
     individuo = []
     n_antecesores = len(antecesores)
     n_flags = len(flags)
-    for i in range (n_flags):
-        gen = antecesores[i%n_antecesores][i]
+    for i in range(n_flags):
+        gen = antecesores[i % n_antecesores][i]
         individuo.append(gen)
     individuo = mutar(individuo, n_flags)
     individuo_final = []
@@ -346,14 +365,20 @@ def mezclar(antecesores):
         individuo_final.append((individuo[i], flags[i]))
     return individuo_final
 
+# Añade a 'poblacionIni' el número que se indique en 'N_mutar' de individuos a partir de 'antecesores'
+
+
 def gen_mutados(poblacionIni, antecesores, N_mutar):
     for i in range(N_mutar):
         mezclado = mezclar(antecesores)
         poblacionIni.append(mezclado)
     return poblacionIni
 
+# Genera población descendiente a partir de los antecesores indicados en 'slectionIndex'
+
+
 def generarDescendientes(selectionIndex):
-    selected =  []
+    selected = []
     binaryFlags = []
     auxiliar = []
     populationAux = []
@@ -372,6 +397,7 @@ def generarDescendientes(selectionIndex):
 
     return populationAux
 
+
 def main():
     global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo, population
     file = open(Path, 'r').read().split('\n')
@@ -387,7 +413,7 @@ def main():
         ini = tiempo()
         ini_t = time.time()
         logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n\n')
-        print('[+]Compilation and test Generation ' + str(Gen))
+        print('[+]Compilación y pruebas Generación' + str(Gen))
         threads = []
         try:
             for i in range(0, Num_Pob):
@@ -395,28 +421,28 @@ def main():
                     target=test, args=(population[i], i)))
             [t.start() for t in threads]
         except Exception as e:
-            print('Exception in threading: ' + e)
+            print('Excepción en hilo: ' + e)
         finally:
             [t.join() for t in threads]
-        logLocalGen.write('Test results: \n\nRam:' + '\n\t' + str(resultRam) + '\n\nCpu:' + '\n\t' + str(resultCpu) + '\n\nPeso:' +
-                            '\n\t' + str(resultPeso) + '\n\nRobustez:' + '\n\t' + str(resultRob) + '\n\nTiempo:' + '\n\t' + str(resultTiempo) + '\n\n')
+        logLocalGen.write('Resultado Pruebas: \n\nRam:' + '\n\t' + str(resultRam) + '\n\n Carga CPU:' + '\n\t' + str(resultCpu) + '\n\nPeso:' +
+                            '\n\t' + str(resultPeso) + '\n\nRobustez:' + '\n\t' + str(resultRob) + '\n\nTiempo de ejecución:' + '\n\t' + str(resultTiempo) + '\n\n')
         print('[+]Normalization Generation ' + str(Gen))
         normRam = normalizar(resultRam, Num_Pob)
         normCpu = resultCpu  # no normalizamos porque ya esta entre 0 y 1
         normPeso = normalizar(resultPeso, Num_Pob)
         normRob = resultRob
         normTiempo = normalizar(resultTiempo, Num_Pob)
-        logLocalGen.write('Normalization results: \n\nRam:' + '\n\t' + str(normRam) + '\n\nCpu:' + '\n\t' + str(normCpu) + '\n\nPeso:' +
-                            '\n\t' + str(normPeso) + '\n\nRobustez:' + '\n\t' + str(normRob) + '\n\nTiempo:' + '\n\t' + str(normTiempo) + '\n\n')
+        logLocalGen.write('Resultados tras normalizar: \n\nRam:' + '\n\t' + str(normRam) + '\n\nCarga CPU:' + '\n\t' + str(normCpu) + '\n\nPeso:' +
+                            '\n\t' + str(normPeso) + '\n\nRobustez:' + '\n\t' + str(normRob) + '\n\nTiempo de ejecución:' + '\n\t' + str(normTiempo) + '\n\n')
         norm = [normRam, normCpu, normPeso, normRob, normTiempo]
         # WSM
-        print('[+]WSM Generation ' + str(Gen))
+        print('[+]WSM Generación ' + str(Gen))
         pesos = WSM(norm, Num_Pob)
-        logLocalGen.write('WSM results: \n\t' + str(pesos) + '\n\n')
+        logLocalGen.write('Resultados tras WSM: \n\t' + str(pesos) + '\n\n')
         # Selection
-        print('[+]Selection Generation ' + str(Gen))
+        print('[+]Selección Generación ' + str(Gen))
         (selectionIndex, selected) = selection(pesos, N_Select)
-        logLocalGen.write('Selected index and data: \n\n\t ( ' + str(selectionIndex) +
+        logLocalGen.write('Indices y datos seleccionados: \n\n\t ( ' + str(selectionIndex) +
                             ', ' + str(selected) + ' )\n\n')
         # generacion de poblacion siguiente (mutacion y aleatorios)
         population = generarDescendientes(selectionIndex)
@@ -433,6 +459,7 @@ def main():
         resultRob = [1.0] * Num_Pob
         # Cambio de Generacion y analisis de si cambia
     print(selected)
+
 
 if __name__ == "__main__":
     main()
