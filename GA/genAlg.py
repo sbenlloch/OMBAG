@@ -55,8 +55,6 @@ pathGen = ''
 logLocalGen = ''
 # Número de Generación
 Gen = 0
-# Límites
-Max_Gen = int(parser['Limites']['Max_Gen'])
 # Programa a optimizar y argumentos para que funcione si es necesario(se pasaran a los test)
 Programa = args.program
 Argumentos = args.arguments
@@ -78,6 +76,18 @@ if N_Select > Num_Pob:
 Por_Random = float(parser['Limites']['Por_Aleatorios'])
 # Simboliza la cantidad de genomas que van a mutar en cada chromosoma
 Radiacion = int(parser['Limites']['Radiacion'])
+#Tipo de limite
+Tipo = int(parser['Limites']['Limite'])
+if Tipo == 0:
+    Max_Gen = int(parser['Limites']['Max_Gen'])
+elif Tipo == 1:
+    Max_Tiempo = int(parser['Limites']['Max_Tiempo'])
+elif Tipo == 3:
+    Convergencia = int(parser['Limites']['Convergencia'])
+else:
+    print('[!]Tipo no existente, opciones: [0, 1, 2]')
+    exit(1)
+
 
 # Función para crear población inicial aleatoria, recibe el tamaño de la población
 
@@ -299,7 +309,7 @@ def normalizar(vector, N):
 
     for j in range(0, N):
         if vector[j] < 0:
-            vector[j] = 1.0
+            vector[j] = 1.1 #revisar
         else:
             vector[j] = (vector[j] - min) / (max - min)
 
@@ -362,7 +372,7 @@ def mezclar(antecesores):
     individuo = mutar(individuo, n_flags)
     individuo_final = []
     for j in range(n_flags):
-        individuo_final.append((individuo[i], flags[i]))
+        individuo_final.append((individuo[j], flags[j]))
     return individuo_final
 
 # Añade a 'poblacionIni' el número que se indique en 'N_mutar' de individuos a partir de 'antecesores'
@@ -406,14 +416,12 @@ def main():
             flags.append(line)
     inicializacionLog()
     createPop(Num_Pob)
-    # para bucle de generaciones
-    # De momento solo hay este límite, podría implementar ( tiempo, genercion, convergencia )
     for _ in range(Max_Gen):
         inicializaGen(Gen, Num_Pob)
         ini = tiempo()
         ini_t = time.time()
         logLocalGen.write('Tiempo de entrada: ' + str(ini) + '\n\n')
-        print('[+]Compilación y pruebas Generación' + str(Gen))
+        print('[+]Compilación y pruebas Generación ' + str(Gen))
         threads = []
         try:
             for i in range(0, Num_Pob):
