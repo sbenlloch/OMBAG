@@ -17,7 +17,7 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 """
-    Declaracion de variables globales
+    Declaración de variables globales
 """
 argparser = argparse.ArgumentParser()
 argparser.add_argument("-p", "--program", dest="program",
@@ -70,6 +70,9 @@ resultRob = [1.0] * Num_Pob
 pool = threading.Semaphore(value=maxthreads)
 # Número de chromosomas a seleccionat
 N_Select = int(parser['Limites']['N_Selecciones'])
+if N_Select > Num_Pob:
+    print('[!]Número de selecciones demasiado grande, debe ser menor o igual al tamaño de la población')
+    exit(1)
 if N_Select > Num_Pob:
     N_Select = Num_Pob
     # Crear población de tamaño N aleatoria
@@ -192,7 +195,7 @@ def compilation(chromosoma, N):
 def ram(executable):
     if Argumentos:
         (out, err) = executionWithOutput(
-            "./test/ram.sh -b \'" + executable + " " + Argumentos + "\'")
+            "./test/ram.sh -b " + executable + " -a \'" + Argumentos + "\'")
     else:
         (out, err) = executionWithOutput("./test/ram.sh -b " + executable)
     return out
@@ -202,8 +205,8 @@ def ram(executable):
 
 def cpuUse(executable):
     if Argumentos:
-        (out, err) = executionWithOutput('./test/cpu.sh -b \'' +
-                                            executable + " " + Argumentos + "\'" + ' -t 1')
+        (out, err) = executionWithOutput('./test/cpu.sh -b ' +
+                                            executable + " -a \'" + Argumentos + "\'" + ' -t 1')
     else:
         (out, err) = executionWithOutput(
             './test/cpu.sh -b ' + executable + ' -t 1')
@@ -276,9 +279,7 @@ def test(chromosoma, N):
                 cantRob = 1.0 - float(cantRob[0])
             else:
                 cantRob = 1.0
-
             resultRob[N] = float(cantRob)
-
         if Tiempo:
             cantTiempo = exTime(executable) or -1.0
             resultTiempo[N] = float(cantTiempo)
@@ -305,7 +306,7 @@ def normalizar(vector, N):
             max = vector[j]
 
     if (max - min) == 0.0:
-        return [1.0]*N
+        return vector
 
     for j in range(0, N):
         if vector[j] < 0:
@@ -320,7 +321,7 @@ def normalizar(vector, N):
 
 def WSM(matrix, N):
     result = []
-    for i in range(0, N - 1):
+    for i in range(0, N):
         wsm = matrix[0][i]*Ram + matrix[1][i]*Cpu + matrix[2][i] * \
             Peso + matrix[3][i]*Rob + matrix[4][i]*Tiempo
         result.append(wsm)
@@ -432,9 +433,9 @@ def main():
             print('Excepción en hilo: ' + e)
         finally:
             [t.join() for t in threads]
-        logLocalGen.write('Resultado Pruebas: \n\nRam:' + '\n\t' + str(resultRam) + '\n\n Carga CPU:' + '\n\t' + str(resultCpu) + '\n\nPeso:' +
+        logLocalGen.write('Resultado Pruebas: \n\nRam:' + '\n\t' + str(resultRam) + '\n\nCarga CPU:' + '\n\t' + str(resultCpu) + '\n\nPeso:' +
                             '\n\t' + str(resultPeso) + '\n\nRobustez:' + '\n\t' + str(resultRob) + '\n\nTiempo de ejecución:' + '\n\t' + str(resultTiempo) + '\n\n')
-        print('[+]Normalization Generation ' + str(Gen))
+        print('[+]Normalización Generación ' + str(Gen))
         normRam = normalizar(resultRam, Num_Pob)
         normCpu = resultCpu  # no normalizamos porque ya esta entre 0 y 1
         normPeso = normalizar(resultPeso, Num_Pob)

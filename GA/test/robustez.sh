@@ -5,11 +5,12 @@
 #      -v or --verbose for activate comments
 #      -b or -binary to pass binary to execute
 #      -e or -executions to pass number of executions to zofi, default 50
-#      -a or --arguments for pass arguments, if there are arguments pass as follows: 'ARGUMENTS'
+#      -a or --arguments for pass arguments, if there is more than one argument pass between quotes
 #Zofi is needed for the execution of this script
 
 VERBOSE=false
 N=50
+ARGS=''
 for arg in "$@"
 do
     case $arg in
@@ -46,25 +47,23 @@ else
     echo '      -v or --verbose for activate comments';
     echo '      -b or --binary to pass binary to execute';
     echo '      -e or --executions to pass number of executions to zofi, default 50';
-    echo "      -a or --arguments for pass arguments, if there are arguments pass as follows: 'ARGUMENTS' "
+    echo "      -a or --arguments for pass arguments, if there is more than one argument pass between quotes "
     exit;
 fi
 
-if [ -f /tmp/salidaZofi ]; then
-    rm /tmp/salidaZofi;
-fi
+archivo=/tmp/salidaCPU$RANDOM$RANDOM
 
-zofi -bin $BINARY -test-runs $N -args $ARGS &>/tmp/salidaZofi;
+zofi -bin $BINARY -test-runs $N -args $ARGS &>/$archivo;
 
-if [ -f /tmp/salidaZofi ]; then
+if [ -f $archivo ]; then
 
     if [ "$VERBOSE" = true ]; then
         echo '[*]Successfully executed';
-        cat /tmp/salidaZofi | tail -n 7;
+        cat $archivo | tail -n 7;
         exit;
     fi
 
-    for element in $(cat /tmp/salidaZofi | tail -n 4 | awk '{print $4}' | cut -d \. -f 1)
+    for element in $(cat $archivo | tail -n 4 | awk '{print $4}' | cut -d \. -f 1)
     do
         echo "scale=2; $element/100" | bc | sed 's/^\./0./';
     done
@@ -76,7 +75,11 @@ else
         echo '      -v or --verbose for activate comments';
         echo '      -b or --binary to pass binary to execute';
         echo '      -e or --executions to pass number of executions to zofi, default 50';
-        echo "      -a or --arguments for pass arguments, if there are arguments pass as follows: 'ARGUMENTS' "
+        echo "      -a or --arguments for pass arguments, if there is more than one argument pass between quotes "
     fi
 
+fi
+
+if [ -f $archivo ]; then
+    rm $archivo;
 fi
