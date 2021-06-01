@@ -28,7 +28,6 @@
 -frerun-cse-after-loop
 -frerun-loop-opt
 -fcaller-saves
--fforce-mem
 -fpeephole2
 -fschedule-insns
 -fschedule-insns2

@@ -150,6 +150,25 @@ def test(chromosoma, N):
     pool.release()
 
 
+#Salida estadisticas.csv para analizar
+def estadisticas(resultRam, resultCpu, resultPeso, resultRob, resultTiempo, Gen, est):
+    archivo = open(est, 'a')
+    if Gen == 0:
+        archivo.write('Gen\t')
+        archivo.write('Ram\t')
+        archivo.write('Cpu\t')
+        archivo.write('Peso\t')
+        archivo.write('Robustez\t')
+        archivo.write('Tiempo\t')
+        archivo.write('\n')
+    archivo.write(str(Gen)+ '\t')
+    archivo.write(str(resultRam[0]) + '\t')
+    archivo.write(str(resultCpu[0]) + '\t')
+    archivo.write(str(resultPeso[0]) + '\t')
+    archivo.write(str(resultRob[0]) + '\t')
+    archivo.write(str(resultTiempo[0]) + '\t')
+    archivo.write('\n')
+
 def main():
     global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo
     global population, pathGlobal, logGlobal, pathGen, logLocalGen
@@ -160,6 +179,8 @@ def main():
     (pathGlobal, logGlobal) = inicializacionLog(
         Num_Pob, Ram, Tiempo, Cpu, Rob, Peso)
     population = createPop(Num_Pob, flags)
+    est = pathGlobal + '/estadisticas_' + tiempo() + '.csv'
+    est_fi = 'estadisticas_' + tiempo() + '.csv'
     for _ in range(Max_Gen):
         (pathGen, logLocalGen) = inicializaGen(Gen, Num_Pob)
         ini = tiempo()
@@ -178,6 +199,7 @@ def main():
             [t.join() for t in threads]
         logLocalGen.write('Resultado Pruebas: \n\nRam:' + '\n\t' + str(resultRam) + '\n\nCarga CPU:' + '\n\t' + str(resultCpu) + '\n\nPeso:' +
                             '\n\t' + str(resultPeso) + '\n\nRobustez:' + '\n\t' + str(resultRob) + '\n\nTiempo de ejecución:' + '\n\t' + str(resultTiempo) + '\n\n')
+        estadisticas(sorted(resultRam, reverse=True), sorted(resultCpu, reverse=True), sorted(resultPeso, reverse=True), sorted(resultRob, reverse=True), sorted(resultTiempo, reverse=True), Gen, est)
         print('[+]Normalización Generación ' + str(Gen))
         normRam = normalizar(resultRam, Num_Pob)
         normCpu = resultCpu  # no normalizamos porque ya esta entre 0 y 1
@@ -211,6 +233,7 @@ def main():
         resultRob = [1.0] * Num_Pob
         # Cambio de Generacion y analisis de si cambia
     print(selected)
+    os.system('cp ' + est + ' ' + est_fi)
 
 
 if __name__ == "__main__":

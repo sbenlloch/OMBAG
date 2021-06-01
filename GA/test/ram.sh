@@ -8,7 +8,7 @@
 #    -a or --arguments to pass arguments, if there is more than one argument pass between quotes
 #Example of use:
 #  ./ram.sh -b /usr/bin/seq -a '1 1000000000'
-#Mprof is needed for the execution of this script
+#Mprof is needed for the execution of this script, output data in MB
 
 calculo () {
 
@@ -37,8 +37,8 @@ calculo () {
         echo 'Max:' $max;
         echo 'Min:' $min;
     else
-        echo "scale=2; $total / $count" | bc;
-        #echo $max;
+        #echo "scale=2; $total / $count" | bc;
+        echo $max;
         #echo $min;
     fi
 }
@@ -96,7 +96,7 @@ if [ -f $output ]; then
         echo '[*]Successfully executed';
     fi
 
-    salidaInVar=$( cat $output | awk -v var=val '{print $3}');
+    salidaInVar=$( tail -n +2 $output | awk '{print $2}');
     calculo;
 
 else
