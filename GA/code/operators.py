@@ -8,6 +8,9 @@ def signal_handler(sig, frame):
 
 signal.signal(signal.SIGINT, signal_handler)
 
+def menosUno(element):
+    return element if (element > 0) else 1.1
+
 # Normalizar pesos, dato un vector y su tamaño se normalizan entre 0 y 1, devuelve el vector normalizado
 
 def normalizar(vector, N):
@@ -42,3 +45,6 @@ def WSM(matrix, N, Ram, Cpu, Peso, Rob, Tiempo):
             Peso + matrix[3][i]*Rob + matrix[4][i]*Tiempo
         result.append(wsm)
     return result
+
+def convergencia():
+    return 0;

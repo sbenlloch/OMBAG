@@ -46,7 +46,7 @@ Gen = [int(e) for e in Gen[1:]]
 Ram = [float(e) for e in Ram[1:]] if (float(Ram[1]) != -1.0) else []
 Cpu = [float(e) for e in Cpu[1:]] if (float(Cpu[1]) != -1.0) else [] #Decidir si -1 o 1
 Peso = [float(e) for e in Peso[1:]] if (float(Peso[1]) != -1.0) else []
-Robustez = [float(e) for e in Robustez[1:]] if (float(Robustez[1]) != 1.0) else [] #Decidir si -1 o 1
+Robustez = [float(e) for e in Robustez[1:]] if (float(Robustez[1]) != -1.0) else [] #Decidir si -1 o 1
 Tiempo = [float(e) for e in Tiempo[1:]] if (float(Tiempo[1]) != -1.0) else []
 H = 50
 W = 660

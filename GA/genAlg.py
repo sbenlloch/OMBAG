@@ -64,10 +64,10 @@ Argumentos = args.arguments
 # para no tomar en cuenta el valor lo ponemos a -1, valor que ningun test puede dar
 resultRam = [-1.0] * Num_Pob
 # para no tener que normalizar ponemos el peor valor ya
-resultCpu = [1.0] * Num_Pob
+resultCpu = [-1.0] * Num_Pob
 resultTiempo = [-1.0] * Num_Pob
 resultPeso = [-1.0] * Num_Pob
-resultRob = [1.0] * Num_Pob
+resultRob = [-1.0] * Num_Pob
 # Pool de hilos para asegurar el máximo de hilos a vez
 pool = threading.Semaphore(value=maxthreads)
 # Número de chromosomas a seleccionat
@@ -87,8 +87,8 @@ if Tipo == 0:
     Max_Gen = int(parser['Limites']['Max_Gen'])
 elif Tipo == 1:
     Max_Tiempo = int(parser['Limites']['Max_Tiempo'])
-elif Tipo == 3:
-    Convergencia = int(parser['Limites']['Convergencia'])
+elif Tipo == 2:
+    Convergencia = float(parser['Limites']['Convergencia'])
 else:
     print('[!]Tipo no existente, opciones: [0, 1, 2]')
     exit(1)
@@ -113,9 +113,9 @@ def test(chromosoma, N):
     executable = pathGen + '/Chromo' + str(N) + '/Chromo' + str(N)
     resultChromo = []
     cantRam = -1.0  # para no tomar en cuenta el valor lo ponemos a -1, valor que ningun test puede dar
-    cantCpu = 1.0  # para no tener que normalizar ponemos el peor valor ya
+    cantCpu = -1.0  # para no tener que normalizar ponemos el peor valor ya
     cantPeso = -1.0
-    cantRob = 1.0
+    cantRob = -1.0
     cantTiempo = -1.0
 
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
@@ -125,7 +125,7 @@ def test(chromosoma, N):
             resultRam[N] = float(cantRam)
         if Cpu:
             cantCpu = cpuUse(executable, Argumentos).split('\n')
-            cantCpu = cantCpu[0] or 1.0
+            cantCpu = cantCpu[0] or -1.0
             resultCpu[N] = float(cantCpu)
         if Peso:
             cantPeso = peso(executable, Argumentos).split('\n')
@@ -136,7 +136,7 @@ def test(chromosoma, N):
             if len(cantRob) > 1:
                 cantRob = 1.0 - float(cantRob[0])
             else:
-                cantRob = 1.0
+                cantRob = -1.0
             resultRob[N] = float(cantRob)
         if Tiempo:
             cantTiempo = exTime(executable, Argumentos) or -1.0
@@ -173,6 +173,7 @@ def main():
     global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo
     global population, pathGlobal, logGlobal, pathGen, logLocalGen
     file = open(Path, 'r').read().split('\n')
+    tiempo_ini = time.time()
     for line in file:
         if line:
             flags.append(line)
@@ -181,7 +182,8 @@ def main():
     population = createPop(Num_Pob, flags)
     est = pathGlobal + '/estadisticas_' + tiempo() + '.csv'
     est_fi = 'estadisticas_' + tiempo() + '.csv'
-    for _ in range(Max_Gen):
+    historial_selecciones = 0.0
+    while True:
         (pathGen, logLocalGen) = inicializaGen(Gen, Num_Pob)
         ini = tiempo()
         ini_t = time.time()
@@ -202,9 +204,9 @@ def main():
         estadisticas(sorted(resultRam, reverse=True), sorted(resultCpu, reverse=True), sorted(resultPeso, reverse=True), sorted(resultRob, reverse=True), sorted(resultTiempo, reverse=True), Gen, est)
         print('[+]Normalización Generación ' + str(Gen))
         normRam = normalizar(resultRam, Num_Pob)
-        normCpu = resultCpu  # no normalizamos porque ya esta entre 0 y 1
+        normCpu = list(map(menosUno, resultCpu)) # no normalizamos porque ya esta entre 0 y 1
         normPeso = normalizar(resultPeso, Num_Pob)
-        normRob = resultRob
+        normRob = list(map(menosUno, resultRob))
         normTiempo = normalizar(resultTiempo, Num_Pob)
         logLocalGen.write('Resultados tras normalizar: \n\nRam:' + '\n\t' + str(normRam) + '\n\nCarga CPU:' + '\n\t' + str(normCpu) + '\n\nPeso:' +
                             '\n\t' + str(normPeso) + '\n\nRobustez:' + '\n\t' + str(normRob) + '\n\nTiempo de ejecución:' + '\n\t' + str(normTiempo) + '\n\n')
@@ -227,12 +229,24 @@ def main():
                             '\n\nDuración: ' + str(fin_t - ini_t) + '\n\n')
         Gen += 1
         resultRam = [-1.0] * Num_Pob
-        resultCpu = [1.0] * Num_Pob
+        resultCpu = [-1.0] * Num_Pob
         resultTiempo = [-1.0] * Num_Pob
         resultPeso = [-1.0] * Num_Pob
-        resultRob = [1.0] * Num_Pob
+        resultRob = [-1.0] * Num_Pob
         # Cambio de Generacion y analisis de si cambia
-    print(selected)
+        if Tipo == 0:
+            if Max_Gen < Gen: break
+        elif Tipo == 1:
+            tiempo_fin = time.time()
+            duracion_total = tiempo_fin - tiempo_ini
+            if duracion_total > Max_Tiempo: break
+        elif Tipo == 2:
+            res = convergencia()
+            if not res: break
+    tiempo_fin = time.time()
+    duracion_total = tiempo_fin - tiempo_ini
+    print('Total duración optimización: ' + "{:.3f}".format(duracion_total) + 's.')
+    logGlobal.write('\nTotal duración optimización: ' + "{:.3f}".format(duracion_total) + 's.')
     os.system('cp ' + est + ' ' + est_fi)
 
 
