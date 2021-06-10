@@ -152,22 +152,41 @@ def test(chromosoma, N):
 
 #Salida estadisticas.csv para analizar
 def estadisticas(resultRam, resultCpu, resultPeso, resultRob, resultTiempo, Gen, est):
-    archivo = open(est, 'a')
-    if Gen == 0:
-        archivo.write('Gen\t')
-        archivo.write('Ram\t')
-        archivo.write('Cpu\t')
-        archivo.write('Peso\t')
-        archivo.write('Robustez\t')
-        archivo.write('Tiempo\t')
-        archivo.write('\n')
-    archivo.write(str(Gen)+ '\t')
-    archivo.write(str(resultRam[0]) + '\t')
-    archivo.write(str(resultCpu[0]) + '\t')
-    archivo.write(str(resultPeso[0]) + '\t')
-    archivo.write(str(resultRob[0]) + '\t')
-    archivo.write(str(resultTiempo[0]) + '\t')
-    archivo.write('\n')
+    if Ram:
+        fileRam = open('RAM' + est, 'a')
+        fileRam.write(str(Gen) + '\t')
+        for result in resultRam:
+            fileRam.write(str(result) + '\t')
+        fileRam.write('\n')
+        fileRam.close()
+    if Tiempo:
+        fileTiempo = open('Tiempo' + est, 'a')
+        fileTiempo.write(str(Gen) + '\t')
+        for result in resultTiempo:
+            fileTiempo.write(str(result) + '\t')
+        fileTiempo.write('\n')
+        fileTiempo.close()
+    if Rob:
+        fileRob = open('Rob' + est, 'a')
+        fileRob.write(str(Gen) + '\t')
+        for result in resultRob:
+            fileRob.write(str(result) + '\t')
+        fileRob.write('\n')
+        fileRob.close()
+    if Cpu:
+        fileCpu = open('CPU' + est, 'a')
+        fileCpu.write(str(Gen) + '\t')
+        for result in resultCpu:
+            fileCpu.write(str(result) + '\t')
+        fileCpu.write('\n')
+        fileCpu.close()
+    if Peso:
+        filePeso = open('Peso' + est, 'a')
+        filePeso.write(str(Gen) + '\t')
+        for result in resultPeso:
+            filePeso.write(str(result) + '\t')
+        filePeso.write('\n')
+        filePeso.close()
 
 def main():
     global Gen, Max_Gen, resultRam, resultCpu, resultPeso, resultRob, resultTiempo
@@ -180,8 +199,8 @@ def main():
     (pathGlobal, logGlobal) = inicializacionLog(
         Num_Pob, Ram, Tiempo, Cpu, Rob, Peso)
     population = createPop(Num_Pob, flags)
-    est = pathGlobal + '/estadisticas_' + tiempo() + '.csv'
-    est_fi = 'estadisticas_' + tiempo() + '.csv'
+    est = 'Estadisticas_' + tiempo() + '.csv'
+    #est_fi = 'estadisticas_' + tiempo() + '.csv'
     historial_selecciones = 0.0
     while True:
         (pathGen, logLocalGen) = inicializaGen(Gen, Num_Pob)
@@ -247,7 +266,7 @@ def main():
     duracion_total = tiempo_fin - tiempo_ini
     print('Total duración optimización: ' + "{:.3f}".format(duracion_total) + 's.')
     logGlobal.write('\nTotal duración optimización: ' + "{:.3f}".format(duracion_total) + 's.')
-    os.system('cp ' + est + ' ' + est_fi)
+    #os.system('cp ' + est + ' ' + est_fi)
 
 
 if __name__ == "__main__":
