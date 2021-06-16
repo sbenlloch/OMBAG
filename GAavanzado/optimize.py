@@ -14,7 +14,7 @@ sys.path.insert(1, './code')
 import init
 import flags
 import cromosoma
-import archivosInit
+import auxiliar
 
 def signal_handler(sig, frame):
     print('\n[!]Saliendo...')
@@ -50,3 +50,8 @@ if not os.path.isdir(directorioBase):
     os.system('mkdir ' + directorioBase)
 else:
     raise ValueError('[!]Error, archivo inicial ya existe')
+
+#Bucle donde se compila, testea, selecciona y se genera la siguiente generacion,
+#comprobando que no se cumplan los limites impuestos en conf.ini
+
+#while True:
