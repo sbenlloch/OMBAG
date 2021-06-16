@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import json
+import copy
 import signal
 import random
 import argparse
@@ -12,6 +13,8 @@ import configparser
 sys.path.insert(1, './code')
 import init
 import flags
+import cromosoma
+import archivosInit
 
 def signal_handler(sig, frame):
     print('\n[!]Saliendo...')
@@ -36,7 +39,14 @@ path = parser['Flags']['Path']
 with open(path) as file:
     flags = init.inicializacionFlags(file)
 
-for flag in flags:
-    print(flag.getFlag())
+#Crear poblacion inicial aleatoria con tamaño indicado en el archivo de configuracion
+tamaño_inicial = int(parser['Settings']['Tamaño_Inicial'])
+poblacionInicial = init.generarPoblacionAleatoria(tamaño_inicial, flags)
 
-#Crear población inicial
+#Creacion de directorio para jerarquía inicial
+path_inicial = parser['Test']['Path_Inicio']
+directorioBase = path_inicial + 'Ejecucion' + init.tiempo()
+if not os.path.isdir(directorioBase):
+    os.system('mkdir ' + directorioBase)
+else:
+    raise ValueError('[!]Error, archivo inicial ya existe')
