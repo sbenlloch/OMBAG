@@ -6,10 +6,10 @@ import copy
 
 class Cromosoma():
 
-    resultRam = 1.1  # Valor para aquellos que el test falle o no se tengan en cuenta para la optimización
+    resultRam = -1.0  # Valor para aquellos que el test falle o no se tengan en cuenta para la optimización
     resultRob = 1.1
-    resultTiempo = 1.1
-    resultPeso = 1.1
+    resultTiempo = -1.0
+    resultPeso = -1.0
     resultCPU = 1.1
 
     # La normalización se encuentra entre 0 y 1 por lo tanto se va a seleccionar

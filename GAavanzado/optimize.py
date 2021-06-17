@@ -34,6 +34,7 @@ args = argparser.parse_args()
 
 parser = configparser.ConfigParser()
 parser.read('conf.ini')
+
 #Leer e inicializar objetis Flag
 path = parser['Flags']['Path']
 
@@ -71,9 +72,33 @@ Tiempo = float(parser['Settings']['Tiempo'])
 tamaño_general = int(parser['Settings']['Tamaño_General'])
 #Tamaño población actual
 tam_pob = tamaño_inicial
+
+#Máximo número de hilos concurrentes a la hora de ejecutar las pruebas
+maximoNumeroHilos = int(parser['Settings']['Threads'])
+
+#Pesos de los objetivos
+Ram = float(parser['Settings']['Ram'])
+Cpu = float(parser['Settings']['CPU'])
+Peso = float(parser['Settings']['Peso'])
+Rob = float(parser['Settings']['Robustez'])
+Tiempo = float(parser['Settings']['Tiempo'])
+
+#Argumentos
+Argumentos = args.arguments
+
+#Ejecuciones para calcular robustez
+ExecutionRobustness = int(parser['Test']['Ejecuciones_Robustez'])
+#Pasar configuracion al archivo fitness
+fitness.configuracion(maximoNumeroHilos, Ram, Cpu, Rob, Peso, Tiempo, Argumentos, ExecutionRobustness)
+
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generacion,
 #comprobando que no se cumplan los limites impuestos en conf.ini
 for _ in range(5):
-    directorioGeneracionActual = auxiliar.crearIndividuos(directorioBase, Gen, poblacion, programa)
-    fitness.test(poblacion)
+    directorioGeneracionActual = auxiliar.compilarIndividuos(directorioBase, Gen, poblacion, programa)
+    #Obtener puntuación de cada objetivo y actualizar objeto con puntuación
+    fitness.test(poblacion, maximoNumeroHilos, directorioGeneracionActual)
+    #Normalizar
+    #Seleccionar
+    #Crear nueva Poblacion
+    #Comprobar limites
     Gen+=1

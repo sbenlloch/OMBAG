@@ -19,7 +19,7 @@ def error(pathCromosoma, salida, error, lineaComp):
     file.write('Linea de compilacion:\n' + str(lineaComp))
     file.close()
 
-def crearIndividuos(directorio, Gen, poblacion, programa):
+def compilarIndividuos(directorio, Gen, poblacion, programa):
     directorioGeneracion = directorio + '/Gen' + str(Gen) + '/'
     os.system('mkdir ' + directorioGeneracion)
     Cromosoma = 0
