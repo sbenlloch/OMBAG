@@ -13,6 +13,7 @@ import configparser
 sys.path.insert(1, './code')
 import init
 import flags
+import fitness
 import cromosoma
 import auxiliar
 
@@ -26,7 +27,7 @@ signal.signal(signal.SIGINT, signal_handler)
 #Argumentos de programa
 argparser = argparse.ArgumentParser()
 argparser.add_argument("-p", "--program", dest="program",
-                        help="Programa a optimizar")
+                        help="Path absoluto para elrograma a optimizar")
 argparser.add_argument("-a", "--arguments", dest="arguments",
                         help="Aregumentos del programa para hacer pruebas")
 args = argparser.parse_args()
@@ -51,7 +52,28 @@ if not os.path.isdir(directorioBase):
 else:
     raise ValueError('[!]Error, archivo inicial ya existe')
 
+#Número de Generación
+Gen = 0
+#Poblacion actual
+poblacion = poblacionInicial
+
+#Programa a optimizar
+programa = args.program
+
+#Pesos de cada objetivo
+Ram = float(parser['Settings']['Ram'])
+Cpu = float(parser['Settings']['CPU'])
+Peso = float(parser['Settings']['Peso'])
+Rob = float(parser['Settings']['Robustez'])
+Tiempo = float(parser['Settings']['Tiempo'])
+
+#Tamaño población general
+tamaño_general = int(parser['Settings']['Tamaño_General'])
+#Tamaño población actual
+tam_pob = tamaño_inicial
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generacion,
 #comprobando que no se cumplan los limites impuestos en conf.ini
-
-#while True:
+for _ in range(5):
+    directorioGeneracionActual = auxiliar.crearIndividuos(directorioBase, Gen, poblacion, programa)
+    fitness.test(poblacion)
+    Gen+=1
