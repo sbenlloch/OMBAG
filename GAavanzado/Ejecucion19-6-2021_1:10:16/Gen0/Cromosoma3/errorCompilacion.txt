@@ -1,9 +1,0 @@
-Error en compilacion.
-Error GCC: 
-gcc: error: unknown vectorizer cost model ‘inventado’
-gcc: note: valid arguments to ‘-fvect-cost-model=’ are: cheap dynamic unlimited
-
-Salida GCC:
-
-Linea de compilacion:
-gcc /home/sergio/Documents/TFG/TFG-optimization/benchmarks/sort.c -o /home/sergio/Documents/TFG/TFG-optimization/GAavanzado/Ejecucion19-6-2021_1:10:16/Gen0/Cromosoma3/Cromosoma3 -falign-functions -fvect-cost-model=inventado -freorder-blocks-algorithm=stc 

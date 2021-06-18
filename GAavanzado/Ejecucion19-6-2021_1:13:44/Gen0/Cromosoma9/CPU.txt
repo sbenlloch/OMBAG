@@ -1,3 +1,0 @@
-Salida: 0.9300
-
-Error: 
