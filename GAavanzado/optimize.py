@@ -12,6 +12,7 @@ import configparser
 
 sys.path.insert(1, './code')
 import init
+import norm
 import flags
 import fitness
 import cromosoma
@@ -26,10 +27,11 @@ signal.signal(signal.SIGINT, signal_handler)
 
 #Argumentos de programa
 argparser = argparse.ArgumentParser()
-argparser.add_argument("-p", "--program", dest="program",
-                        help="Path absoluto para elrograma a optimizar")
+argparser.add_argument("-p", "--programa", dest="program",
+                        help="Path absoluto del programa a optimizar")
 argparser.add_argument("-a", "--arguments", dest="arguments",
-                        help="Aregumentos del programa para hacer pruebas")
+                        help="Argumentos del programa para hacer pruebas")
+argparser.add_argument('-i', "--imprimir", dest="imprimir", default=False, action='store_true')
 args = argparser.parse_args()
 
 parser = configparser.ConfigParser()
@@ -93,12 +95,26 @@ fitness.configuracion(maximoNumeroHilos, Ram, Cpu, Rob, Peso, Tiempo, Argumentos
 
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generacion,
 #comprobando que no se cumplan los limites impuestos en conf.ini
-for _ in range(5):
+for _ in range(1):
     directorioGeneracionActual = auxiliar.compilarIndividuos(directorioBase, Gen, poblacion, programa)
     #Obtener puntuación de cada objetivo y actualizar objeto con puntuación
     fitness.test(poblacion, maximoNumeroHilos, directorioGeneracionActual)
-    #Normalizar
+    # Normalizar resultados entre 0 y 1
+    if Ram:
+        norm.normRam(poblacion)
+    if Tiempo:
+        norm.normTiempo(poblacion)
+    if Peso:
+        norm.normPeso(poblacion)
+    if Rob:
+        norm.normRob(poblacion)
+    if Cpu:
+        norm.normCpu(poblacion)
+    # Ponderar los resultados según el peso
+    norm.wsm(poblacion, Ram, Tiempo, Peso, Rob, Cpu)
     #Seleccionar
     #Crear nueva Poblacion
     #Comprobar limites
+    if args.imprimir:
+        auxiliar.imprimir(poblacion)
     Gen+=1

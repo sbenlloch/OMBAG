@@ -112,7 +112,7 @@ def pruebas(cromosoma, i, pathActual):
 
         if pesoCpu:
             cantCpu = cpuUse(executable, Argumentos, directorioActual).split('\n')
-            cantCpu = cantCpu[0] or 1.1
+            cantCpu = cantCpu[0] or -1.0
             cromosoma.resultCPU = float(cantCpu)
 
         if pesoPeso:
@@ -125,7 +125,7 @@ def pruebas(cromosoma, i, pathActual):
             if len(cantRob) > 1:
                 cantRob = 1.0 - float(cantRob[0])
             else:
-                cantRob = 1.1
+                cantRob = -1.0
             cromosoma.resultRob = float(cantRob)
 
         if pesoTiempo:

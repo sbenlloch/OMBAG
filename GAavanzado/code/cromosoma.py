@@ -7,20 +7,25 @@ import copy
 class Cromosoma():
 
     resultRam = -1.0  # Valor para aquellos que el test falle o no se tengan en cuenta para la optimización
-    resultRob = 1.1
+    resultRob = -1.0
     resultTiempo = -1.0
     resultPeso = -1.0
-    resultCPU = 1.1
+    resultCPU = -1.0
 
     # La normalización se encuentra entre 0 y 1 por lo tanto se va a seleccionar
     afterNormRam = 1.0   # 1 como peor caso para los que no funcionen
     afterNormTiempo = 1.0
     afterNormPeso = 1.0
+    afterNormCpu = 1.0
+    afterNormRob = 1.0
+
+    # Resultado tras ponderar pesos
+    WSM = 1.0
 
     def __init__(self, flagsPropias, tuplas):
         self.flags = flagsPropias
         self.tuplas = tuplas
-        self.id = int(time.time() * 10000)
+        self.id = int(time.time() * 10000000)
 
 
 # Devuelve un cromosoma aleatoriazando todas sus partes
