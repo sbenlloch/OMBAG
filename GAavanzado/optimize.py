@@ -94,9 +94,23 @@ fitness.configuracion(maximoNumeroHilos, Ram, Cpu, Rob, Peso, Tiempo, Argumentos
 # Número de indibiduos a seleccionar
 Select = int(parser['Settings']['A_Seleccionar'])
 
-#Bucle donde se compila, testea, selecciona y se genera la siguiente generacion,
+#Historico donde guardar una copia de la poblacion actual antes de pasar a la siguiente
+historico = []
+#Limite, indica el limite seleccionado
+Limite = int(parser['Limites']['Limite'])
+#Generacion máxima: 0
+Max_Gen = int(parser['Limites']['Max_Gen'])
+#Tiempo máximo de ejecución: 1
+Max_Tiempo = int(parser['Limites']['Max_Tiempo'])
+#Porcentage converjencia: 2
+Convergencia = float(parser['Limites']['Convergencia'])
+#Tiempo de inicio, para tener en cuenta en el Limite de Tiempo
+tiempo_ini = time.time()
+
+
+#Bucle donde se compila, testea, selecciona y se genera la siguiente generación,
 #comprobando que no se cumplan los limites impuestos en conf.ini
-for _ in range(1):
+while True:
     directorioGeneracionActual = auxiliar.compilarIndividuos(directorioBase, Gen, poblacion, programa)
     #Obtener puntuación de cada objetivo y actualizar objeto con puntuación
     fitness.test(poblacion, maximoNumeroHilos, directorioGeneracionActual)
@@ -116,8 +130,14 @@ for _ in range(1):
     #Seleccionar
     selected = auxiliar.selection(poblacion, Select)
     #Fin generacion actual
+    historico.append(copy.copy(poblacion))
     if args.imprimir:
         auxiliar.imprimir(poblacion)
+    final = auxiliar.end(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
+    if final:
+        auxiliar.para_finalizar(historico, directorioBase)
+        print('[!]Finalizando...')
+        sys.exit(0)
     #Preparaciones proxima generación
     Gen+=1
     #Comprobar limites para seguir o no
