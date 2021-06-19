@@ -58,3 +58,7 @@ def imprimir(poblacion):
                 "\t                              Peso: " + str(cromosoma.afterNormPeso) + ',\n' +
                 "\t                              CPU: " + str(cromosoma.afterNormCpu) + ' ]\n\n' +
                 "\tResultados WSM: " + str(cromosoma.WSM) + '\n\n\n')
+
+def selection(poblacion, N):
+    poblacionAux = sorted(poblacion, key=lambda cromosoma : cromosoma.WSM)[:N]
+    return poblacionAux

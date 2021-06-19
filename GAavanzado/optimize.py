@@ -48,7 +48,7 @@ tamaño_inicial = int(parser['Settings']['Tamaño_Inicial'])
 poblacionInicial = init.generarPoblacionAleatoria(tamaño_inicial, flags)
 
 #Creacion de directorio para jerarquía inicial
-path_inicial = parser['Test']['Path_Inicio']
+path_inicial = parser['Ajustes Pruebas']['Path_Inicio']
 directorioBase = path_inicial + 'Ejecucion' + init.tiempo()
 if not os.path.isdir(directorioBase):
     os.system('mkdir ' + directorioBase)
@@ -72,11 +72,9 @@ Tiempo = float(parser['Settings']['Tiempo'])
 
 #Tamaño población general
 tamaño_general = int(parser['Settings']['Tamaño_General'])
-#Tamaño población actual
-tam_pob = tamaño_inicial
 
 #Máximo número de hilos concurrentes a la hora de ejecutar las pruebas
-maximoNumeroHilos = int(parser['Settings']['Threads'])
+maximoNumeroHilos = int(parser['Ajustes Pruebas']['Threads'])
 
 #Pesos de los objetivos
 Ram = float(parser['Settings']['Ram'])
@@ -89,9 +87,12 @@ Tiempo = float(parser['Settings']['Tiempo'])
 Argumentos = args.arguments
 
 #Ejecuciones para calcular robustez
-ExecutionRobustness = int(parser['Test']['Ejecuciones_Robustez'])
+ExecutionRobustness = int(parser['Ajustes Pruebas']['Ejecuciones_Robustez'])
 #Pasar configuracion al archivo fitness
 fitness.configuracion(maximoNumeroHilos, Ram, Cpu, Rob, Peso, Tiempo, Argumentos, ExecutionRobustness)
+
+# Número de indibiduos a seleccionar
+Select = int(parser['Settings']['A_Seleccionar'])
 
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generacion,
 #comprobando que no se cumplan los limites impuestos en conf.ini
@@ -113,8 +114,11 @@ for _ in range(1):
     # Ponderar los resultados según el peso
     norm.wsm(poblacion, Ram, Tiempo, Peso, Rob, Cpu)
     #Seleccionar
-    #Crear nueva Poblacion
-    #Comprobar limites
+    selected = auxiliar.selection(poblacion, Select)
+    #Fin generacion actual
     if args.imprimir:
         auxiliar.imprimir(poblacion)
+    #Preparaciones proxima generación
     Gen+=1
+    #Comprobar limites para seguir o no
+    #Crear nueva Poblacion
