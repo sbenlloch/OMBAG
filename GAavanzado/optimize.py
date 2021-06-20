@@ -107,6 +107,10 @@ Convergencia = float(parser['Limites']['Convergencia'])
 #Tiempo de inicio, para tener en cuenta en el Limite de Tiempo
 tiempo_ini = time.time()
 
+# Porcentaje de aleatorios en cada nueva Generación
+aleatorios = float(parser['Settings']['Por_Aleatorios'])
+#Cantidad máximo a mutar en cada indivduo generado en el crossover
+radiacion = int(parser['Settings']['Radiacion'])
 
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generación,
 #comprobando que no se cumplan los limites impuestos en conf.ini
@@ -133,12 +137,13 @@ while True:
     historico.append(copy.copy(poblacion))
     if args.imprimir:
         auxiliar.imprimir(poblacion)
+    #Comprobar limites para seguir o no
     final = auxiliar.end(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
     if final:
-        auxiliar.para_finalizar(historico, directorioBase)
+        auxiliar.para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
         print('[!]Finalizando...')
         sys.exit(0)
     #Preparaciones proxima generación
     Gen+=1
-    #Comprobar limites para seguir o no
     #Crear nueva Poblacion
+    poblacion = cromosoma.siguienteGeneracion(selected, tamaño_general, aleatorios, radiacion, flags)

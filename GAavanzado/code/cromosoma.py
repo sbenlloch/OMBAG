@@ -54,7 +54,7 @@ def mutarCromosoma(cromosoma, radiacion):
 
 
 # Cruza cromosomas aleatoriamente, muta el cromosoma resultante tantas veces como se indique en cantidad_a_mutar
-def crossover(listaAntecedentes, cantidad_a_mutar, radiacion):
+def crossover(listaAntecedentes, radiacion):
     tamaño = len(listaAntecedentes[0].flags)  # Cantidad de flags
     listaFlagsNuevo = []
     listaTuplasNuevo = []
@@ -65,6 +65,26 @@ def crossover(listaAntecedentes, cantidad_a_mutar, radiacion):
         listaTuplasNuevo.append(listaAntecedentes[aleatorio].tuplas[i])
     # Crear cromosoma
     para_mutar = Cromosoma(listaFlagsNuevo, listaTuplasNuevo)
-    for _ in range(cantidad_a_mutar):
-        mutarCromosoma(para_mutar, radiacion)  # Mutar cromosoma
+    mutarCromosoma(para_mutar, radiacion)  # Mutar cromosoma
     return para_mutar
+
+'''
+Devuelve la siguiente generación, creada a partir de la anterior
+y del porcentaje de poblacion aleatorio en cada nueva generación.
+    entrada:
+        selected --> individuos de la población anterior seleccionados
+        tamaño --> tamaño de la siguiente población
+        aleatorios --> porcentaje de aleatorios de la nueva población
+        radiacion --> cantidad de veces máxima que se muta a en los crossover
+        Devuelve una lista de Cromosomas
+'''
+def siguienteGeneracion(selected, tamaño, aleatorios, radiacion, flags):
+    nuevaPoblacion = []
+    cantidad_aleatorios = int(tamaño*aleatorios)
+    cantidad_cruzados = tamaño - len(selected) - cantidad_aleatorios
+    nuevaPoblacion += selected
+    for _ in range(cantidad_aleatorios):
+        nuevaPoblacion.append(generarCromosomaAleatorio(flags))
+    for _ in range(cantidad_cruzados):
+        nuevaPoblacion.append(crossover(selected, radiacion))
+    return nuevaPoblacion

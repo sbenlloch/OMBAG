@@ -92,5 +92,66 @@ def end(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo, Convergencia, Historico):
         return converge(Convergencia, Historico)
     return False
 
-def para_finalizar(historico, directorioBase):
-    pass
+diccionarioIDs = {}
+contadorIDs = -1
+def sustituirID(id):
+    global diccionarioIDs, contadorIDs
+    if (id not in diccionarioIDs):
+        contadorIDs+=1
+        diccionarioIDs[id] = contadorIDs
+        return contadorIDs
+    else: return diccionarioIDs[id]
+
+def para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
+    if Ram:
+        archivoRam = directorioBase + '/resultadosRam.csv'
+        file = open(archivoRam, 'w')
+        file.write('ID;Generacion;Resultado\n')
+        for i in range(len(historico)):
+            for cromosoma in historico[i]:
+                file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.resultRam)+'\n')
+        file.close()
+
+    if Tiempo:
+        archivoTiempo = directorioBase + '/resultadosTiempo.csv'
+        file = open(archivoTiempo, 'w')
+        file.write('ID;Generacion;Resultado\n')
+        for i in range(len(historico)):
+            for cromosoma in historico[i]:
+                file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.resultTiempo)+'\n')
+        file.close()
+
+    if Peso:
+        archivoPeso = directorioBase + '/resultadosPeso.csv'
+        file = open(archivoPeso, 'w')
+        file.write('ID;Generacion;Resultado\n')
+        for i in range(len(historico)):
+            for cromosoma in historico[i]:
+                file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.resultPeso)+'\n')
+        file.close()
+
+    if Rob:
+        archivoRob = directorioBase + '/resultadosRobustez.csv'
+        file = open(archivoRob, 'w')
+        file.write('ID;Generacion;Resultado\n')
+        for i in range(len(historico)):
+            for cromosoma in historico[i]:
+                file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.resultRob)+'\n')
+        file.close()
+
+    if Cpu:
+        archivoCpu = directorioBase + '/resultadosCPU.csv'
+        file = open(archivoCpu, 'w')
+        file.write('ID;Generacion;Resultado\n')
+        for i in range(len(historico)):
+            for cromosoma in historico[i]:
+                file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.resultCPU)+'\n')
+        file.close()
+
+    archivoWSM = directorioBase + '/resultadosWSM.csv'
+    file = open(archivoWSM, 'w')
+    file.write('ID;Generacion;Resultado\n')
+    for i in range(len(historico)):
+        for cromosoma in historico[i]:
+            file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.WSM)+'\n')
+    file.close()
