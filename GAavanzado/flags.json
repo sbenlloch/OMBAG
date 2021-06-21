@@ -5,6 +5,9 @@
         },
         {
             "flag": "-falign-jumps"
+        },
+        {
+            "flag": "-fauto-inc-dec"
         }
     ],
     "rango": [

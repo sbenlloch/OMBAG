@@ -24,7 +24,6 @@ def error(pathCromosoma, salida, error, lineaComp):
     file.write('Linea de compilacion:\n' + str(lineaComp))
     file.close()
 
-
 def compilarIndividuos(directorio, Gen, poblacion, programa):
     directorioGeneracion = directorio + '/Gen' + str(Gen) + '/'
     os.system('mkdir ' + directorioGeneracion)
@@ -102,6 +101,45 @@ def sustituirID(id):
         return contadorIDs
     else: return diccionarioIDs[id]
 
+
+def cantidadFlags(historico, directorioBase):
+    diccionarioFlags={}
+    for generacion in historico:
+        for cromosoma in generacion:
+            for tupla in cromosoma.tuplas:
+                if tupla[0] not in diccionarioFlags and tupla[1]:
+                    diccionarioFlags[tupla[0]] = 1
+                elif tupla[0] in diccionarioFlags and tupla[1]:
+                    diccionarioFlags[tupla[0]]+=1
+    archivoCantidad = directorioBase + '/cantidadFlags.csv'
+    file = open(archivoCantidad, 'w')
+    file.write('Flag;Cantidad\n')
+    for key in diccionarioFlags.keys():
+        file.write(str(key)+';'+str(diccionarioFlags[key])+'\n')
+    file.close()
+
+
+def distribucionFlags(historico, directorioBase):
+    diccionarioFlags={}
+    for i in range(len(historico)):
+        for cromosoma in historico[i]:
+            for tupla in cromosoma.tuplas:
+                if tupla[0] not in diccionarioFlags and tupla[1]:
+                    diccionarioFlags[tupla[0]] = [i]
+                elif tupla[0] in diccionarioFlags and tupla[1] and i not in diccionarioFlags[tupla[0]]:
+                    diccionarioFlags[tupla[0]].append(i)
+    archivoDistribucion = directorioBase + '/distribucionFlags.csv'
+    file = open(archivoDistribucion, 'w')
+    file.write('Flag;Generaciones\n')
+    for key in diccionarioFlags.keys():
+        file.write(str(key))
+        for gen in diccionarioFlags[key]:
+            file.write(';'+str(gen))
+        file.write('\n')
+    file.close()
+
+
+
 def para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
     if Ram:
         archivoRam = directorioBase + '/resultadosRam.csv'
@@ -155,3 +193,5 @@ def para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
         for cromosoma in historico[i]:
             file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.WSM)+'\n')
     file.close()
+    cantidadFlags(historico, directorioBase)
+    distribucionFlags(historico, directorioBase)
