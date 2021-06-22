@@ -82,7 +82,7 @@ def converge(Converge, historico):
 
 def end(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo, Convergencia, Historico):
     if Limite == 0:
-        if Max_Gen == Gen:
+        if Max_Gen <= Gen:
             return True
     if Limite == 1:
         if Max_Tiempo <= (time.time() - Tiempo):
