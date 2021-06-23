@@ -151,9 +151,9 @@ while True:
     norm.wsm(poblacion, Ram, Tiempo, Peso, Rob, Cpu)
     #Seleccionar
     print(' [*]Seleccionando individuos Generación ' + str(Gen))
-    selected = auxiliar.selection(poblacion, Select)
+    selected = auxiliar.selection(copy.deepcopy(poblacion), Select)
     #Fin generacion actual
-    historico.append(copy.copy(poblacion))
+    historico.append(copy.deepcopy(poblacion))
     if args.imprimir:
         auxiliar.imprimir(poblacion)
     #Comprobar limites para seguir o no

@@ -1,6 +1,7 @@
 import os
 import subprocess
 import time
+import copy
 
 
 def stringFlags(tuplas):
@@ -104,14 +105,19 @@ def sustituirID(id):
 
 def cantidadFlags(historico, directorioBase):
     diccionarioFlags={}
+
     for generacion in historico:
+        mejor = generacion[0]
         for cromosoma in generacion:
-            for tupla in cromosoma.tuplas:
-                if tupla[0] not in diccionarioFlags and tupla[1]:
-                    diccionarioFlags[tupla[0]] = 1
-                elif tupla[0] in diccionarioFlags and tupla[1]:
-                    diccionarioFlags[tupla[0]]+=1
-    archivoCantidad = directorioBase + '/cantidadFlags.csv'
+            if mejor.WSM > cromosoma.WSM:
+                mejor = cromosoma
+        for tupla in mejor.tuplas:
+            if tupla[0] not in diccionarioFlags and tupla[1]:
+                diccionarioFlags[tupla[0]] = 1
+            elif tupla[0] in diccionarioFlags and tupla[1]:
+                diccionarioFlags[tupla[0]]+=1
+
+    archivoCantidad = directorioBase + '/MejoresIndividiosCantidadFlags.csv'
     file = open(archivoCantidad, 'w')
     file.write('Flag;Cantidad\n')
     for key in diccionarioFlags.keys():
@@ -119,28 +125,8 @@ def cantidadFlags(historico, directorioBase):
     file.close()
 
 
-def distribucionFlags(historico, directorioBase):
-    diccionarioFlags={}
-    for i in range(len(historico)):
-        for cromosoma in historico[i]:
-            for tupla in cromosoma.tuplas:
-                if tupla[0] not in diccionarioFlags and tupla[1]:
-                    diccionarioFlags[tupla[0]] = [i]
-                elif tupla[0] in diccionarioFlags and tupla[1] and i not in diccionarioFlags[tupla[0]]:
-                    diccionarioFlags[tupla[0]].append(i)
-    archivoDistribucion = directorioBase + '/distribucionFlags.csv'
-    file = open(archivoDistribucion, 'w')
-    file.write('Flag;Generaciones\n')
-    for key in diccionarioFlags.keys():
-        file.write(str(key))
-        for gen in diccionarioFlags[key]:
-            file.write(';'+str(gen))
-        file.write('\n')
-    file.close()
-
-
-
 def para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
+
     if Ram:
         archivoRam = directorioBase + '/resultadosRam.csv'
         file = open(archivoRam, 'w')
@@ -186,12 +172,4 @@ def para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
                 file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.resultCPU)+'\n')
         file.close()
 
-    archivoWSM = directorioBase + '/resultadosWSM.csv'
-    file = open(archivoWSM, 'w')
-    file.write('ID;Generacion;Resultado\n')
-    for i in range(len(historico)):
-        for cromosoma in historico[i]:
-            file.write(str(sustituirID(cromosoma.id))+';'+str(i)+';'+str(cromosoma.WSM)+'\n')
-    file.close()
     cantidadFlags(historico, directorioBase)
-    distribucionFlags(historico, directorioBase)
