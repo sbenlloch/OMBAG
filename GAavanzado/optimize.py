@@ -16,7 +16,9 @@ import norm
 import flags
 import fitness
 import cromosoma
-import auxiliar
+import compilacion
+import fin
+import salida
 
 def signal_handler(sig, frame):
     print('\n\033[0;0m\033[1;31m [!]Saliendo...')
@@ -41,6 +43,7 @@ argparser.add_argument("-p", "--programa", dest="program",
 argparser.add_argument("-a", "--arguments", dest="arguments",
                         help="Argumentos del programa para hacer pruebas")
 argparser.add_argument('-i', "--imprimir", dest="imprimir", default=False, action='store_true')
+argparser.add_argument('-dF', "--debugFlags", dest="debug", default=False, action='store_true')
 args = argparser.parse_args()
 
 parser = configparser.ConfigParser()
@@ -69,6 +72,11 @@ else:
 Gen = 0
 #Poblacion actual
 poblacion = poblacionInicial
+
+#Flags necesarias para las dependencias del programa
+flagsDependencias = str(parser['Flags']['Flags Dependencias'])
+#Path archivos de programas necesarios para compilar
+dependencias = str(parser['Flags']['Dependencias'])
 
 #Programa a optimizar
 programa = args.program
@@ -122,11 +130,14 @@ aleatorios = float(parser['Settings']['Por_Aleatorios'])
 #Cantidad máximo a mutar en cada indivduo generado en el crossover
 radiacion = int(parser['Settings']['Radiacion'])
 
+#Activar salida de errores al compilar o no
+debug = args.debug
+
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generación,
 #comprobando que no se cumplan los limites impuestos en conf.ini
 while True:
     print(' [*]Compilando Generación ' + str(Gen))
-    directorioGeneracionActual = auxiliar.compilarIndividuos(directorioBase, Gen, poblacion, programa)
+    directorioGeneracionActual = compilacion.compilarIndividuos(directorioBase, Gen, poblacion, programa, dependencias, flagsDependencias, debug)
     #Obtener puntuación de cada objetivo y actualizar objeto con puntuación
     print(' [+]Ejecutando pruebas Generación ' + str(Gen))
     fitness.test(poblacion, maximoNumeroHilos, directorioGeneracionActual)
@@ -151,17 +162,18 @@ while True:
     norm.wsm(poblacion, Ram, Tiempo, Peso, Rob, Cpu)
     #Seleccionar
     print(' [*]Seleccionando individuos Generación ' + str(Gen))
-    selected = auxiliar.selection(copy.deepcopy(poblacion), Select)
+    selected = fin.selection(copy.deepcopy(poblacion), Select)
     #Fin generacion actual
     historico.append(copy.deepcopy(poblacion))
     if args.imprimir:
-        auxiliar.imprimir(poblacion)
+        salida.imprimir(poblacion)
     #Comprobar limites para seguir o no
     print(' [+]Comprobando Límites')
-    final = auxiliar.end(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
+    final = fin.end(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
     if final:
         print(' [!]Saliendo... ')
-        auxiliar.para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
+        salida.para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
+        salida.fin(historico, directorioBase, Gen)
         sys.exit(0)
     #Preparaciones proxima generación
     Gen+=1

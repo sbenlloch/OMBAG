@@ -1,16 +1,24 @@
+#Máximos y minimos globales
+minGlobalRam = float('inf')
+maxGlobalRam = 0.0
+minGlobalTiempo = float('inf')
+maxGlobalTiempo = 0.0
+minGlobalPeso = float('inf')
+maxGlobalPeso = 0.0
+
 
 def normRam(poblacion):
-    max = 0.0
-    min = float('inf')
+    global minGlobalRam, maxGlobalRam
     # Buscar máximos y minimos
     for cromosoma in poblacion:
-        if cromosoma.resultRam > 0.0 and cromosoma.resultRam > max:
-            max = cromosoma.resultRam
-        if cromosoma.resultRam > 0.0 and cromosoma.resultRam < min:
-            min = cromosoma.resultRam
-    if min == max or max < min:
+        if cromosoma.resultRam > 0.0 and cromosoma.resultRam > maxGlobalRam:
+            maxGlobalRam = cromosoma.resultRam
+        if cromosoma.resultRam > 0.0 and cromosoma.resultRam < minGlobalRam:
+            minGlobalRam = cromosoma.resultRam
+    # El segundo caso es extremo, no debería pasar nunca
+    if minGlobalRam == maxGlobalRam or maxGlobalRam < minGlobalRam:
         for cromosoma in poblacion:
-            if cromosoma.resultRam == min or cromosoma.resultRam == max:
+            if cromosoma.resultRam == minGlobalRam or cromosoma.resultRam == maxGlobalRam:
                 cromosoma.afterNormRam = 0.0
             else:
                 cromosoma.afterNormRam = 1.0
@@ -20,20 +28,19 @@ def normRam(poblacion):
                 cromosoma.afterNormRam = 1.0
             else:
                 cromosoma.afterNormRam = (
-                    cromosoma.resultRam - min) / (max - min)
+                    cromosoma.resultRam - minGlobalRam) / (maxGlobalRam - minGlobalRam)
 
 
 def normTiempo(poblacion):
-    max = 0.0
-    min = float('inf')
+    global minGlobalTiempo, maxGlobalTiempo
     for cromosoma in poblacion:
-        if cromosoma.resultTiempo > 0.0 and cromosoma.resultTiempo > max:
-            max = cromosoma.resultTiempo
-        if cromosoma.resultTiempo > 0.0 and cromosoma.resultTiempo < min:
-            min = cromosoma.resultTiempo
-    if min == max or max < min:
+        if cromosoma.resultTiempo > 0.0 and cromosoma.resultTiempo > maxGlobalTiempo:
+            maxGlobalTiempo = cromosoma.resultTiempo
+        if cromosoma.resultTiempo > 0.0 and cromosoma.resultTiempo < minGlobalTiempo:
+            minGlobalTiempo = cromosoma.resultTiempo
+    if minGlobalTiempo == maxGlobalTiempo or maxGlobalTiempo < minGlobalTiempo:
         for cromosoma in poblacion:
-            if cromosoma.resultTiempo == min or cromosoma.resultTiempo == max:
+            if cromosoma.resultTiempo == minGlobalTiempo or cromosoma.resultTiempo == maxGlobalTiempo:
                 cromosoma.afterNormTiempo = 0.0
             else:
                 cromosoma.afterNormTiempo = 1.0
@@ -43,21 +50,20 @@ def normTiempo(poblacion):
                 cromosoma.afterNormTiempo = 1.0
             else:
                 cromosoma.afterNormTiempo = (
-                    cromosoma.resultTiempo - min) / (max - min)
+                    cromosoma.resultTiempo - minGlobalTiempo) / (maxGlobalTiempo - minGlobalTiempo)
 
 
 def normPeso(poblacion):
-    max = 0.0
-    min = float('inf')
+    global maxGlobalPeso, minGlobalPeso
     # Buscar máximos y minimos
     for cromosoma in poblacion:
-        if cromosoma.resultPeso > 0.0 and cromosoma.resultPeso > max:
-            max = cromosoma.resultPeso
-        if cromosoma.resultPeso > 0.0 and cromosoma.resultPeso < min:
-            min = cromosoma.resultPeso
-    if min == max or max < min:
+        if cromosoma.resultPeso > 0.0 and cromosoma.resultPeso > maxGlobalPeso:
+            maxGlobalPeso = cromosoma.resultPeso
+        if cromosoma.resultPeso > 0.0 and cromosoma.resultPeso < minGlobalPeso:
+            minGlobalPeso = cromosoma.resultPeso
+    if minGlobalPeso == maxGlobalPeso or maxGlobalPeso < minGlobalPeso:
         for cromosoma in poblacion:
-            if cromosoma.resultPeso == min or cromosoma.resultPeso == max:
+            if cromosoma.resultPeso == minGlobalPeso or cromosoma.resultPeso == maxGlobalPeso:
                 cromosoma.afterNormPeso = 0.0
             else:
                 cromosoma.afterNormPeso = 1.0
@@ -67,7 +73,7 @@ def normPeso(poblacion):
                 cromosoma.afterNormPeso = 1.0
             else:
                 cromosoma.afterNormPeso = (
-                    cromosoma.resultPeso - min) / (max - min)
+                    cromosoma.resultPeso - minGlobalPeso) / (maxGlobalPeso - minGlobalPeso)
 
 
 def normRob(poblacion):
@@ -98,3 +104,9 @@ def wsm(poblacion, Ram, Tiempo, Peso, Rob, CPU):
     for cromosoma in poblacion:
         cromosoma.WSM = cromosoma.afterNormRam * Ram + cromosoma.afterNormTiempo * Tiempo + \
             cromosoma.afterNormPeso * Peso + cromosoma.afterNormRob * Rob + cromosoma.afterNormCpu * CPU
+
+
+def fin(historico, directorioBase):
+    #Imprimir cabecera final y linea de compilacion mejor
+    #Preguntar por comparación con las flags de optimización comunes
+    pass

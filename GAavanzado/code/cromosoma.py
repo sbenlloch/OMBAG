@@ -22,6 +22,9 @@ class Cromosoma():
     # Resultado tras ponderar pesos
     WSM = 1.0
 
+    #Línea de compilación del cromosoma
+    lineaCompilacion = ''
+
     def __init__(self, flagsPropias, tuplas):
         self.flags = flagsPropias
         self.tuplas = tuplas

@@ -29,11 +29,14 @@ do
     esac
 done
 
+minimo=$(/usr/bin/time -f '%e' $BINARY $ARGS 2>&1 1>/dev/null)
 
-for i in $(seq 1 $count)
+for i in $(seq 2 $count)
 do
     auxiliar=$(/usr/bin/time -f '%e' $BINARY $ARGS 2>&1 1>/dev/null);
-    acumulador=$(echo $acumulador + $auxiliar | bc );
+    if (( $(echo "$minimo > $auxiliar" | bc -l) )); then
+            minimo=$auxiliar;
+    fi
 done
 
-echo "scale=4; $acumulador / $count" | bc;
+echo $minimo;
