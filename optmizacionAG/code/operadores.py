@@ -28,7 +28,7 @@ def converge(Converge, historico):
     return False
 
 
-def end(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo, Convergencia, Historico):
+def limites(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo, Convergencia, Historico):
     if Limite == 0:
         if Max_Gen <= Gen:
             return True

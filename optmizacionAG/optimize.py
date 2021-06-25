@@ -17,6 +17,7 @@ import flags
 import fitness
 import cromosoma
 import compilacion
+import operadores
 import fin
 import salida
 
@@ -162,18 +163,18 @@ while True:
     norm.wsm(poblacion, Ram, Tiempo, Peso, Rob, Cpu)
     #Seleccionar
     print(' [*]Seleccionando individuos Generación ' + str(Gen))
-    selected = fin.selection(copy.deepcopy(poblacion), Select)
+    selected = operadores.selection(copy.deepcopy(poblacion), Select)
     #Fin generacion actual
     historico.append(copy.deepcopy(poblacion))
     if args.imprimir:
         salida.imprimir(poblacion)
     #Comprobar limites para seguir o no
     print(' [+]Comprobando Límites')
-    final = fin.end(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
+    final = operadores.limites(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
     if final:
         print(' [!]Saliendo... ')
-        salida.para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
-        salida.fin(historico, directorioBase, Gen)
+        salida.archivosEstadisticas(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
+        fin.salidaFin(historico, directorioBase, Gen)
         sys.exit(0)
     #Preparaciones proxima generación
     Gen+=1

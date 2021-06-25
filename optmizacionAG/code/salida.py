@@ -51,7 +51,7 @@ def cantidadFlags(historico, directorioBase):
         file.write(str(key)+';'+str(diccionarioFlags[key])+'\n')
     file.close()
 
-def para_finalizar(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
+def archivosEstadisticas(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
 
     if Ram:
         archivoRam = directorioBase + '/resultadosRam.csv'
