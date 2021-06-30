@@ -12,30 +12,25 @@
 
  Antes de finalizar:
 
- - ¿Quieres copiar el archivo del compilado final a 
-   este directorio?[y/n]:
-
  - ¿Quieres comparar el resultado con los flags de opti-
    mización por defecto de GCC en cada uno de los objeti-
    vos?[y/n]:
 
  -¿Quieres guardar las estadísticas de comparación
-  anteriores en un archivo en el directorio seleccionado?
+  anteriores en un archivo en el directorio cofigurado?
   [y/n]:
 
 --------------------------------------------------------
 
  Estos son es la flag final:
 
-gcc [programa] -o <nombre_programa> [flags] ...........
+ gcc [programa] -o <nombre_programa> [flags] ...........
 
 --------------------------------------------------------
 
- - [!]Archivo de compilación seleccionado copiado.
-
  Los resultados de la comparación son los siguientes:
 
- [Objetivo]:
+ [WSM]:
 
  -Sin optimización <-----------------------------> 0.27s
  -O                <---------------->              0.25s
@@ -44,5 +39,7 @@ gcc [programa] -o <nombre_programa> [flags] ...........
  -O3               <---------->                    0.18s
  -O4               <-------->                      0.15s
  -05               <----->                         0.11s
- -Optimización AG  <-->                            0.50s
+ -Optimización AG  <-->                            0.05s
 
+ [!]Guardado resultado en comparaciónFinal.txt en el
+    directorio de ejecucuión

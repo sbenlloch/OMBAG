@@ -1,25 +1,26 @@
-import os
-import sys
-import time
-import json
-import copy
-import signal
-import random
 import argparse
-import threading
-import subprocess
 import configparser
+import copy
+import json
+import os
+import random
+import signal
+import subprocess
+import sys
+import threading
+import time
 
 sys.path.insert(1, './code')
+import compilacion
+import cromosoma
+import fin
+import fitness
+import flags
 import init
 import norm
-import flags
-import fitness
-import cromosoma
-import compilacion
 import operadores
-import fin
 import salida
+
 
 def signal_handler(sig, frame):
     print('\n\033[0;0m\033[1;31m [!]Saliendo...')
@@ -121,8 +122,6 @@ Limite = int(parser['Limites']['Limite'])
 Max_Gen = int(parser['Limites']['Max_Gen'])
 #Tiempo máximo de ejecución: 1
 Max_Tiempo = int(parser['Limites']['Max_Tiempo'])
-#Porcentage converjencia: 2
-Convergencia = float(parser['Limites']['Convergencia'])
 #Tiempo de inicio, para tener en cuenta en el Limite de Tiempo
 tiempo_ini = time.time()
 
@@ -130,6 +129,9 @@ tiempo_ini = time.time()
 aleatorios = float(parser['Settings']['Por_Aleatorios'])
 #Cantidad máximo a mutar en cada indivduo generado en el crossover
 radiacion = int(parser['Settings']['Radiacion'])
+
+# Generación mínima para comprobar la convergencia
+Generacion_convergencia = int(parser['Limites']['Generacion_Convergencia'])
 
 #Activar salida de errores al compilar o no
 debug = args.debug
@@ -170,7 +172,7 @@ while True:
         salida.imprimir(poblacion)
     #Comprobar limites para seguir o no
     print(' [+]Comprobando Límites')
-    final = operadores.limites(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, Convergencia, historico)
+    final = operadores.limites(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini,historico, Generacion_convergencia)
     if final:
         print(' [!]Saliendo... ')
         salida.archivosEstadisticas(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
