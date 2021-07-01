@@ -176,7 +176,7 @@ while True:
     if final:
         print(' [!]Saliendo... ')
         salida.archivosEstadisticas(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
-        fin.salidaFin(historico, directorioBase, Gen, Limite, tiempo_ini)
+        fin.salidaFin(historico, directorioBase, Gen, Limite, tiempo_ini, programa, dependencias, flagsDependencias)
         sys.exit(0)
     #Preparaciones proxima generación
     Gen+=1
