@@ -2,6 +2,8 @@ import time
 import os
 import subprocess
 
+from globales import *
+
 def executionWithOutput(command):
     result = subprocess.run(command, stdout=subprocess.PIPE,
                             stderr=subprocess.PIPE, universal_newlines=True, shell=True)
@@ -45,6 +47,7 @@ def comparacion(directorioBase, mejorCromosoma, programa, dependencias, flagsDep
     directorio = compilarIndividuos(directorioBase, listaOpt, programa, dependencias, flagsDependencias)
 
 def salidaFin(historico, directorioBase, Gen, limite, tiempo_inicio, programa, dependencias, flagsDependencias):
+    print(Ram)
     print('\n\n\033[1;36m┌────────────────────────────────────────────────────────┐')
     print('│                  Ejecución finalizada                  │')
     print('└────────────────────────────────────────────────────────┘')

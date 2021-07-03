@@ -105,8 +105,3 @@ def wsm(poblacion, Ram, Tiempo, Peso, Rob, CPU):
         cromosoma.WSM = cromosoma.afterNormRam * Ram + cromosoma.afterNormTiempo * Tiempo + \
             cromosoma.afterNormPeso * Peso + cromosoma.afterNormRob * Rob + cromosoma.afterNormCpu * CPU
 
-
-def fin(historico, directorioBase):
-    #Imprimir cabecera final y linea de compilacion mejor
-    #Preguntar por comparación con las flags de optimización comunes
-    pass

@@ -1,33 +1,14 @@
+from globales import *
 import configparser
 import subprocess
 import threading
 import time
 import os
 
-maximoNumeroHilos = 2
-pesoRam = 0
-pesoCpu = 0
-pesoRob = 0
-pesoPeso = 0
-pesoTiempo = 0
-Argumentos = ''
-ExecutionRobustness = 97
-
-def configuracion(NumeroHilos, Ram, Cpu, Rob, Peso, Tiempo, Args, ExRob):
-    global maximoNumeroHilos, pesoRam, pesoCpu, pesoRob, pesoPeso, pesoTiempo, Argumentos, ExecutionRobustness
-    maximoNumeroHilos = NumeroHilos
-    pesoRam = Ram
-    pesoCpu = Cpu
-    pesoRob = Rob
-    pesoPeso = Peso
-    pesoTiempo = Tiempo
-    Argumentos = Args
-    ExecutionRobustness = ExRob
 
 
 # Pool de hilos para asegurar el máximo número de hilos a la vez
 pool = threading.Semaphore(value=maximoNumeroHilos)
-
 
 def executionWithOutput(command):
     result = subprocess.run(command, stdout=subprocess.PIPE,
@@ -105,22 +86,22 @@ def pruebas(cromosoma, i, pathActual):
     directorioActual = pathActual + '/Cromosoma' + str(i) +  '/'
     executable = directorioActual + 'Cromosoma' + str(i)
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
-        if pesoRam:
+        if Ram:
             cantRam = ram(executable, Argumentos, directorioActual).split('\n')
             cantRam = cantRam[0] or -1.0
             cromosoma.resultRam = float(cantRam)
 
-        if pesoCpu:
+        if Cpu:
             cantCpu = cpuUse(executable, Argumentos, directorioActual).split('\n')
             cantCpu = cantCpu[0] or -1.0
             cromosoma.resultCPU = float(cantCpu)
 
-        if pesoPeso:
+        if Peso:
             cantPeso = peso(executable, Argumentos, directorioActual).split('\n')
             cantPeso = cantPeso[0] or -1.0
             cromosoma.resultPeso = float(cantPeso)
 
-        if pesoRob:
+        if Rob:
             cantRob = robustness(executable, Argumentos, ExecutionRobustness, directorioActual).split('\n')
             if len(cantRob) > 1:
                 cantRob = 1.0 - float(cantRob[0])
@@ -128,7 +109,7 @@ def pruebas(cromosoma, i, pathActual):
                 cantRob = -1.0
             cromosoma.resultRob = float(cantRob)
 
-        if pesoTiempo:
+        if Tiempo:
             cantTiempo = exTime(executable, Argumentos, directorioActual) or -1.0
             cromosoma.resultTiempo = float(cantTiempo)
 

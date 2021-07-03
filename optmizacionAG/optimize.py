@@ -1,3 +1,4 @@
+from globales import *
 import argparse
 import configparser
 import copy
@@ -25,6 +26,8 @@ import salida
 def signal_handler(sig, frame):
     print('\n\033[0;0m\033[1;31m [!]Saliendo...')
     os._exit(1)
+signal.signal(signal.SIGINT, signal_handler)
+
 os.system('clear')
 print("\033[1;36m", end='')
 print('╔' + '═'*66 + '╗')
@@ -36,105 +39,16 @@ print('\033[2m puedes personalizar las flags en el archivo \033[3mflags.json' +
 print(' un nuevo archivo. El resultado de la optimización puede acabar en')
 print(' un programa poco estable al tratarse de un proceso de optimización.')
 print(' Encontrarás diferentes estadisticas de la optimización en el direc-\n torio base configurado.\n')
-signal.signal(signal.SIGINT, signal_handler)
 
-#Argumentos de programa
-argparser = argparse.ArgumentParser()
-argparser.add_argument("-p", "--programa", dest="program",
-                        help="Path absoluto del programa a optimizar")
-argparser.add_argument("-a", "--arguments", dest="arguments",
-                        help="Argumentos del programa para hacer pruebas")
-argparser.add_argument('-i', "--imprimir", dest="imprimir", default=False, action='store_true')
-argparser.add_argument('-dF', "--debugFlags", dest="debug", default=False, action='store_true')
-args = argparser.parse_args()
 
-parser = configparser.ConfigParser()
-parser.read('conf.ini')
-
-#Leer e inicializar objetis Flag
-path = parser['Flags']['Path']
 print('\033[0;32m' +' ' + '-'*66 + '\n\n [*]Inicializando flags como objetos')
 with open(path) as file:
     flags = init.inicializacionFlags(file)
 
-#Crear poblacion inicial aleatoria con tamaño indicado en el archivo de configuracion
-tamaño_inicial = int(parser['Settings']['Tamaño_Inicial'])
 print(' [+]Creando población inicial')
 poblacionInicial = init.generarPoblacionAleatoria(tamaño_inicial, flags)
-
-#Creacion de directorio para jerarquía inicial
-path_inicial = parser['Ajustes Pruebas']['Path_Inicio']
-directorioBase = path_inicial + 'Ejecucion' + init.tiempo()
-if not os.path.isdir(directorioBase):
-    os.system('mkdir ' + directorioBase)
-else:
-    raise ValueError('\033[1;31m [!]Error, el archivo inicial ya existe.')
-
-#Número de Generación
-Gen = 0
 #Poblacion actual
 poblacion = poblacionInicial
-
-#Flags necesarias para las dependencias del programa
-flagsDependencias = str(parser['Flags']['Flags Dependencias'])
-#Path archivos de programas necesarios para compilar
-dependencias = str(parser['Flags']['Dependencias'])
-
-#Programa a optimizar
-programa = args.program
-
-#Pesos de cada objetivo
-Ram = float(parser['Settings']['Ram'])
-Cpu = float(parser['Settings']['CPU'])
-Peso = float(parser['Settings']['Peso'])
-Rob = float(parser['Settings']['Robustez'])
-Tiempo = float(parser['Settings']['Tiempo'])
-
-#Tamaño población general
-tamaño_general = int(parser['Settings']['Tamaño_General'])
-
-#Máximo número de hilos concurrentes a la hora de ejecutar las pruebas
-maximoNumeroHilos = int(parser['Ajustes Pruebas']['Threads'])
-
-#Pesos de los objetivos
-Ram = float(parser['Settings']['Ram'])
-Cpu = float(parser['Settings']['CPU'])
-Peso = float(parser['Settings']['Peso'])
-Rob = float(parser['Settings']['Robustez'])
-Tiempo = float(parser['Settings']['Tiempo'])
-
-#Argumentos
-Argumentos = args.arguments
-
-#Ejecuciones para calcular robustez
-ExecutionRobustness = int(parser['Ajustes Pruebas']['Ejecuciones_Robustez'])
-#Pasar configuracion al archivo fitness
-fitness.configuracion(maximoNumeroHilos, Ram, Cpu, Rob, Peso, Tiempo, Argumentos, ExecutionRobustness)
-
-# Número de indibiduos a seleccionar
-Select = int(parser['Settings']['A_Seleccionar'])
-
-#Historico donde guardar una copia de la poblacion actual antes de pasar a la siguiente
-historico = []
-#Limite, indica el limite seleccionado
-Limite = int(parser['Limites']['Limite'])
-#Generacion máxima: 0
-Max_Gen = int(parser['Limites']['Max_Gen'])
-#Tiempo máximo de ejecución: 1
-Max_Tiempo = int(parser['Limites']['Max_Tiempo'])
-#Tiempo de inicio, para tener en cuenta en el Limite de Tiempo
-tiempo_ini = time.time()
-
-# Porcentaje de aleatorios en cada nueva Generación
-aleatorios = float(parser['Settings']['Por_Aleatorios'])
-#Cantidad máximo a mutar en cada indivduo generado en el crossover
-radiacion = int(parser['Settings']['Radiacion'])
-
-# Generación mínima para comprobar la convergencia
-Generacion_convergencia = int(parser['Limites']['Generacion_Convergencia'])
-
-#Activar salida de errores al compilar o no
-debug = args.debug
 
 #Bucle donde se compila, testea, selecciona y se genera la siguiente generación,
 #comprobando que no se cumplan los limites impuestos en conf.ini
