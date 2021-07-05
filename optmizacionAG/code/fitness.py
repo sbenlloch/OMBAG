@@ -73,12 +73,17 @@ def exTime(executable, Argumentos, directorioActual):
             './test/tiempo.sh \'' + executable + " " + Argumentos + "\'")
     else:
         (out, err) = executionWithOutput('./test/tiempo.sh ' + executable)
+    if '.' in err:
+        archivoTiempo = open(directorioActual + 'Tiempo.txt', 'a')
+        archivoTiempo.write('Salida: ' + str(err))
+        archivoTiempo.close()
+        return err
     numero = err.split(',')  # Time usa stderr para la salida
-    out = float(numero[0] + '.' + numero[1])
+    salida = float(numero[0] + '.' + numero[1])
     archivoTiempo = open(directorioActual + 'Tiempo.txt', 'a')
-    archivoTiempo.write('Salida: ' + str(out))
+    archivoTiempo.write('Salida: ' + str(salida))
     archivoTiempo.close()
-    return out
+    return salida
 
 
 def pruebas(cromosoma, i, pathActual):

@@ -3,6 +3,7 @@ import os
 import subprocess
 
 from globales import *
+import fitness
 
 def executionWithOutput(command):
     result = subprocess.run(command, stdout=subprocess.PIPE,
@@ -31,6 +32,30 @@ def compilarIndividuos(directorio,listaACompilar, programa, dependencias, flagsD
         cont += 1
     return directorioComparacion
 
+
+def test(directorioComparacion):
+    resultRam = [0]*7
+    resultCpu = []
+    resultRob = []
+    resultPeso = []
+    resultTiempo = []
+    globalResult = []
+    for i in range(0, 7):
+        directorioActual = directorioComparacion + 'Optimizacion' + str(i) + '/'
+        optimizacionActual = directorioActual + 'optimizacion' + str(i)
+        if Ram:
+            resultRam[i] = float(fitness.ram(optimizacionActual, Argumentos, directorioActual))
+        if Peso:
+            resultPeso.append(float(fitness.peso(optimizacionActual, Argumentos, directorioActual)))
+        if Cpu:
+            resultCpu.append(float(fitness.cpuUse(optimizacionActual, Argumentos, directorioActual)))
+        if Rob:
+            robustezAux = fitness.robustness(optimizacionActual, Argumentos, ExecutionRobustness, directorioActual).split('\n')
+            resultRob.append(1.0 - float(robustezAux[0]))
+        if Tiempo:
+            resultTiempo.append(float(fitness.exTime(optimizacionActual, Argumentos, directorioActual)))
+
+
 def comparacion(directorioBase, mejorCromosoma, programa, dependencias, flagsDependencias):
     estandar = ''
     opt0 = '-O0'
@@ -45,6 +70,8 @@ def comparacion(directorioBase, mejorCromosoma, programa, dependencias, flagsDep
             mejor += ' ' + tupla[0]
     listaOpt = [estandar, opt0, opt1, opt2, opt3, size, fast, mejor]
     directorio = compilarIndividuos(directorioBase, listaOpt, programa, dependencias, flagsDependencias)
+    test(directorio)
+
 
 def salidaFin(historico, directorioBase, Gen, limite, tiempo_inicio, programa, dependencias, flagsDependencias):
     print(Ram)
