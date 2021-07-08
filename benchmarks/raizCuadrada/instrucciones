@@ -1,0 +1,4 @@
+Linea de compilacion:
+	gcc codigo -o sqrt -lm
+
+he cambiado parte del codigo, se pueden aumentar las iteraciones para que dure aun mas
