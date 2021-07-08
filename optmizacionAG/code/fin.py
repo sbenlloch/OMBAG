@@ -1,8 +1,9 @@
-import time
 import os
 import subprocess
+import time
 
 from globales import *
+
 import fitness
 
 
@@ -87,7 +88,7 @@ def test(directorioComparacion):
         if Tiempo:
             resultTiempo.append(float(fitness.exTime(
                 optimizacionActual, Argumentos, directorioActual)))
-    if len(resultRam) <= 0 :
+    if len(resultRam) <= 0:
         resultRam = [0]*8
     else:
         normAuxiliar(resultRam)
@@ -109,23 +110,31 @@ def test(directorioComparacion):
         normAuxiliar(resultPeso)
 
     for i in range(0, 8):
-        globalResult.append(Ram*resultRam[i] + Peso*resultPeso[i] + \
-            Cpu*resultCpu[i] + Rob*resultRob[i] + Tiempo*resultTiempo[i])
+        globalResult.append(Ram*resultRam[i] + Peso*resultPeso[i] +
+                            Cpu*resultCpu[i] + Rob*resultRob[i] + Tiempo*resultTiempo[i])
 
     lineasMaximas = 29
     for i in range(0, 8):
         globalResult[i] = int(globalResult[i] * 34 + 1)
-    #Que pintar
+    # Que pintar
     result = []
-    result.append((' - Sin optimización <' + '-'*globalResult[0] + '>', globalResult[0]))
-    result.append((' - 00               <' + '-'*globalResult[1] + '>', globalResult[1]))
-    result.append((' - 01               <' + '-'*globalResult[2] + '>', globalResult[2]))
-    result.append((' - 02               <' + '-'*globalResult[3] + '>', globalResult[3]))
-    result.append((' - 03               <' + '-'*globalResult[4] + '>', globalResult[4]))
-    result.append((' - 0s               <' + '-'*globalResult[5] + '>', globalResult[5]))
-    result.append((' - 0fast            <' + '-'*globalResult[6] + '>', globalResult[6]))
-    result.append((' - 0ptimización AG  <' + '-'*globalResult[7] + '>', globalResult[7]))
-    result.sort(key= lambda tupla: tupla[1])
+    result.append((' - Sin optimización <' + '-' *
+                   globalResult[0] + '>', globalResult[0]))
+    result.append((' - 00               <' + '-' *
+                   globalResult[1] + '>', globalResult[1]))
+    result.append((' - 01               <' + '-' *
+                   globalResult[2] + '>', globalResult[2]))
+    result.append((' - 02               <' + '-' *
+                   globalResult[3] + '>', globalResult[3]))
+    result.append((' - 03               <' + '-' *
+                   globalResult[4] + '>', globalResult[4]))
+    result.append((' - 0s               <' + '-' *
+                   globalResult[5] + '>', globalResult[5]))
+    result.append((' - 0fast            <' + '-' *
+                   globalResult[6] + '>', globalResult[6]))
+    result.append((' - 0ptimización AG  <' + '-' *
+                   globalResult[7] + '>', globalResult[7]))
+    result.sort(key=lambda tupla: tupla[1])
     print('\n [Comparación]: ')
     print(' [WSM]:')
     print(' De mejor a peor(less is better):\n')

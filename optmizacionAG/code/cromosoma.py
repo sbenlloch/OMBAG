@@ -1,12 +1,13 @@
 import random
 import time
+
 import flags
-import copy
 
 
 class Cromosoma():
 
-    resultRam = -1.0  # Valor para aquellos que el test falle o no se tengan en cuenta para la optimización
+    # Valor para aquellos que el test falle o no se tengan en cuenta para la optimización
+    resultRam = -1.0
     resultRob = -1.0
     resultTiempo = -1.0
     resultPeso = -1.0
@@ -22,7 +23,7 @@ class Cromosoma():
     # Resultado tras ponderar pesos
     WSM = 1.0
 
-    #Línea de compilación del cromosoma
+    # Línea de compilación del cromosoma
     lineaCompilacion = ''
 
     def __init__(self, flagsPropias, tuplas):
@@ -71,16 +72,7 @@ def crossover(listaAntecedentes, radiacion):
     mutarCromosoma(para_mutar, radiacion)  # Mutar cromosoma
     return para_mutar
 
-'''
-Devuelve la siguiente generación, creada a partir de la anterior
-y del porcentaje de poblacion aleatorio en cada nueva generación.
-    entrada:
-        selected --> individuos de la población anterior seleccionados
-        tamaño --> tamaño de la siguiente población
-        aleatorios --> porcentaje de aleatorios de la nueva población
-        radiacion --> cantidad de veces máxima que se muta a en los crossover
-        Devuelve una lista de Cromosomas
-'''
+
 def siguienteGeneracion(selected, tamaño, aleatorios, radiacion, flags):
     nuevaPoblacion = []
     cantidad_aleatorios = int(tamaño*aleatorios)

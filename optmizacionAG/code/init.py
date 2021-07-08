@@ -1,8 +1,9 @@
 import json
-import copy
 import time
-import flags
+
 import cromosoma
+import flags
+
 
 def inicializacionFlags(file):
 
@@ -29,17 +30,12 @@ def inicializacionFlags(file):
 
     return listaFlags
 
-''' Prueba
 
-flags = inicializacionFlags(open('../flags.json', 'r'))
-
-for flag in flags:
-    print(flag.getFlag())
-'''
 def tiempo():
     epoch = time.time()
     local = time.localtime(epoch)
     return '%d-%d-%d_%d:%d:%d' % (local.tm_mday, local.tm_mon, local.tm_year, local.tm_hour, local.tm_min, local.tm_sec)
+
 
 def generarPoblacionAleatoria(tamaño, flags):
     population = []

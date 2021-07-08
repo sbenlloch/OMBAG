@@ -1,4 +1,4 @@
-#Máximos y minimos globales
+# Máximos y minimos globales
 minGlobalRam = float('inf')
 maxGlobalRam = 0.0
 minGlobalTiempo = float('inf')
@@ -103,5 +103,5 @@ def normCpu(poblacion):
 def wsm(poblacion, Ram, Tiempo, Peso, Rob, CPU):
     for cromosoma in poblacion:
         cromosoma.WSM = cromosoma.afterNormRam * Ram + cromosoma.afterNormTiempo * Tiempo + \
-            cromosoma.afterNormPeso * Peso + cromosoma.afterNormRob * Rob + cromosoma.afterNormCpu * CPU
-
+            cromosoma.afterNormPeso * Peso + cromosoma.afterNormRob * \
+            Rob + cromosoma.afterNormCpu * CPU

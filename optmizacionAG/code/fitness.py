@@ -1,14 +1,13 @@
-from globales import *
-import configparser
+import os
 import subprocess
 import threading
 import time
-import os
 
-
+from globales import *
 
 # Pool de hilos para asegurar el máximo número de hilos a la vez
 pool = threading.Semaphore(value=maximoNumeroHilos)
+
 
 def executionWithOutput(command):
     result = subprocess.run(command, stdout=subprocess.PIPE,
@@ -33,7 +32,7 @@ def ram(executable, Argumentos, directorioActual):
 def cpuUse(executable, Argumentos, directorioActual):
     if Argumentos:
         (out, err) = executionWithOutput('./test/cpu.sh -b ' +
-                                            executable + " -a \'" + Argumentos + "\'" + ' -t 1')
+                                         executable + " -a \'" + Argumentos + "\'" + ' -t 1')
     else:
         (out, err) = executionWithOutput(
             './test/cpu.sh -b ' + executable + ' -t 1')
@@ -88,7 +87,7 @@ def exTime(executable, Argumentos, directorioActual):
 
 def pruebas(cromosoma, i, pathActual):
     pool.acquire()
-    directorioActual = pathActual + '/Cromosoma' + str(i) +  '/'
+    directorioActual = pathActual + '/Cromosoma' + str(i) + '/'
     executable = directorioActual + 'Cromosoma' + str(i)
     if os.path.isfile(executable) and os.access(executable, os.X_OK):
         if Ram:
@@ -97,17 +96,20 @@ def pruebas(cromosoma, i, pathActual):
             cromosoma.resultRam = float(cantRam)
 
         if Cpu:
-            cantCpu = cpuUse(executable, Argumentos, directorioActual).split('\n')
+            cantCpu = cpuUse(executable, Argumentos,
+                             directorioActual).split('\n')
             cantCpu = cantCpu[0] or -1.0
             cromosoma.resultCPU = float(cantCpu)
 
         if Peso:
-            cantPeso = peso(executable, Argumentos, directorioActual).split('\n')
+            cantPeso = peso(executable, Argumentos,
+                            directorioActual).split('\n')
             cantPeso = cantPeso[0] or -1.0
             cromosoma.resultPeso = float(cantPeso)
 
         if Rob:
-            cantRob = robustness(executable, Argumentos, ExecutionRobustness, directorioActual).split('\n')
+            cantRob = robustness(
+                executable, Argumentos, ExecutionRobustness, directorioActual).split('\n')
             if len(cantRob) > 1:
                 cantRob = 1.0 - float(cantRob[0])
             else:
@@ -115,7 +117,8 @@ def pruebas(cromosoma, i, pathActual):
             cromosoma.resultRob = float(cantRob)
 
         if Tiempo:
-            cantTiempo = exTime(executable, Argumentos, directorioActual) or -1.0
+            cantTiempo = exTime(executable, Argumentos,
+                                directorioActual) or -1.0
             cromosoma.resultTiempo = float(cantTiempo)
 
     pool.release()

@@ -1,7 +1,5 @@
 import os
 import subprocess
-import time
-import copy
 
 
 def stringFlags(tuplas):
@@ -21,7 +19,7 @@ def executionWithOutput(command):
 def error(pathCromosoma, salida, error, lineaComp):
     file = open(pathCromosoma + 'errorCompilacion.txt', 'a')
     file.write('Error en compilacion.\nError GCC: \n' +
-                str(error) + '\nSalida GCC:\n' + str(salida) + '\n')
+               str(error) + '\nSalida GCC:\n' + str(salida) + '\n')
     file.write('Linea de compilacion:\n' + str(lineaComp))
     file.close()
 
@@ -56,7 +54,7 @@ def compilarIndividuos(directorio, Gen, poblacion, programa, dependencias, flags
                 else:
                     final = '\n'
                 print('\033[1;31m Error compilación: ' +
-                        err + "\033[0;32m", end=final)
+                      err + "\033[0;32m", end=final)
             if debug and out != '' and out not in salida:
                 salida.append(out)
                 if '\n' in out:
@@ -64,6 +62,6 @@ def compilarIndividuos(directorio, Gen, poblacion, programa, dependencias, flags
                 else:
                     final = '\n'
                 print('\033[1;31m Salida compilador: ' +
-                        out + "\033[0;32m", end=final)
+                      out + "\033[0;32m", end=final)
         Cromosoma += 1
     return directorioGeneracion

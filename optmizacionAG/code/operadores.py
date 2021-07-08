@@ -1,8 +1,7 @@
+import copy
 import os
 import sys
-import subprocess
 import time
-import copy
 
 
 def selection(poblacion, N):
@@ -12,13 +11,15 @@ def selection(poblacion, N):
 
 def converge(historico):
     copiaHistorico = copy.deepcopy(historico)
-    anterior = sorted(copiaHistorico[-2], key=lambda cromosoma: cromosoma.WSM)[0]
+    anterior = sorted(copiaHistorico[-2],
+                      key=lambda cromosoma: cromosoma.WSM)[0]
     actual = sorted(copiaHistorico[-1], key=lambda cromosoma: cromosoma.WSM)[0]
     if anterior.tuplas == actual.tuplas:
         return True
     return False
 
-def limites(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo,Historico, Gen_Convergencia):
+
+def limites(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo, Historico, Gen_Convergencia):
     if Limite == 0:
         if Max_Gen <= Gen:
             return True
