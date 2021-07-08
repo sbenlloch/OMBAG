@@ -1,0 +1,4 @@
+linea:
+	gcc Nprimes.c -o primes
+Talla para 6 s de ejecucion 20000
+./primes 20000

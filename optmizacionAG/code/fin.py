@@ -161,7 +161,6 @@ def comparacion(directorioBase, mejorCromosoma, programa, dependencias, flagsDep
 
 
 def salidaFin(historico, directorioBase, Gen, limite, tiempo_inicio, programa, dependencias, flagsDependencias):
-    print(Ram)
     print(
         '\n\n\033[1;36m┌────────────────────────────────────────────────────────┐')
     print('│                  Ejecución finalizada                  │')
