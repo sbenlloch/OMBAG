@@ -10,11 +10,6 @@
 # ./cpu.sh -b <EXECUTABLE> -t 1 -a <ARGUMENTS>
 #./cpu.sh -b /usr/bin/seq -t 1 -a '1 10000000'
 #pidstat is needed for the execution of this script
-#In time:
-#P      Percentage of the CPU that this job got.  This is just user + system times divided by the
-#       total running time.  It also prints a percentage sign.
-#[!]In short programs this test fails
-
 
 VERBOSE=false
 N=2
@@ -79,9 +74,12 @@ if [ -f $archivo ]; then
         echo '[*]Successfully executed';
     fi
 
-    avg=$(cat $archivo | grep Average: | awk '{print $8}' | tail -1 | tr ',' '.');
+    all=$(cat $archivo | awk '{print $8}' | head --lines=-3 | tail --lines=+2);
 
-    if [ "$avg" ]; then
+    if [ "$all" ]; then
+
+        avg=$(cat $archivo | grep Average: | awk '{print $8}' | tail -1 | tr ',' '.');
+
 
         if [ "$VERBOSE" = true ]; then
             echo "scale=4; $avg/100" | bc | sed 's/^\./0./';
@@ -91,7 +89,8 @@ if [ -f $archivo ]; then
 
     else
 
-        avg=$(/usr/bin/time -f '%P' $to_execute 2>&1 1>/dev/null)
+        /usr/bin/time -o $archivo -v $to_execute &>/dev/null;
+        avg=$( cat $archivo | head -4 | tail -1 | awk '{print $7}' );
         avg2=$( echo $avg | sed 's/%//' );
         if [ $avg2=='?' ]; then
             avg2=100

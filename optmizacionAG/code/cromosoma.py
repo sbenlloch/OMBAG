@@ -6,6 +6,10 @@ import flags
 
 class Cromosoma():
 
+    # Indica si el cromosoma ya ha pasado las pruebas,
+    # para no tener que repetir pruebas a los cromosomas padres.
+    pruebasHechas = False
+
     # Valor para aquellos que el test falle o no se tengan en cuenta para la optimización
     resultRam = -1.0
     resultRob = -1.0

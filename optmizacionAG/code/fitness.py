@@ -67,17 +67,13 @@ def robustness(executable, Argumentos, Executions, directorioActual):
 
 # Tiempo de ejecución
 def exTime(executable, Argumentos, directorioActual):
-    if Argumentos:
-        (out, err) = executionWithOutput(
-            './test/tiempo.sh \'' + executable + " " + Argumentos + "\'")
-    else:
-        (out, err) = executionWithOutput('./test/tiempo.sh ' + executable)
-    if '.' in err:
+    (out, err) = executionWithOutput('./test/tiempo.sh -b ' + executable + " -a " + Argumentos + " -e 1")
+    if '.' in out:
         archivoTiempo = open(directorioActual + 'Tiempo.txt', 'a')
-        archivoTiempo.write('Salida: ' + str(err))
+        archivoTiempo.write('Salida: ' + str(out))
         archivoTiempo.close()
-        return err
-    numero = err.split(',')  # Time usa stderr para la salida
+        return out
+    numero = out.split(',')
     salida = float(numero[0] + '.' + numero[1])
     archivoTiempo = open(directorioActual + 'Tiempo.txt', 'a')
     archivoTiempo.write('Salida: ' + str(salida))
@@ -97,7 +93,7 @@ def pruebas(cromosoma, i, pathActual):
 
         if Cpu:
             cantCpu = cpuUse(executable, Argumentos,
-                             directorioActual).split('\n')
+                                directorioActual).split('\n')
             cantCpu = cantCpu[0] or -1.0
             cromosoma.resultCPU = float(cantCpu)
 
@@ -124,12 +120,18 @@ def pruebas(cromosoma, i, pathActual):
     pool.release()
 
 
+
 def test(poblacion, maximoNumeroHilos, directorioGeneracionActual):
     threads = []
     try:
+
         for i in range(len(poblacion)):
-            threads.append(threading.Thread(
-                target=pruebas, args=(poblacion[i], i, directorioGeneracionActual)))
+
+            if not poblacion[i].pruebasHechas:
+                threads.append(threading.Thread(
+                    target=pruebas, args=(poblacion[i], i, directorioGeneracionActual)))
+                poblacion[i].pruebasHechas = True
+
         [t.start() for t in threads]
     except Exception as e:
         print('Excepción en hilos: ' + str(e))
