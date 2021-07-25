@@ -11,8 +11,7 @@ def selection(poblacion, N):
 
 def converge(historico):
     copiaHistorico = copy.deepcopy(historico)
-    anterior = sorted(copiaHistorico[-2],
-                      key=lambda cromosoma: cromosoma.WSM)[0]
+    anterior = sorted(copiaHistorico[-2], key=lambda cromosoma: cromosoma.WSM)[0]
     actual = sorted(copiaHistorico[-1], key=lambda cromosoma: cromosoma.WSM)[0]
     if anterior.tuplas == actual.tuplas:
         return True

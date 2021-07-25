@@ -5,7 +5,7 @@
 
 #define min(a, b) ((a) < (b) ? (a) : (b))
 
-const size_t side = 700;
+const size_t side = 200;
 
 #ifndef __MATRIX__
 #define __MATRIX__

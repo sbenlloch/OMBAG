@@ -4,7 +4,7 @@ import time
 import flags
 
 
-class Cromosoma():
+class Cromosoma:
 
     # Indica si el cromosoma ya ha pasado las pruebas,
     # para no tener que repetir pruebas a los cromosomas padres.
@@ -18,7 +18,7 @@ class Cromosoma():
     resultCPU = -1.0
 
     # La normalización se encuentra entre 0 y 1 por lo tanto se va a seleccionar
-    afterNormRam = 1.0   # 1 como peor caso para los que no funcionen
+    afterNormRam = 1.0  # 1 como peor caso para los que no funcionen
     afterNormTiempo = 1.0
     afterNormPeso = 1.0
     afterNormCpu = 1.0
@@ -28,7 +28,7 @@ class Cromosoma():
     WSM = 1.0
 
     # Línea de compilación del cromosoma
-    lineaCompilacion = ''
+    lineaCompilacion = ""
 
     def __init__(self, flagsPropias, tuplas):
         self.flags = flagsPropias
@@ -54,7 +54,7 @@ def generarCromosomaAleatorio(flags):
 def mutarCromosoma(cromosoma, radiacion):
     for i in range(radiacion):
         # Posicion aleatoria a mutars
-        a_mutar = random.randint(0, len(cromosoma.flags)-1)
+        a_mutar = random.randint(0, len(cromosoma.flags) - 1)
         flagSeleccionada = cromosoma.flags[a_mutar]
         cromosoma.flags[a_mutar].mutateFlag()  # mutar flag
         # actualizar flag y aleatoriazar
@@ -79,7 +79,7 @@ def crossover(listaAntecedentes, radiacion):
 
 def siguienteGeneracion(selected, tamaño, aleatorios, radiacion, flags):
     nuevaPoblacion = []
-    cantidad_aleatorios = int(tamaño*aleatorios)
+    cantidad_aleatorios = int(tamaño * aleatorios)
     cantidad_cruzados = tamaño - len(selected) - cantidad_aleatorios
     nuevaPoblacion += selected
     for _ in range(cantidad_aleatorios):

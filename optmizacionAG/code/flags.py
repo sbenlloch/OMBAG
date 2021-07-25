@@ -3,8 +3,7 @@ import random
 # Objecto flag
 
 
-class Flag():
-
+class Flag:
     def __init__(self, nombre):
         self.nombre = nombre
         self.flag = nombre
@@ -17,7 +16,6 @@ class Flag():
 
 
 class rangoFlag(Flag):
-
     def __init__(self, nombre, min, max):
         self.nombre = nombre
         self.flag = nombre + str(random.randint(min, max))
@@ -33,14 +31,13 @@ class rangoFlag(Flag):
 
 
 class intervaloFLag(Flag):
-
     def __init__(self, nombre, intervalo):
         self.nombre = nombre
-        self.flag = nombre+random.choice(intervalo)
+        self.flag = nombre + random.choice(intervalo)
         self.intervalo = intervalo
 
     def mutateFlag(self):
-        self.flag = self.nombre+random.choice(self.intervalo)
+        self.flag = self.nombre + random.choice(self.intervalo)
         return self.flag
 
     def getRandomTuple(self):
