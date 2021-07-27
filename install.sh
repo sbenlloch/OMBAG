@@ -1,55 +1,54 @@
 #!/bin/bash
-#Script creado pot sg10, Sergio Benlloch
+#Script creado por sg10, Sergio Benlloch
 #Este script incluye la instalación de las dependencias necesarias
 #para ejecutar las pruebas del algoritmo genético.
 #Este script esta testado en Ubuntu 20.04 LTS y Ubuntu Server 20.04 LTS Gen 2
 
 
-printf "[*]Instaacion de Prerequisitos\n"
+printf "[*]Instalación de Prerequisitos\n"
 
 gcc='gcc'
 
 dpkg -s $gcc &> /dev/null
 
-if [ $? -ne 0 ] 
-    then 
+if [ $? -ne 0 ]
+    then
         echo "[!]GCC no satisfecho, se va a instalar"
         sudo apt-get install $gcc -y &>/dev/null
         dpkg -s $gcc &> /dev/null && echo "[*]GCC instalado exitosamente"
-        
-    else 
-        echo "[!]GCC satisfecho" 
-    
+
+    else
+        echo "[!]GCC satisfecho"
 fi
 
 make='make'
 
 dpkg -s $make &> /dev/null
 
-if [ $? -ne 0 ] 
-    then 
+if [ $? -ne 0 ]
+    then
         echo "[!]Make no satisfecho, se va a instalar"
         sudo apt-get install $make -y &>/dev/null
         dpkg -s $make &> /dev/null && echo "[*]Make instalado exitosamente"
-        
-    else 
-        echo "[!]Make satisfecho" 
-    
+
+    else
+        echo "[!]Make satisfecho"
+
 fi
 
 git='git'
 
 dpkg -s $git &> /dev/null
 
-if [ $? -ne 0 ] 
-    then 
+if [ $? -ne 0 ]
+    then
         echo "[!]Git no satisfecho, se va a instalar"
         sudo apt-get install $git -y &>/dev/null
         dpkg -s $git &> /dev/null && echo "[*]Git instalado exitosamente"
-        
-    else 
-        echo "[!]Git satisfecho" 
-    
+
+    else
+        echo "[!]Git satisfecho"
+
 fi
 
 
@@ -61,15 +60,15 @@ stat='sysstat'
 
 dpkg -s $stat &> /dev/null
 
-if [ $? -ne 0 ] 
-    then 
+if [ $? -ne 0 ]
+    then
         echo "[!]Sysstat no satisfecho, se va a instalar"
         sudo apt-get install $stat -y &>/dev/null
         dpkg -s $stat &> /dev/null && echo "[*]Sysstat instalado exitosamente"
-        
-    else 
-        echo "[!]Sysstat satisfecho" 
-    
+
+    else
+        echo "[!]Sysstat satisfecho"
+
 fi
 
 ###############################################################
@@ -80,15 +79,15 @@ pip='python3-pip'
 
 dpkg -s $pip &> /dev/null
 
-if [ $? -ne 0 ] 
-    then 
+if [ $? -ne 0 ]
+    then
         echo "[!]PIP no satisfecho, se va a instalar"
         sudo apt-get install $pip -y &>/dev/null
         dpkg -s $pip &> /dev/null && echo "[*]PIP instalado exitosamente"
-        
-    else 
-        echo "[!]PIP satisfecho" 
-    
+
+    else
+        echo "[!]PIP satisfecho"
+
 fi
 
 mprof=$(pip list | grep memory-profiler)
@@ -127,15 +126,15 @@ cmake='cmake'
 
 dpkg -s $cmake &> /dev/null
 
-if [ $? -ne 0 ] 
-    then 
+if [ $? -ne 0 ]
+    then
         echo "[!]Cmake no satisfecho, se va a instalar"
         sudo apt-get install $cmake -y &>/dev/null
         dpkg -s $cmake &> /dev/null && echo "[*]Cmake instalado exitosamente"
-        
-    else 
-        echo "[!]Cmake satisfecho" 
-    
+
+    else
+        echo "[!]Cmake satisfecho"
+
 fi
 
 cmake ../src/ &>/dev/null && make -j &>/dev/null && sudo make install &>/dev/null
