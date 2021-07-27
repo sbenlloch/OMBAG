@@ -51,7 +51,13 @@ path_inicial = parser["Ajustes Pruebas"]["Path_Inicio"]
 directorioBase = path_inicial + "Ejecucion" + init.tiempo()
 # Creación del directorio
 if not os.path.isdir(directorioBase):
-    os.system("mkdir " + directorioBase)
+    try:
+        os.mkdir(directorioBase)
+    except:
+        print(
+            "\n\n\033[0;0m\033[1;31m [!]El directorio no se pudo crear, ¿está bien configurado en el archivo de configuración?"
+        )
+        os._exit(1)
 else:
     raise ValueError("\033[1;31m [!]Error, el archivo inicial ya existe.")
 

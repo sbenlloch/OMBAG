@@ -23,19 +23,25 @@ def signal_handler(sig, frame):
     time.sleep(0.5)
     comparar = input("\n ¿Comparar antes de salir?[y/n]: ")
     if comparar == "y":
-        salida.archivosEstadisticas(
-            historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu
-        )
-        fin.salidaFin(
-            historico,
-            directorioBase,
-            Gen,
-            Limite,
-            tiempo_ini,
-            programa,
-            dependencias,
-            flagsDependencias,
-        )
+
+        try:
+            salida.archivosEstadisticas(
+                historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu
+            )
+            fin.salidaFin(
+                historico,
+                directorioBase,
+                Gen,
+                Limite,
+                tiempo_ini,
+                programa,
+                dependencias,
+                flagsDependencias,
+            )
+        except:
+            print("\n\033[0;0m\033[1;31m [!]Saliendo, error al comparar...")
+            os._exit(1)
+
     print("\n\033[0;0m\033[1;31m [!]Saliendo...")
     os._exit(1)
 
@@ -62,8 +68,14 @@ print(
 
 
 print("\033[0;32m" + " " + "-" * 66 + "\n\n [*]Inicializando flags como objetos")
-with open(path) as file:
-    flags = init.inicializacionFlags(file)
+try:
+    with open(path) as file:
+        flags = init.inicializacionFlags(file)
+except:
+    print(
+        "\n\n\033[0;0m\033[1;31m [!]El archivo no se pudo abrir, ¿está bien configurado en el archivo de configuración?"
+    )
+    os._exit(1)
 
 print(" [+]Creando población inicial")
 poblacionInicial = init.generarPoblacionAleatoria(tamaño_inicial, flags)
