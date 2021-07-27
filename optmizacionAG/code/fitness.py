@@ -101,40 +101,44 @@ def exTime(executable, Argumentos, directorioActual):
 
 
 def pruebas(cromosoma, i, pathActual):
-    pool.acquire()
-    directorioActual = pathActual + "/Cromosoma" + str(i) + "/"
-    executable = directorioActual + "Cromosoma" + str(i)
-    if os.path.isfile(executable) and os.access(executable, os.X_OK):
-        if Ram:
-            cantRam = ram(executable, Argumentos, directorioActual).split("\n")
-            cantRam = cantRam[0] or -1.0
-            cromosoma.resultRam = float(cantRam)
+    try:
+        pool.acquire()
+        directorioActual = pathActual + "/Cromosoma" + str(i) + "/"
+        executable = directorioActual + "Cromosoma" + str(i)
+        if os.path.isfile(executable) and os.access(executable, os.X_OK):
+            if Ram:
+                cantRam = ram(executable, Argumentos, directorioActual).split("\n")
+                cantRam = cantRam[0] or -1.0
+                cromosoma.resultRam = float(cantRam)
 
-        if Cpu:
-            cantCpu = cpuUse(executable, Argumentos, directorioActual).split("\n")
-            cantCpu = cantCpu[0] or -1.0
-            cromosoma.resultCPU = float(cantCpu)
+            if Cpu:
+                cantCpu = cpuUse(executable, Argumentos, directorioActual).split("\n")
+                cantCpu = cantCpu[0] or -1.0
+                cromosoma.resultCPU = float(cantCpu)
 
-        if Peso:
-            cantPeso = peso(executable, Argumentos, directorioActual).split("\n")
-            cantPeso = cantPeso[0] or -1.0
-            cromosoma.resultPeso = float(cantPeso)
+            if Peso:
+                cantPeso = peso(executable, Argumentos, directorioActual).split("\n")
+                cantPeso = cantPeso[0] or -1.0
+                cromosoma.resultPeso = float(cantPeso)
 
-        if Rob:
-            cantRob = robustness(
-                executable, Argumentos, ExecutionRobustness, directorioActual
-            ).split("\n")
-            if len(cantRob) > 1:
-                cantRob = 1.0 - float(cantRob[0])
-            else:
-                cantRob = -1.0
-            cromosoma.resultRob = float(cantRob)
+            if Rob:
+                cantRob = robustness(
+                    executable, Argumentos, ExecutionRobustness, directorioActual
+                ).split("\n")
+                if len(cantRob) > 1:
+                    cantRob = 1.0 - float(cantRob[0])
+                else:
+                    cantRob = -1.0
+                cromosoma.resultRob = float(cantRob)
 
-        if Tiempo:
-            cantTiempo = exTime(executable, Argumentos, directorioActual) or -1.0
-            cromosoma.resultTiempo = float(cantTiempo)
+            if Tiempo:
+                cantTiempo = exTime(executable, Argumentos, directorioActual) or -1.0
+                cromosoma.resultTiempo = float(cantTiempo)
 
-    pool.release()
+        pool.release()
+    except Exception as e:
+        print("Excepción en hilos")
+        return
 
 
 def test(poblacion, maximoNumeroHilos, directorioGeneracionActual):
@@ -154,6 +158,7 @@ def test(poblacion, maximoNumeroHilos, directorioGeneracionActual):
 
         [t.start() for t in threads]
     except Exception as e:
-        print("Excepción en hilos: " + str(e))
+        print("Excepción en hilos")
+        return
     finally:
         [t.join() for t in threads]

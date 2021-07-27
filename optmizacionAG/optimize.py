@@ -20,6 +20,22 @@ import compilacion
 
 
 def signal_handler(sig, frame):
+    time.sleep(0.5)
+    comparar = input("\n ¿Comparar antes de salir?[y/n]: ")
+    if comparar == "y":
+        salida.archivosEstadisticas(
+            historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu
+        )
+        fin.salidaFin(
+            historico,
+            directorioBase,
+            Gen,
+            Limite,
+            tiempo_ini,
+            programa,
+            dependencias,
+            flagsDependencias,
+        )
     print("\n\033[0;0m\033[1;31m [!]Saliendo...")
     os._exit(1)
 
