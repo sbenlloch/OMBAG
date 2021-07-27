@@ -81,7 +81,7 @@ def normAuxiliar(vector):
                 vector[i] = (vector[i] - min) / (max - min)
 
 
-def test(directorioComparacion):
+def test(directorioComparacion, file):
     resultRam = []
     resultCpu = []
     resultRob = []
@@ -171,16 +171,25 @@ def test(directorioComparacion):
     result.append(
         (" - 0ptimización AG  <" + "-" * globalResult[7] + ">", globalResult[7])
     )
+
     result.sort(key=lambda tupla: tupla[1])
+
     print("\n [Comparación]: ")
+    file.write("\n [Comparación]: \n")
+
     print(" [WSM]:")
+    file.write(" [WSM]:\n")
+
     print(" De mejor a peor(less is better):\n")
+    file.write(" De mejor a peor(less is better):\n\n")
+
     for element in result:
         print(element[0])
+        file.write(str(element[0]) + "\n")
 
 
 def comparacion(
-    directorioBase, mejorCromosoma, programa, dependencias, flagsDependencias
+    directorioBase, mejorCromosoma, programa, dependencias, flagsDependencias, file
 ):
     estandar = ""
     opt0 = "-O0"
@@ -197,7 +206,7 @@ def comparacion(
     directorio = compilarIndividuos(
         directorioBase, listaOpt, programa, dependencias, flagsDependencias
     )
-    test(directorio)
+    test(directorio, file)
 
 
 def salidaFin(
@@ -210,19 +219,35 @@ def salidaFin(
     dependencias,
     flagsDependencias,
 ):
+    archivoDeSalida = directorioBase + "/comparacion.txt"
+    file = open(archivoDeSalida, "a")
+
     print("\n\n\033[1;36m┌────────────────────────────────────────────────────────┐")
+    file.write("\n\n┌────────────────────────────────────────────────────────┐\n")
+
     print("│                  Ejecución finalizada                  │")
+    file.write("│                  Ejecución finalizada                  │\n")
+
     print("└────────────────────────────────────────────────────────┘")
+    file.write("└────────────────────────────────────────────────────────┘\n")
+
     if limite == 0:
         print(" Ejecución finalizada en " + str(Gen) + " generaciones.\n")
+        file.write(" Ejecución finalizada en " + str(Gen) + " generaciones.\n\n")
     elif limite == 1:
         print(
             " Ejecución finalizada en "
             + str(round(time.time() - tiempo_inicio, 1))
             + " segundos.\n"
         )
+        file.write(
+            " Ejecución finalizada en "
+            + str(round(time.time() - tiempo_inicio, 1))
+            + " segundos.\n\n"
+        )
     elif limite == 2:
         print(" Ejecución finalizada por convergencia ejecución.\n")
+        file.write(" Ejecución finalizada por convergencia ejecución.\n\n")
     else:
         print("Límite fuera de rango")
     carpeta = directorioBase.split("/")[-1]
@@ -245,6 +270,8 @@ def salidaFin(
     print("\n")
     print("--------------------------------------------------------\n\n")
     print(" Esta es la línea de compilación seleccionada: \n")
+    file.write("\n\n Esta es la línea de compilación seleccionada: \n\n")
+
     ultimoSeleccionado = sorted(historico[-1], key=lambda cromosoma: cromosoma.WSM)[0]
     lineaCompilacion = ultimoSeleccionado.lineaCompilacion
     lineaCompToVect = lineaCompilacion.split(" ")
@@ -255,7 +282,10 @@ def salidaFin(
         if "-o" in palabra:
             path = "<path ejecutable>"
         print(" " + palabra, end="")
+        file.write(" " + palabra)
+
     print("\n")
+    file.write("\n\n")
 
     if comparar:
         comparacion(
@@ -264,4 +294,5 @@ def salidaFin(
             programa,
             dependencias,
             flagsDependencias,
+            file,
         )
