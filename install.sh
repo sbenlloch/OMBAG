@@ -102,7 +102,6 @@ if [ "$mprof" ]
     else
         echo "[!]MPROF no satisfecho, se va a instalar"
 	sudo pip install memory-profiler &>/dev/null
-	sudo cp ~/.local/bin/mprof /usr/bin/
 fi
 
 
