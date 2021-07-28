@@ -4,6 +4,10 @@
 #para ejecutar las pruebas del algoritmo genético.
 #Este script esta testado en Ubuntu 20.04 LTS y Ubuntu Server 20.04 LTS Gen 2
 
+if [[ $EUID -ne 0 ]]; then
+    echo "Este script se tiene que ejecutar como root" 
+    exit 1
+fi
 
 printf "[*]Instalación de Prerequisitos\n"
 
@@ -97,7 +101,7 @@ if [ "$mprof" ]
         echo "[!] MPROF satisfecho"
     else
         echo "[!]MPROF no satisfecho, se va a instalar"
-	pip install memory-profiler &>/dev/null
+	sudo pip install memory-profiler &>/dev/null
 	sudo cp ~/.local/bin/mprof /usr/bin/
 fi
 
