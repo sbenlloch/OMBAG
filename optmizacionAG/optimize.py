@@ -22,7 +22,7 @@ import compilacion
 def signal_handler(sig, frame):
     time.sleep(0.5)
     comparar = input("\n ¿Comparar antes de salir?[y/n]: ")
-    if comparar == "y":
+    if comparar == "y" and Gen > 1:
 
         try:
             salida.archivosEstadisticas(
@@ -41,6 +41,10 @@ def signal_handler(sig, frame):
         except:
             print("\n\033[0;0m\033[1;31m [!]Saliendo, error al comparar...")
             os._exit(1)
+    elif comparar == "y":
+        print(
+            "\n\033[0;0m\033[1;31m [!]No se puede comparar con tan pocas generaciones."
+        )
 
     print("\n\033[0;0m\033[1;31m [!]Saliendo...")
     os._exit(1)
