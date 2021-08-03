@@ -58,7 +58,7 @@ def sustituirID(id):
         return diccionarioIDs[id]
 
 
-def cantidadFlags(historico, directorioBase):
+def cantidadMejoresFlags(historico, directorioBase):
     diccionarioFlags = {}
 
     for generacion in historico:
@@ -72,7 +72,27 @@ def cantidadFlags(historico, directorioBase):
             elif tupla[0] in diccionarioFlags and tupla[1]:
                 diccionarioFlags[tupla[0]] += 1
 
-    archivoCantidad = directorioBase + "/MejoresIndividiosCantidadFlags.csv"
+    archivoCantidad = directorioBase + "/CantidadFlagsMEJORES.csv"
+    file = open(archivoCantidad, "w")
+    file.write("Flag;Cantidad\n")
+    for key in diccionarioFlags.keys():
+        file.write(str(key) + ";" + str(diccionarioFlags[key]) + "\n")
+    file.close()
+
+
+def cantidadFlags(historico, directorioBase):
+    diccionarioFlags = {}
+
+    for generacion in historico:
+        mejor = generacion[0]
+        for cromosoma in generacion:
+            for tupla in cromosoma.tuplas:
+                if tupla[0] not in diccionarioFlags and tupla[1]:
+                    diccionarioFlags[tupla[0]] = 1
+                elif tupla[0] in diccionarioFlags and tupla[1]:
+                    diccionarioFlags[tupla[0]] += 1
+
+    archivoCantidad = directorioBase + "/CantidadFlagsTODOS.csv"
     file = open(archivoCantidad, "w")
     file.write("Flag;Cantidad\n")
     for key in diccionarioFlags.keys():
@@ -176,4 +196,5 @@ def archivosEstadisticas(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu)
             )
     file.close()
 
+    cantidadMejoresFlags(historico, directorioBase)
     cantidadFlags(historico, directorioBase)
