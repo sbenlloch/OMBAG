@@ -1,0 +1,35 @@
+{
+    "binarias": [
+        {
+            "flag": "-falign-functions"
+        },
+        {
+            "flag": "-falign-jumps"
+        },
+        {
+            "flag": "-fauto-inc-dec"
+        }
+    ],
+    "rango": [
+        {
+            "flag": "-falign-loops=",
+            "min": "5",
+            "max": "600"
+        },
+        {
+            "flag": "-flto-compression-level=",
+            "min": "0",
+            "max": "9"
+        }
+    ],
+    "Intervalo": [
+        {
+            "flag": "-fvect-cost-model=",
+            "intervalo": "unlimited,dynamic,cheap"
+        },
+        {
+            "flag": "-freorder-blocks-algorithm=",
+            "intervalo": "simple,stc"
+        }
+    ]
+}

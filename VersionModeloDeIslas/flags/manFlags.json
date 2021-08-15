@@ -1,0 +1,682 @@
+{
+    "binarias": [
+        {
+            "flag": "-faggressive-loop-optimizations"
+        },
+        {
+            "flag": "-fassociative-math"
+        },
+        {
+            "flag": "-fauto-inc-dec"
+        },
+        {
+            "flag": "-fauto-profile"
+        },
+        {
+            "flag": "-fbranch-probabilities"
+        },
+        {
+            "flag": "-fbranch-target-load-optimize"
+        },
+        {
+            "flag": "-fbranch-target-load-optimize2"
+        },
+        {
+            "flag": "-fbtr-bb-exclusive"
+        },
+        {
+            "flag": "-fcaller-saves"
+        },
+        {
+            "flag": "-fcode-hoisting"
+        },
+        {
+            "flag": "-fcombine-stack-adjustments"
+        },
+        {
+            "flag": "-fcompare-elim"
+        },
+        {
+            "flag": "-fconserve-stack"
+        },
+        {
+            "flag": "-fcprop-registers"
+        },
+        {
+            "flag": "-fcrossjumping"
+        },
+        {
+            "flag": "-fcse-follow-jumps"
+        },
+        {
+            "flag": "-fcse-skip-blocks"
+        },
+        {
+            "flag": "-fcx-fortran-rules"
+        },
+        {
+            "flag": "-fcx-limited-range"
+        },
+        {
+            "flag": "-fdata-sections"
+        },
+        {
+            "flag": "-fdce"
+        },
+        {
+            "flag": "-fdelayed-branch"
+        },
+        {
+            "flag": "-fdelete-null-pointer-checks"
+        },
+        {
+            "flag": "-fdevirtualize"
+        },
+        {
+            "flag": "-fdevirtualize-at-ltrans"
+        },
+        {
+            "flag": "-fdevirtualize-speculatively"
+        },
+        {
+            "flag": "-fdse"
+        },
+        {
+            "flag": "-fearly-inlining"
+        },
+        {
+            "flag": "-fexpensive-optimizations"
+        },
+        {
+            "flag": "-ffast-math"
+        },
+        {
+            "flag": "-ffat-lto-objects"
+        },
+        {
+            "flag": "-ffinite-math-only"
+        },
+        {
+            "flag": "-ffloat-store"
+        },
+        {
+            "flag": "-fforward-propagate"
+        },
+        {
+            "flag": "-ffunction-sections"
+        },
+        {
+            "flag": "-fgcse"
+        },
+        {
+            "flag": "-fgcse-after-reload"
+        },
+        {
+            "flag": "-fgcse-las"
+        },
+        {
+            "flag": "-fgcse-lm"
+        },
+        {
+            "flag": "-fgcse-sm"
+        },
+        {
+            "flag": "-fgraphite-identity"
+        },
+        {
+            "flag": "-fhoist-adjacent-loads"
+        },
+        {
+            "flag": "-fif-conversion"
+        },
+        {
+            "flag": "-fif-conversion2"
+        },
+        {
+            "flag": "-findirect-inlining"
+        },
+        {
+            "flag": "-finline-functions"
+        },
+        {
+            "flag": "-finline-functions-called-once"
+        },
+        {
+            "flag": "-finline-small-functions"
+        },
+        {
+            "flag": "-fipa-bit-cp"
+        },
+        {
+            "flag": "-fipa-cp"
+        },
+        {
+            "flag": "-fipa-cp-clone"
+        },
+        {
+            "flag": "-fipa-icf"
+        },
+        {
+            "flag": "-fipa-profile"
+        },
+        {
+            "flag": "-fipa-pta"
+        },
+        {
+            "flag": "-fipa-pure-const"
+        },
+        {
+            "flag": "-fipa-ra"
+        },
+        {
+            "flag": "-fipa-reference"
+        },
+        {
+            "flag": "-fipa-reference-addressable"
+        },
+        {
+            "flag": "-fipa-sra"
+        },
+        {
+            "flag": "-fipa-stack-alignment"
+        },
+        {
+            "flag": "-fipa-vrp"
+        },
+        {
+            "flag": "-fira-hoist-pressure"
+        },
+        {
+            "flag": "-fira-loop-pressure"
+        },
+        {
+            "flag": "-fisolate-erroneous-paths-attribute"
+        },
+        {
+            "flag": "-fisolate-erroneous-paths-dereference"
+        },
+        {
+            "flag": "-fivopts"
+        },
+        {
+            "flag": "-fkeep-inline-functions"
+        },
+        {
+            "flag": "-fkeep-static-consts"
+        },
+        {
+            "flag": "-fkeep-static-functions"
+        },
+        {
+            "flag": "-flimit-function-alignment"
+        },
+        {
+            "flag": "-flive-range-shrinkage"
+        },
+        {
+            "flag": "-floop-block"
+        },
+        {
+            "flag": "-floop-interchange"
+        },
+        {
+            "flag": "-floop-nest-optimize"
+        },
+        {
+            "flag": "-floop-parallelize-all"
+        },
+        {
+            "flag": "-floop-strip-mine"
+        },
+        {
+            "flag": "-floop-unroll-and-jam"
+        },
+        {
+            "flag": "-flra-remat"
+        },
+        {
+            "flag": "-flto"
+        },
+        {
+            "flag": "-fmerge-all-constants"
+        },
+        {
+            "flag": "-fmerge-constants"
+        },
+        {
+            "flag": "-fmodulo-sched"
+        },
+        {
+            "flag": "-fmodulo-sched-allow-regmoves"
+        },
+        {
+            "flag": "-fmove-loop-invariants"
+        },
+        {
+            "flag": "-fno-branch-count-reg"
+        },
+        {
+            "flag": "-fno-defer-pop"
+        },
+        {
+            "flag": "-fno-fp-int-builtin-inexact"
+        },
+        {
+            "flag": "-fno-function-cse"
+        },
+        {
+            "flag": "-fno-guess-branch-probability"
+        },
+        {
+            "flag": "-fno-inline"
+        },
+        {
+            "flag": "-fno-ira-share-save-slots"
+        },
+        {
+            "flag": "-fno-ira-share-spill-slots"
+        },
+        {
+            "flag": "-fno-math-errno"
+        },
+        {
+            "flag": "-fno-peephole"
+        },
+        {
+            "flag": "-fno-peephole2"
+        },
+        {
+            "flag": "-fno-printf-return-value"
+        },
+        {
+            "flag": "-fno-sched-interblock"
+        },
+        {
+            "flag": "-fno-sched-spec"
+        },
+        {
+            "flag": "-fno-signed-zeros"
+        },
+        {
+            "flag": "-fno-toplevel-reorder"
+        },
+        {
+            "flag": "-fno-trapping-math"
+        },
+        {
+            "flag": "-fno-zero-initialized-in-bss"
+        },
+        {
+            "flag": "-fomit-frame-pointer"
+        },
+        {
+            "flag": "-foptimize-sibling-calls"
+        },
+        {
+            "flag": "-fpartial-inlining"
+        },
+        {
+            "flag": "-fpeel-loops"
+        },
+        {
+            "flag": "-fpredictive-commoning"
+        },
+        {
+            "flag": "-fprefetch-loop-arrays"
+        },
+        {
+            "flag": "-fprofile-correction"
+        },
+        {
+            "flag": "-fprofile-reorder-functions"
+        },
+        {
+            "flag": "-fprofile-use"
+        },
+        {
+            "flag": "-fprofile-values"
+        },
+        {
+            "flag": "-freciprocal-math"
+        },
+        {
+            "flag": "-free"
+        },
+        {
+            "flag": "-frename-registers"
+        },
+        {
+            "flag": "-freorder-blocks"
+        },
+        {
+            "flag": "-freorder-blocks-and-partition"
+        },
+        {
+            "flag": "-freorder-functions"
+        },
+        {
+            "flag": "-frerun-cse-after-loop"
+        },
+        {
+            "flag": "-freschedule-modulo-scheduled-loops"
+        },
+        {
+            "flag": "-frounding-math"
+        },
+        {
+            "flag": "-fsave-optimization-record"
+        },
+        {
+            "flag": "-fsched-critical-path-heuristic"
+        },
+        {
+            "flag": "-fsched-dep-count-heuristic"
+        },
+        {
+            "flag": "-fsched-group-heuristic"
+        },
+        {
+            "flag": "-fsched-last-insn-heuristic"
+        },
+        {
+            "flag": "-fsched-pressure"
+        },
+        {
+            "flag": "-fsched-rank-heuristic"
+        },
+        {
+            "flag": "-fsched-spec-insn-heuristic"
+        },
+        {
+            "flag": "-fsched-spec-load"
+        },
+        {
+            "flag": "-fsched-spec-load-dangerous"
+        },
+        {
+            "flag": "-fsched2-use-superblocks"
+        },
+        {
+            "flag": "-fschedule-fusion"
+        },
+        {
+            "flag": "-fschedule-insns"
+        },
+        {
+            "flag": "-fschedule-insns2"
+        },
+        {
+            "flag": "-fsection-anchors"
+        },
+        {
+            "flag": "-fsel-sched-pipelining"
+        },
+        {
+            "flag": "-fsel-sched-pipelining-outer-loops"
+        },
+        {
+            "flag": "-fselective-scheduling"
+        },
+        {
+            "flag": "-fselective-scheduling2"
+        },
+        {
+            "flag": "-fsemantic-interposition"
+        },
+        {
+            "flag": "-fshrink-wrap"
+        },
+        {
+            "flag": "-fshrink-wrap-separate"
+        },
+        {
+            "flag": "-fsignaling-nans"
+        },
+        {
+            "flag": "-fsingle-precision-constant"
+        },
+        {
+            "flag": "-fsplit-ivs-in-unroller"
+        },
+        {
+            "flag": "-fsplit-loops"
+        },
+        {
+            "flag": "-fsplit-paths"
+        },
+        {
+            "flag": "-fsplit-wide-types"
+        },
+        {
+            "flag": "-fssa-backprop"
+        },
+        {
+            "flag": "-fssa-phiopt"
+        },
+        {
+            "flag": "-fstdarg-opt"
+        },
+        {
+            "flag": "-fstore-merging"
+        },
+        {
+            "flag": "-fstrict-aliasing"
+        },
+        {
+            "flag": "-fthread-jumps"
+        },
+        {
+            "flag": "-ftracer"
+        },
+        {
+            "flag": "-ftree-bit-ccp"
+        },
+        {
+            "flag": "-ftree-builtin-call-dce"
+        },
+        {
+            "flag": "-ftree-ccp"
+        },
+        {
+            "flag": "-ftree-ch"
+        },
+        {
+            "flag": "-ftree-coalesce-vars"
+        },
+        {
+            "flag": "-ftree-copy-prop"
+        },
+        {
+            "flag": "-ftree-dce"
+        },
+        {
+            "flag": "-ftree-dominator-opts"
+        },
+        {
+            "flag": "-ftree-dse"
+        },
+        {
+            "flag": "-ftree-forwprop"
+        },
+        {
+            "flag": "-ftree-fre"
+        },
+        {
+            "flag": "-ftree-loop-distribute-patterns"
+        },
+        {
+            "flag": "-ftree-loop-distribution"
+        },
+        {
+            "flag": "-ftree-loop-if-convert"
+        },
+        {
+            "flag": "-ftree-loop-im"
+        },
+        {
+            "flag": "-ftree-loop-ivcanon"
+        },
+        {
+            "flag": "-ftree-loop-linear"
+        },
+        {
+            "flag": "-ftree-loop-optimize"
+        },
+        {
+            "flag": "-ftree-loop-vectorize"
+        },
+        {
+            "flag": "-ftree-partial-pre"
+        },
+        {
+            "flag": "-ftree-phiprop"
+        },
+        {
+            "flag": "-ftree-pre"
+        },
+        {
+            "flag": "-ftree-pta"
+        },
+        {
+            "flag": "-ftree-reassoc"
+        },
+        {
+            "flag": "-ftree-scev-cprop"
+        },
+        {
+            "flag": "-ftree-sink"
+        },
+        {
+            "flag": "-ftree-slsr"
+        },
+        {
+            "flag": "-ftree-sra"
+        },
+        {
+            "flag": "-ftree-switch-conversion"
+        },
+        {
+            "flag": "-ftree-tail-merge"
+        },
+        {
+            "flag": "-ftree-ter"
+        },
+        {
+            "flag": "-ftree-vectorize"
+        },
+        {
+            "flag": "-ftree-vrp"
+        },
+        {
+            "flag": "-funconstrained-commons"
+        },
+        {
+            "flag": "-funit-at-a-time"
+        },
+        {
+            "flag": "-funroll-all-loops"
+        },
+        {
+            "flag": "-funroll-loops"
+        },
+        {
+            "flag": "-funsafe-math-optimizations"
+        },
+        {
+            "flag": "-funswitch-loops"
+        },
+        {
+            "flag": "-fuse-linker-plugin"
+        },
+        {
+            "flag": "-fvariable-expansion-in-unroller"
+        },
+        {
+            "flag": "-fvect-cost-model"
+        },
+        {
+            "flag": "-fvpt"
+        },
+        {
+            "flag": "-fweb"
+        },
+        {
+            "flag": "-fwhole-program"
+        },
+        {
+            "flag": "-fwpa"
+        }
+    ],
+    "rango": [
+        {
+            "flag": "-falign-functions=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-falign-jumps=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-falign-labels=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-falign-loops=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-finline-limit=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-fsched-stalled-insns-dep=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-fsched-stalled-insns=",
+            "min": "0",
+            "max": "65536"
+        },
+        {
+            "flag": "-ftree-parallelize-loops=",
+            "min": "1",
+            "max": "4"
+        }
+    ],
+    "Intervalo": [
+        {
+            "flag": "-fexcess-precision=",
+            "intervalo": "fast,standard"
+        },
+        {
+            "flag": "-ffp-contract=",
+            "intervalo": "fast,off,on"
+        },
+        {
+            "flag": "-fira-algorithm=",
+            "intervalo": "priority,CB"
+        },
+        {
+            "flag": "-fira-region=",
+            "intervalo": "all,mixed,one"
+        },
+        {
+            "flag": "-flive-patching=",
+            "intervalo": "inline-clone"
+        },
+        {
+            "flag": "-flto-partition=",
+            "intervalo": "1to1,max,balanced,one"
+        },
+        {
+            "flag": "-freorder-blocks-algorithm=",
+            "intervalo": "simple,stc"
+        }
+    ]
+}
