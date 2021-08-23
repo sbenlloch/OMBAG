@@ -1,3 +1,5 @@
+# Cálculo el número primo N
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,10 +15,10 @@ void main(int argc, char *argv[] )
         flag = 1;
         for (count = 2; count <= p - 1; count++)
         {
-            if (p % count == 0) //Will be true if p is not prime
+            if (p % count == 0)
             {
                 flag = 0;
-                break; //Loop will terminate if p is not prime
+                break;
             }
         }
         if (flag == 1)
