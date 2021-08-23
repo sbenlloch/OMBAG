@@ -1,3 +1,0 @@
-linea:
-	gcc matriz.c -o matriz
-se puede cambiar el tamaño y el numero de test en el código

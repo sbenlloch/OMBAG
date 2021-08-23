@@ -2,46 +2,49 @@ import copy
 import os
 
 
-def imprimir(poblacion):
-    for cromosoma in poblacion:
-        print(
-            "Resultados cromosoma "
-            + str(cromosoma.id)
-            + "\n\n"
-            + "\tResultados pruebas: [ Ram: "
-            + str(cromosoma.resultRam)
-            + ",\n"
-            + "\t                      Robustez: "
-            + str(cromosoma.resultRob)
-            + ",\n"
-            + "\t                      Tiempo: "
-            + str(cromosoma.resultTiempo)
-            + ",\n"
-            + "\t                      Peso: "
-            + str(cromosoma.resultPeso)
-            + ",\n"
-            + "\t                      CPU: "
-            + str(cromosoma.resultCPU)
-            + " ]\n\n"
-            + "\tResultados tras normalizar: [ Ram: "
-            + str(cromosoma.afterNormRam)
-            + ",\n"
-            + "\t                              Robustez: "
-            + str(cromosoma.afterNormRob)
-            + ",\n"
-            + "\t                              Tiempo: "
-            + str(cromosoma.afterNormTiempo)
-            + ",\n"
-            + "\t                              Peso: "
-            + str(cromosoma.afterNormPeso)
-            + ",\n"
-            + "\t                              CPU: "
-            + str(cromosoma.afterNormCpu)
-            + " ]\n\n"
-            + "\tResultados WSM: "
-            + str(cromosoma.WSM)
-            + "\n\n\n"
-        )
+def imprimir(poblaciones):
+    for nIsla, poblacion in enumerate(poblaciones):
+        print("\n\n [!] Resultados Isla " + str(nIsla))
+
+        for cromosoma in poblacion:
+            print(
+                "\n Resultados cromosoma "
+                + str(cromosoma.id)
+                + "\n\n"
+                + "\tResultados pruebas: [ Ram: "
+                + str(cromosoma.resultRam)
+                + ",\n"
+                + "\t                      Robustez: "
+                + str(cromosoma.resultRob)
+                + ",\n"
+                + "\t                      Tiempo: "
+                + str(cromosoma.resultTiempo)
+                + ",\n"
+                + "\t                      Peso: "
+                + str(cromosoma.resultPeso)
+                + ",\n"
+                + "\t                      CPU: "
+                + str(cromosoma.resultCPU)
+                + " ]\n\n"
+                + "\tResultados tras normalizar: [ Ram: "
+                + str(cromosoma.afterNormRam)
+                + ",\n"
+                + "\t                              Robustez: "
+                + str(cromosoma.afterNormRob)
+                + ",\n"
+                + "\t                              Tiempo: "
+                + str(cromosoma.afterNormTiempo)
+                + ",\n"
+                + "\t                              Peso: "
+                + str(cromosoma.afterNormPeso)
+                + ",\n"
+                + "\t                              CPU: "
+                + str(cromosoma.afterNormCpu)
+                + " ]\n\n"
+                + "\tResultados WSM: "
+                + str(cromosoma.WSM)
+                + "\n\n\n"
+            )
 
 
 diccionarioIDs = {}
@@ -101,100 +104,116 @@ def cantidadFlags(historico, directorioBase):
 
 
 def archivosEstadisticas(historico, directorioBase, Ram, Tiempo, Peso, Rob, Cpu):
+    for nIsla in range(len(historico[0])):
+        directorioIsla = directorioBase + "/Isla" + str(nIsla)
+        os.mkdir(directorioIsla)
+        if Ram:
+            archivoRam = directorioIsla + "/resultadosRam.csv"
+            file = open(archivoRam, "w")
+            file.write("ID;Generacion;Resultado\n")
+            for i in range(len(historico)):
+                for cromosoma in historico[i][nIsla]:
+                    file.write(
+                        str(sustituirID(cromosoma.id))
+                        + ";"
+                        + str(i)
+                        + ";"
+                        + str(cromosoma.resultRam)
+                        + "\n"
+                    )
+            file.close()
 
-    if Ram:
-        archivoRam = directorioBase + "/resultadosRam.csv"
-        file = open(archivoRam, "w")
+        if Tiempo:
+            archivoTiempo = directorioIsla + "/resultadosTiempo.csv"
+            file = open(archivoTiempo, "w")
+            file.write("ID;Generacion;Resultado\n")
+            for i in range(len(historico)):
+                for cromosoma in historico[i][nIsla]:
+                    file.write(
+                        str(sustituirID(cromosoma.id))
+                        + ";"
+                        + str(i)
+                        + ";"
+                        + str(cromosoma.resultTiempo)
+                        + "\n"
+                    )
+            file.close()
+
+        if Peso:
+            archivoPeso = directorioIsla + "/resultadosPeso.csv"
+            file = open(archivoPeso, "w")
+            file.write("ID;Generacion;Resultado\n")
+            for i in range(len(historico)):
+                for cromosoma in historico[i][nIsla]:
+                    file.write(
+                        str(sustituirID(cromosoma.id))
+                        + ";"
+                        + str(i)
+                        + ";"
+                        + str(cromosoma.resultPeso)
+                        + "\n"
+                    )
+            file.close()
+
+        if Rob:
+            archivoRob = directorioIsla + "/resultadosRobustez.csv"
+            file = open(archivoRob, "w")
+            file.write("ID;Generacion;Resultado\n")
+            for i in range(len(historico)):
+                for cromosoma in historico[i][nIsla]:
+                    file.write(
+                        str(sustituirID(cromosoma.id))
+                        + ";"
+                        + str(i)
+                        + ";"
+                        + str(cromosoma.resultRob)
+                        + "\n"
+                    )
+            file.close()
+
+        if Cpu:
+            archivoCpu = directorioIsla + "/resultadosCPU.csv"
+            file = open(archivoCpu, "w")
+            file.write("ID;Generacion;Resultado\n")
+            for i in range(len(historico)):
+                for cromosoma in historico[i][nIsla]:
+                    file.write(
+                        str(sustituirID(cromosoma.id))
+                        + ";"
+                        + str(i)
+                        + ";"
+                        + str(cromosoma.resultCPU)
+                        + "\n"
+                    )
+            file.close()
+
+        archivoWSM = directorioIsla + "/resultadosWSM.csv"
+        file = open(archivoWSM, "w")
         file.write("ID;Generacion;Resultado\n")
         for i in range(len(historico)):
-            for cromosoma in historico[i]:
+            for cromosoma in historico[i][nIsla]:
                 file.write(
                     str(sustituirID(cromosoma.id))
                     + ";"
                     + str(i)
                     + ";"
-                    + str(cromosoma.resultRam)
+                    + str(cromosoma.WSM)
                     + "\n"
                 )
         file.close()
 
-    if Tiempo:
-        archivoTiempo = directorioBase + "/resultadosTiempo.csv"
-        file = open(archivoTiempo, "w")
-        file.write("ID;Generacion;Resultado\n")
-        for i in range(len(historico)):
-            for cromosoma in historico[i]:
-                file.write(
-                    str(sustituirID(cromosoma.id))
-                    + ";"
-                    + str(i)
-                    + ";"
-                    + str(cromosoma.resultTiempo)
-                    + "\n"
-                )
-        file.close()
 
-    if Peso:
-        archivoPeso = directorioBase + "/resultadosPeso.csv"
-        file = open(archivoPeso, "w")
-        file.write("ID;Generacion;Resultado\n")
-        for i in range(len(historico)):
-            for cromosoma in historico[i]:
-                file.write(
-                    str(sustituirID(cromosoma.id))
-                    + ";"
-                    + str(i)
-                    + ";"
-                    + str(cromosoma.resultPeso)
-                    + "\n"
-                )
-        file.close()
+"""
+    historicoPorIslas = [None] * len(historico[0])
+    for Gen, generacion in enumerate(historico):
+        for nIsla, isla in enumerate(generacion):
+            if historicoPorIslas[nIsla] == None:
+                historicoPorIslas[nIsla] = isla
+            else:
+                historicoPorIslas[nIsla].append(isla)
 
-    if Rob:
-        archivoRob = directorioBase + "/resultadosRobustez.csv"
-        file = open(archivoRob, "w")
-        file.write("ID;Generacion;Resultado\n")
-        for i in range(len(historico)):
-            for cromosoma in historico[i]:
-                file.write(
-                    str(sustituirID(cromosoma.id))
-                    + ";"
-                    + str(i)
-                    + ";"
-                    + str(cromosoma.resultRob)
-                    + "\n"
-                )
-        file.close()
-
-    if Cpu:
-        archivoCpu = directorioBase + "/resultadosCPU.csv"
-        file = open(archivoCpu, "w")
-        file.write("ID;Generacion;Resultado\n")
-        for i in range(len(historico)):
-            for cromosoma in historico[i]:
-                file.write(
-                    str(sustituirID(cromosoma.id))
-                    + ";"
-                    + str(i)
-                    + ";"
-                    + str(cromosoma.resultCPU)
-                    + "\n"
-                )
-        file.close()
-    archivoWSM = directorioBase + "/resultadosWSM.csv"
-    file = open(archivoWSM, "w")
-    file.write("ID;Generacion;Resultado\n")
-    for i in range(len(historico)):
-        for cromosoma in historico[i]:
-            file.write(
-                str(sustituirID(cromosoma.id))
-                + ";"
-                + str(i)
-                + ";"
-                + str(cromosoma.WSM)
-                + "\n"
-            )
-    file.close()
-
-    cantidadMejoresFlags(historico, directorioBase)
-    cantidadFlags(historico, directorioBase)
+    for nIsla, isla in enumerate(historicoPorIslas):
+        directorioIsla = directorioBase + "/Isla" + str(nIsla)
+        print(str(isla))
+        cantidadMejoresFlags(isla, directorioIsla)
+        cantidadFlags(isla, directorioIsla)"""

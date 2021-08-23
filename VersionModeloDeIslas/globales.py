@@ -70,8 +70,11 @@ tamaño_inicial = int(parser["Settings"]["Tamaño_Inicial"])
 # Numero de islas ( poblaciones aisladas )
 Islas = int(parser["Settings"]["Islas"])
 
-# Número de intercambios entre islas
+# Cada cuanto hay intercambios entre islas
 Intercambios = int(parser["Settings"]["Intercambios"])
+
+# Cantidad a intercambiar
+Intercambiar = int(parser["Settings"]["Intercambiar"])
 
 # Número de Generación
 Gen = 0
@@ -110,8 +113,6 @@ Max_Gen = int(parser["Limites"]["Max_Gen"])
 Max_Tiempo = int(parser["Limites"]["Max_Tiempo"])
 # Tiempo de inicio, para tener en cuenta en el Limite de Tiempo
 tiempo_ini = time.time()
-# Generación mínima
-Generacion_convergencia = int(parser["Limites"]["Generacion_Convergencia"])
 
 # Porcentaje de aleatorios en cada nueva Generación
 aleatorios = float(parser["Settings"]["Por_Aleatorios"])

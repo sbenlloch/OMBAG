@@ -10,9 +10,6 @@
             "flag": "-fauto-inc-dec"
         },
         {
-            "flag": "-fauto-profile"
-        },
-        {
             "flag": "-fbranch-probabilities"
         },
         {
@@ -331,9 +328,6 @@
             "flag": "-fprofile-reorder-functions"
         },
         {
-            "flag": "-fprofile-use"
-        },
-        {
             "flag": "-fprofile-values"
         },
         {
@@ -404,9 +398,6 @@
         },
         {
             "flag": "-fschedule-insns2"
-        },
-        {
-            "flag": "-fsection-anchors"
         },
         {
             "flag": "-fsel-sched-pipelining"
@@ -665,10 +656,6 @@
         {
             "flag": "-fira-region=",
             "intervalo": "all,mixed,one"
-        },
-        {
-            "flag": "-flive-patching=",
-            "intervalo": "inline-clone"
         },
         {
             "flag": "-flto-partition=",

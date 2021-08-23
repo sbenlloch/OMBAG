@@ -272,7 +272,15 @@ def salidaFin(
     print(" Esta es la línea de compilación seleccionada: \n")
     file.write("\n\n Esta es la línea de compilación seleccionada: \n\n")
 
-    ultimoSeleccionado = sorted(historico[-1], key=lambda cromosoma: cromosoma.WSM)[0]
+    islaMejor = 0
+    mejor = sorted(historico[-1][0], key=lambda cromosoma: cromosoma.WSM)[0]
+    for nIsla, poblacion in enumerate(historico[-1]):
+        mejorIsla = sorted(poblacion, key=lambda cromosoma: cromosoma.WSM)[0]
+        if mejor.WSM > mejorIsla.WSM:
+            mejor = mejorIsla
+            islaMejor = nIsla
+
+    ultimoSeleccionado = mejor
     lineaCompilacion = ultimoSeleccionado.lineaCompilacion
     lineaCompToVect = lineaCompilacion.split(" ")
     path = "<path programa>"
@@ -286,6 +294,9 @@ def salidaFin(
 
     print("\n")
     file.write("\n\n")
+
+    print(" Isla del mejor individuo: " + str(islaMejor) + "\n\n")
+    file.write(" Isla del mejor individuo: " + str(islaMejor) + "\n\n")
 
     if comparar:
         comparacion(

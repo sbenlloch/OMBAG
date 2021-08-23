@@ -18,15 +18,13 @@ def converge(historico):
     return False
 
 
-def limites(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo, Historico, Gen_Convergencia):
+def limites(Limite, Max_Gen, Gen, Max_Tiempo, Tiempo):
     if Limite == 0:
         if Max_Gen <= Gen:
             return True
     if Limite == 1:
         if Max_Tiempo <= (time.time() - Tiempo):
             return True
-    if Limite == 2 and Gen > Gen_Convergencia:
-        return converge(Historico)
     if Limite > 2:
         print("[!]Limite seleccionado fuera de rango")
         sys.exit(1)

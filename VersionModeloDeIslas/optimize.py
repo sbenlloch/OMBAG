@@ -15,6 +15,7 @@ import fitness
 import fin
 import cromosoma
 import compilacion
+import modeloDeIslas
 
 # Archivo con variables globales
 
@@ -95,7 +96,7 @@ for i in range(Islas):
 # comprobando que no se cumplan los limites impuestos en conf.ini
 while True:
 
-    print(" [*]Generación " + str(Gen))
+    print("\n [*]Generación " + str(Gen))
     for nIsla, poblacionIsla in enumerate(poblaciones):
         print(" \n [+]Isla " + str(nIsla) + " en Generación " + str(Gen) + "\n")
 
@@ -121,7 +122,7 @@ while True:
             + "  en Generación "
             + str(Gen)
         )
-        fitness.test(poblacionIsla, maximoNumeroHilos, directorioIslaBase)
+        fitness.test(poblacionIsla, maximoNumeroHilos, directorioIslaActual)
         # Normalizar resultados entre 0 y 1
         if Ram:
             print(
@@ -164,26 +165,43 @@ while True:
             )
             norm.normCpu(poblacionIsla)
 
-        print(" \t[+]Obteniendo WSM Isla " + str(nIsla) + "  en Generación " + str(Gen))
+        print(
+            " \t[+]Obteniendo WSM Isla "
+            + str(nIsla)
+            + "  en Generación "
+            + str(Gen)
+            + "\n"
+        )
         # Ponderar los resultados según el peso
         norm.wsm(poblacionIsla, Ram, Tiempo, Peso, Rob, Cpu)
         poblaciones[nIsla] = poblacionIsla
 
-    if (Gen % Intercambios) == 0:
-        print(" [*]Intercambiando individuos")
-        modeloDeIslas.intercambiar(poblaciones)
-    # Seleccionar
-    print(" [*]Seleccionando individuos Generación " + str(Gen))
-    selected = operadores.selection(copy.deepcopy(poblacion), Select)
+    if (Gen % Intercambios) == 0 and Gen != 0:
+        print("\n [*]Intercambiando individuos\n")
+        modeloDeIslas.intercambiar(poblaciones, Intercambiar)
+
+    poblacionesSeleccionadas = []
+    print("\n[+]Seleccionando Generacion " + str(Gen) + "\n")
+    for nIsla, poblacionIsla in enumerate(poblaciones):
+        # Seleccionar
+        print(
+            "\t[*]Seleccionando individuos Isla "
+            + str(nIsla)
+            + "  en Generación "
+            + str(Gen)
+        )
+        poblacionesSeleccionadas.append(
+            operadores.selection(copy.deepcopy(poblacionIsla), Select)
+        )
+
     # Fin generacion actual
-    historico.append(copy.deepcopy(poblacion))
+    historico.append(copy.deepcopy(poblaciones))
     if args.imprimir:
-        salida.imprimir(poblacion)
+        salida.imprimir(poblaciones)
+
     # Comprobar limites para seguir o no
-    print(" [+]Comprobando Límites")
-    final = operadores.limites(
-        Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini, historico, Generacion_convergencia
-    )
+    print("\n [+]Comprobando Límites")
+    final = operadores.limites(Limite, Max_Gen, Gen, Max_Tiempo, tiempo_ini)
     if final:
         print(" [!]Saliendo... ")
         salida.archivosEstadisticas(
@@ -203,7 +221,12 @@ while True:
     # Preparaciones proxima generación
     Gen += 1
     # Crear nueva Poblacion
-    print(" [*]Creando Generación " + str(Gen))
-    poblacion = cromosoma.siguienteGeneracion(
-        selected, tamaño_general, aleatorios, radiacion, flags
-    )
+    print(" [*]Creando Generación " + str(Gen) + "\n")
+    for nIsla, poblacionSeleccionada in enumerate(poblacionesSeleccionadas):
+        print(
+            "\t[*]Creando Generación Isla " + str(nIsla) + "  en Generación " + str(Gen)
+        )
+        poblacion = cromosoma.siguienteGeneracion(
+            poblacionSeleccionada, tamaño_general, aleatorios, radiacion, flags
+        )
+        poblaciones[nIsla] = poblacion
