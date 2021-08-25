@@ -15,7 +15,7 @@ class Flag:
         return (self.flag, random.randint(0, 1))
 
 
-class rangoFlag(Flag):
+class rangoFlag:
     def __init__(self, nombre, min, max):
         self.nombre = nombre
         self.flag = nombre + str(random.randint(min, max))
@@ -30,7 +30,7 @@ class rangoFlag(Flag):
         return (self.flag, random.randint(0, 1))
 
 
-class intervaloFLag(Flag):
+class intervaloFLag:
     def __init__(self, nombre, intervalo):
         self.nombre = nombre
         self.flag = nombre + random.choice(intervalo)
