@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla3/Cromosoma6/Cromosoma6  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcrossjumping -fdce -fdevirtualize -fdevirtualize-speculatively -fdse -fearly-inlining -ffinite-math-only -ffloat-store -fforward-propagate -fgcse-las -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -findirect-inlining -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-profile -fipa-reference -fipa-sra -fipa-stack-alignment -fipa-vrp -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -floop-strip-mine -flto -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-printf-return-value -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprofile-reorder-functions -fprofile-values -freciprocal-math -frename-registers -freorder-blocks-and-partition -freorder-functions -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsched-dep-count-heuristic -fsched-spec-insn-heuristic -fschedule-fusion -fschedule-insns -fsemantic-interposition -fsingle-precision-constant -fsplit-paths -fstore-merging -fstrict-aliasing -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-dominator-opts -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-vrp -funconstrained-commons -funroll-all-loops -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fweb -fwpa -falign-jumps=9713 -falign-labels=1763 -freorder-blocks-algorithm=stc 

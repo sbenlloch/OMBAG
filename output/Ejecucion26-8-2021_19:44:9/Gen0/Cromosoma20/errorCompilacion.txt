@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma20/Cromosoma20  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcrossjumping -fcx-limited-range -fdata-sections -fdelayed-branch -ffat-lto-objects -ffloat-store -fgcse -fgcse-las -fgcse-lm -fgraphite-identity -fif-conversion -fif-conversion2 -findirect-inlining -finline-functions -finline-functions-called-once -fipa-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference-addressable -fira-loop-pressure -fisolate-erroneous-paths-dereference -flive-range-shrinkage -floop-block -floop-parallelize-all -flra-remat -fmerge-constants -fmodulo-sched -fno-branch-count-reg -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole -fno-peephole2 -fno-signed-zeros -fno-zero-initialized-in-bss -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -frename-registers -freorder-blocks-and-partition -freorder-functions -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fsingle-precision-constant -fsplit-wide-types -fstdarg-opt -fstore-merging -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-ccp -ftree-ch -ftree-dce -ftree-dominator-opts -ftree-forwprop -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-optimize -ftree-pre -ftree-reassoc -ftree-sink -ftree-sra -ftree-tail-merge -ftree-ter -funconstrained-commons -funroll-all-loops -funswitch-loops -fvpt -fwhole-program -falign-functions=31088 -falign-jumps=48573 -falign-labels=54453 -falign-loops=25200 -finline-limit=20561 -fsched-stalled-insns-dep=34805 -ftree-parallelize-loops=4 -fexcess-precision=fast -fira-algorithm=priority -freorder-blocks-algorithm=simple 

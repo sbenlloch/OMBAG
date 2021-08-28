@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma15/Cromosoma15  -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fdse -fearly-inlining -ffat-lto-objects -ffloat-store -fforward-propagate -fgcse -fgcse-sm -fhoist-adjacent-loads -finline-functions -fipa-pure-const -fipa-ra -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fkeep-inline-functions -flive-range-shrinkage -floop-interchange -floop-strip-mine -flra-remat -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-fp-int-builtin-inexact -fno-guess-branch-probability -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-sched-interblock -fno-toplevel-reorder -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpeel-loops -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -freciprocal-math -frename-registers -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -frounding-math -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fschedule-insns -fsel-sched-pipelining -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-paths -fssa-phiopt -fstore-merging -fstrict-aliasing -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-coalesce-vars -ftree-dce -ftree-fre -ftree-loop-if-convert -ftree-loop-im -ftree-loop-linear -ftree-loop-vectorize -ftree-phiprop -ftree-pre -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vectorize -funconstrained-commons -funroll-all-loops -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fwhole-program -falign-labels=7683 -finline-limit=62932 -ftree-parallelize-loops=1 -fira-region=mixed -flto-partition=one -freorder-blocks-algorithm=simple 

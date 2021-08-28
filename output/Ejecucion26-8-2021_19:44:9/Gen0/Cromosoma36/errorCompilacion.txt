@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma36/Cromosoma36  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcse-follow-jumps -fcse-skip-blocks -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -ffast-math -ffat-lto-objects -ffinite-math-only -fforward-propagate -fgcse-las -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-profile -fipa-pta -fipa-ra -fipa-sra -fira-loop-pressure -fivopts -fkeep-static-functions -flimit-function-alignment -floop-block -floop-interchange -floop-nest-optimize -floop-unroll-and-jam -flra-remat -fno-defer-pop -fno-function-cse -fno-math-errno -fno-peephole -fno-peephole2 -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-trapping-math -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -frename-registers -freorder-blocks -freorder-functions -frerun-cse-after-loop -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fsel-sched-pipelining-outer-loops -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-wide-types -fssa-phiopt -fstdarg-opt -fthread-jumps -ftracer -ftree-coalesce-vars -ftree-dce -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-ivcanon -ftree-loop-linear -ftree-partial-pre -ftree-pta -ftree-reassoc -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vrp -funit-at-a-time -funroll-loops -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fweb -fwhole-program -falign-functions=50816 -finline-limit=23815 -ftree-parallelize-loops=2 -ffp-contract=off -fira-region=all 

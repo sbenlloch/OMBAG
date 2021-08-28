@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma20/Cromosoma20  -faggressive-loop-optimizations -fbranch-target-load-optimize -fcaller-saves -fcompare-elim -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fdelayed-branch -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fdse -fearly-inlining -fexpensive-optimizations -ffloat-store -ffunction-sections -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -finline-small-functions -fipa-cp-clone -fipa-ra -fipa-reference-addressable -fipa-sra -fisolate-erroneous-paths-dereference -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -floop-block -floop-interchange -flto -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-printf-return-value -fno-sched-spec -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -freciprocal-math -frename-registers -freorder-blocks -freorder-blocks-and-partition -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-rank-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsel-sched-pipelining-outer-loops -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-ivs-in-unroller -fssa-backprop -fssa-phiopt -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftree-bit-ccp -ftree-builtin-call-dce -ftree-coalesce-vars -ftree-copy-prop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-linear -ftree-pre -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-vectorize -ftree-vrp -funconstrained-commons -funit-at-a-time -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-jumps=38052 -falign-labels=6775 -falign-loops=54265 -fsched-stalled-insns-dep=28726 -ftree-parallelize-loops=2 -fexcess-precision=standard -fira-algorithm=priority -freorder-blocks-algorithm=stc 

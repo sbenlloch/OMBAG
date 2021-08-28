@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma11/Cromosoma11  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcprop-registers -fcx-fortran-rules -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -ffast-math -fgcse-lm -fif-conversion2 -finline-functions -finline-small-functions -fipa-cp -fipa-icf -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference-addressable -fira-loop-pressure -fivopts -fkeep-static-consts -floop-interchange -floop-nest-optimize -floop-strip-mine -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpartial-inlining -fpeel-loops -fprefetch-loop-arrays -fprofile-correction -fprofile-values -free -frename-registers -fsched-critical-path-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-fusion -fschedule-insns -fschedule-insns2 -fsemantic-interposition -fshrink-wrap -fsingle-precision-constant -fsplit-ivs-in-unroller -ftracer -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-forwprop -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-linear -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-reassoc -ftree-sink -ftree-slsr -ftree-vectorize -ftree-vrp -funconstrained-commons -fvariable-expansion-in-unroller -fvpt -fweb -falign-loops=59664 -finline-limit=9828 -fsched-stalled-insns=1260 -fexcess-precision=standard -flto-partition=max 

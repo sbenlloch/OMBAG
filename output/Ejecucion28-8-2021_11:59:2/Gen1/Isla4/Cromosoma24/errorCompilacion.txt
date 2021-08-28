@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla4/Cromosoma24/Cromosoma24  -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcrossjumping -fdata-sections -fdce -fdevirtualize -fdevirtualize-at-ltrans -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -ffloat-store -fforward-propagate -fgcse -fgcse-after-reload -fgcse-las -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -finline-functions-called-once -fipa-cp -fipa-icf -fipa-pure-const -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fipa-vrp -fira-loop-pressure -fivopts -fkeep-static-consts -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-inline -fno-ira-share-save-slots -fno-peephole -fno-printf-return-value -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fprofile-correction -fprofile-reorder-functions -freciprocal-math -freorder-blocks -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fsplit-wide-types -fstrict-aliasing -fthread-jumps -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-im -ftree-loop-linear -ftree-loop-vectorize -ftree-partial-pre -ftree-sra -ftree-switch-conversion -ftree-vectorize -funit-at-a-time -funroll-all-loops -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -falign-functions=124 -falign-jumps=30754 -ftree-parallelize-loops=2 -fexcess-precision=standard -fira-algorithm=CB -fira-region=mixed 

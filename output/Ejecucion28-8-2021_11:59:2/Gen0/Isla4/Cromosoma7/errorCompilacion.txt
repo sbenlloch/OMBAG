@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla4/Cromosoma7/Cromosoma7  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fcaller-saves -fcombine-stack-adjustments -fcse-follow-jumps -fcse-skip-blocks -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -ffloat-store -fgcse-las -fgcse-lm -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-sra -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fivopts -fkeep-inline-functions -floop-block -floop-interchange -floop-nest-optimize -floop-strip-mine -floop-unroll-and-jam -fmerge-constants -fmodulo-sched-allow-regmoves -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-math-errno -fno-peephole2 -fno-printf-return-value -fno-sched-spec -fno-trapping-math -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -fprofile-values -freciprocal-math -frename-registers -freorder-blocks -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-paths -fsplit-wide-types -fstrict-aliasing -fthread-jumps -ftree-ccp -ftree-copy-prop -ftree-dce -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-vectorize -ftree-reassoc -ftree-sink -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-all-loops -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fwhole-program -falign-functions=27702 -falign-jumps=8692 -falign-loops=59352 -finline-limit=46364 -fsched-stalled-insns=15375 -ffp-contract=off -fira-algorithm=CB 

@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla2/Cromosoma13/Cromosoma13  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fearly-inlining -fexpensive-optimizations -ffinite-math-only -ffloat-store -ffunction-sections -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -findirect-inlining -finline-functions -finline-small-functions -fipa-cp-clone -fipa-icf -fipa-profile -fipa-pta -fipa-reference -fira-loop-pressure -fivopts -fkeep-static-consts -fkeep-static-functions -floop-block -flra-remat -flto -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-printf-return-value -fno-sched-spec -fno-signed-zeros -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-reorder-functions -fprofile-values -frename-registers -freorder-blocks -freorder-functions -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-pressure -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fssa-backprop -fssa-phiopt -fthread-jumps -ftree-bit-ccp -ftree-coalesce-vars -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-distribution -ftree-loop-linear -ftree-loop-vectorize -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-vectorize -funconstrained-commons -funit-at-a-time -funroll-all-loops -funswitch-loops -fvect-cost-model -fvpt -fweb -fwhole-program -fwpa -falign-functions=17020 -falign-jumps=10068 -falign-labels=22817 -falign-loops=17899 -ftree-parallelize-loops=3 -fexcess-precision=fast -ffp-contract=off -fira-algorithm=CB -fira-region=all -flto-partition=balanced 

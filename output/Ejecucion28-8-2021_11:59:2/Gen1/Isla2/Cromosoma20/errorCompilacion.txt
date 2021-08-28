@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla2/Cromosoma20/Cromosoma20  -fbranch-target-load-optimize -fbtr-bb-exclusive -fcompare-elim -fcse-follow-jumps -fcx-fortran-rules -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-speculatively -fdse -fexpensive-optimizations -ffast-math -fforward-propagate -fgcse-after-reload -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-small-functions -fipa-cp -fipa-profile -fipa-pure-const -fipa-reference-addressable -fipa-vrp -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fkeep-static-consts -flive-range-shrinkage -floop-interchange -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-sched-interblock -fno-signed-zeros -fno-toplevel-reorder -foptimize-sibling-calls -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fschedule-fusion -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-loops -fsplit-paths -fssa-backprop -fssa-phiopt -fthread-jumps -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dominator-opts -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-optimize -ftree-loop-vectorize -ftree-phiprop -ftree-pta -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-tail-merge -funconstrained-commons -funroll-all-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -finline-limit=12318 -fsched-stalled-insns-dep=19640 -fsched-stalled-insns=6638 -ftree-parallelize-loops=3 -ffp-contract=off -fira-algorithm=priority -fira-region=all -flto-partition=one 

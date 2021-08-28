@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma16/Cromosoma16  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcode-hoisting -fcompare-elim -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-speculatively -fdse -fexpensive-optimizations -ffast-math -ffinite-math-only -fgcse-after-reload -fgcse-las -fgcse-sm -fgraphite-identity -findirect-inlining -finline-small-functions -fipa-bit-cp -fipa-icf -fipa-profile -fipa-pta -fipa-pure-const -fipa-reference -fipa-sra -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-parallelize-all -flto -fmerge-all-constants -fmodulo-sched -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-inline -fno-peephole2 -fno-printf-return-value -fno-signed-zeros -fomit-frame-pointer -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprefetch-loop-arrays -freciprocal-math -free -frename-registers -freorder-functions -freschedule-modulo-scheduled-loops -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-paths -fsplit-wide-types -fstdarg-opt -fstore-merging -fthread-jumps -ftracer -ftree-bit-ccp -ftree-copy-prop -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-pre -ftree-reassoc -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vectorize -ftree-vrp -funroll-loops -funsafe-math-optimizations -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-jumps=41965 -falign-labels=26046 -falign-loops=59792 -finline-limit=45321 -fsched-stalled-insns-dep=32894 -fsched-stalled-insns=36811 -ftree-parallelize-loops=1 -fira-region=all -flto-partition=1to1 

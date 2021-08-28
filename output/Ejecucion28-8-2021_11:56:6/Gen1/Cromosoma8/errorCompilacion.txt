@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen1/Cromosoma8/Cromosoma8  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcprop-registers -fcse-follow-jumps -fcse-skip-blocks -fcx-limited-range -fdata-sections -fdce -fdevirtualize -fdevirtualize-at-ltrans -fearly-inlining -ffinite-math-only -fgcse -fgcse-las -fgcse-lm -fhoist-adjacent-loads -fif-conversion -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-cp -fipa-cp-clone -fipa-pta -fipa-reference-addressable -fipa-stack-alignment -fisolate-erroneous-paths-attribute -fivopts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-nest-optimize -floop-unroll-and-jam -flra-remat -flto -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -fpeel-loops -fprofile-correction -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fssa-phiopt -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftracer -ftree-ch -ftree-dominator-opts -ftree-forwprop -ftree-fre -ftree-loop-if-convert -ftree-phiprop -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-vrp -funroll-loops -funswitch-loops -fuse-linker-plugin -fweb -fwhole-program -fwpa -falign-functions=30789 -falign-jumps=6339 -finline-limit=28510 -fsched-stalled-insns-dep=63825 -fsched-stalled-insns=35763 -fexcess-precision=fast -ffp-contract=off -fira-region=mixed -flto-partition=balanced 

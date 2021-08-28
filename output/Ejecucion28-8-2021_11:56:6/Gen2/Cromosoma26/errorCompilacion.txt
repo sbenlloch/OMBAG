@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen2/Cromosoma26/Cromosoma26  -fauto-inc-dec -fbranch-probabilities -fbtr-bb-exclusive -fcode-hoisting -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -ffunction-sections -fgcse -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion2 -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-icf -fipa-reference -fipa-sra -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-consts -floop-block -floop-nest-optimize -floop-strip-mine -floop-unroll-and-jam -flra-remat -fmerge-all-constants -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-math-errno -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -freorder-functions -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fsemantic-interposition -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fsplit-wide-types -fstdarg-opt -fstore-merging -fstrict-aliasing -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-coalesce-vars -ftree-dominator-opts -ftree-forwprop -ftree-fre -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-partial-pre -ftree-pre -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vrp -funit-at-a-time -funroll-all-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fwhole-program -fsched-stalled-insns-dep=7595 -fsched-stalled-insns=57553 -fexcess-precision=fast -fira-algorithm=CB -fira-region=mixed -freorder-blocks-algorithm=stc 

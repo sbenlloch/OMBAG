@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen2/Cromosoma6/Cromosoma6  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fcaller-saves -fcode-hoisting -fcprop-registers -fcse-follow-jumps -fcx-limited-range -fdata-sections -fdelayed-branch -fdevirtualize -ffast-math -ffat-lto-objects -ffunction-sections -fgcse -fgcse-after-reload -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -finline-functions -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-profile -fipa-pta -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-sra -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -flive-range-shrinkage -floop-strip-mine -flto -fmerge-all-constants -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-guess-branch-probability -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprefetch-loop-arrays -fprofile-values -frename-registers -frounding-math -fsched-pressure -fsched-spec-load -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-paths -fsplit-wide-types -fssa-backprop -fstdarg-opt -ftree-bit-ccp -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-pta -ftree-sink -ftree-slsr -ftree-sra -ftree-tail-merge -ftree-ter -ftree-vrp -funit-at-a-time -funroll-all-loops -funswitch-loops -fuse-linker-plugin -fweb -falign-loops=1280 -fsched-stalled-insns-dep=55876 -fsched-stalled-insns=57553 -fexcess-precision=fast -fira-algorithm=CB 

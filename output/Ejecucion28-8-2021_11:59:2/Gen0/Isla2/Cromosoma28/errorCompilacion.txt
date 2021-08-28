@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla2/Cromosoma28/Cromosoma28  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fcaller-saves -fcompare-elim -fcrossjumping -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fexpensive-optimizations -ffat-lto-objects -ffloat-store -fforward-propagate -fgcse -fgcse-after-reload -fif-conversion -fif-conversion2 -findirect-inlining -fipa-bit-cp -fipa-cp-clone -fipa-pta -fipa-pure-const -fipa-reference -fipa-stack-alignment -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fivopts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-interchange -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -flto -fmerge-all-constants -fmove-loop-invariants -fno-fp-int-builtin-inexact -fno-guess-branch-probability -fno-ira-share-save-slots -fno-math-errno -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fomit-frame-pointer -foptimize-sibling-calls -fpredictive-commoning -free -freorder-blocks -freorder-blocks-and-partition -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched2-use-superblocks -fschedule-fusion -fschedule-insns -fschedule-insns2 -fselective-scheduling -fselective-scheduling2 -fsignaling-nans -fsingle-precision-constant -fsplit-loops -fssa-phiopt -fstdarg-opt -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-phiprop -ftree-pre -ftree-pta -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-ter -ftree-vrp -funconstrained-commons -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fweb -falign-functions=48194 -falign-jumps=61444 -ftree-parallelize-loops=1 -ffp-contract=off -fira-algorithm=CB -fira-region=one 

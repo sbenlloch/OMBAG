@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma8/Cromosoma8  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcompare-elim -fconserve-stack -fcprop-registers -fcx-fortran-rules -fdce -fdevirtualize-speculatively -fdse -fexpensive-optimizations -ffast-math -ffunction-sections -fgcse -fgcse-las -fgcse-sm -fhoist-adjacent-loads -fif-conversion2 -findirect-inlining -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-icf -fipa-pta -fipa-pure-const -fkeep-static-consts -floop-block -floop-interchange -floop-strip-mine -flra-remat -flto -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-toplevel-reorder -fno-trapping-math -fomit-frame-pointer -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprofile-values -frename-registers -freorder-blocks-and-partition -freorder-functions -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fsel-sched-pipelining -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fsignaling-nans -fsplit-loops -fsplit-paths -fssa-backprop -fstdarg-opt -fstore-merging -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-coalesce-vars -ftree-dce -ftree-dse -ftree-forwprop -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-partial-pre -ftree-sink -ftree-vectorize -funit-at-a-time -funroll-all-loops -funsafe-math-optimizations -fuse-linker-plugin -fvariable-expansion-in-unroller -fwhole-program -falign-functions=53474 -falign-jumps=44995 -falign-loops=13053 -fsched-stalled-insns-dep=60416 -ftree-parallelize-loops=1 -fexcess-precision=standard -ffp-contract=on 

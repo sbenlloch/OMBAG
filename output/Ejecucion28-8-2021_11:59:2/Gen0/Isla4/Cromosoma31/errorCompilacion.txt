@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla4/Cromosoma31/Cromosoma31  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fcaller-saves -fcode-hoisting -fcompare-elim -fconserve-stack -fcprop-registers -fcrossjumping -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize-at-ltrans -fearly-inlining -fexpensive-optimizations -ffat-lto-objects -ffinite-math-only -ffloat-store -ffunction-sections -fgcse -fgcse-after-reload -fgcse-sm -fif-conversion2 -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-icf -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference -fipa-sra -fipa-stack-alignment -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -fkeep-static-consts -floop-interchange -floop-nest-optimize -floop-unroll-and-jam -flto -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-sched-interblock -fno-toplevel-reorder -fpartial-inlining -fpeel-loops -fprofile-correction -fprofile-values -freciprocal-math -frename-registers -freorder-blocks -frerun-cse-after-loop -frounding-math -fsched-critical-path-heuristic -fsched-spec-load -fsched2-use-superblocks -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsingle-precision-constant -fsplit-paths -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-phiprop -ftree-sink -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vectorize -funconstrained-commons -funroll-all-loops -funroll-loops -fuse-linker-plugin -fweb -fwhole-program -fwpa -falign-functions=52812 -falign-jumps=18990 -falign-labels=28315 -finline-limit=14549 -fsched-stalled-insns-dep=9865 -fira-algorithm=CB 

@@ -12,7 +12,7 @@ def inicializacionFlags(file):
     listaFlags = []
     for binarias in data["binarias"]:
         nombre = str(binarias["flag"])
-        objeto = flags.Flag(nombre)
+        objeto = flags.binariaFlag(nombre)
         listaFlags.append(objeto)
 
     for rangos in data["rango"]:

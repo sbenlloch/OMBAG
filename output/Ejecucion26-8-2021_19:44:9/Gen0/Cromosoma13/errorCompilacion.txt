@@ -1,0 +1,67 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma13/Cromosoma13  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fearly-inlining -ffast-math -ffinite-math-only -ffloat-store -ffunction-sections -fgcse-las -fgcse-lm -fgraphite-identity -fif-conversion2 -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-cp-clone -fipa-icf -fipa-pta -fipa-ra -fipa-reference -fipa-sra -fipa-stack-alignment -fkeep-static-functions -flimit-function-alignment -floop-nest-optimize -flra-remat -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-math-errno -fno-peephole -fno-peephole2 -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpartial-inlining -fprofile-reorder-functions -free -freorder-blocks-and-partition -freorder-functions -frounding-math -fsave-optimization-record -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling -fselective-scheduling2 -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-wide-types -fstore-merging -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-ch -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-pta -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-vrp -funroll-all-loops -funroll-loops -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fweb -falign-labels=560 -finline-limit=29752 -fsched-stalled-insns-dep=60985 -fsched-stalled-insns=15466 -fexcess-precision=fast -fira-algorithm=CB -flto-partition=max -freorder-blocks-algorithm=stc 

@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma6/Cromosoma6  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fdce -fdelayed-branch -fdevirtualize-at-ltrans -fdse -fearly-inlining -ffast-math -ffloat-store -fgcse -fgcse-after-reload -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -finline-small-functions -fipa-icf -fipa-profile -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-sra -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -fkeep-static-functions -floop-parallelize-all -floop-strip-mine -flto -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-inline -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-trapping-math -foptimize-sibling-calls -fpredictive-commoning -fprefetch-loop-arrays -fprofile-values -freciprocal-math -freorder-blocks -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-dep-count-heuristic -fsched-rank-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-insns -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-loops -fstdarg-opt -fstore-merging -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-ccp -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-optimize -ftree-loop-vectorize -ftree-reassoc -ftree-scev-cprop -ftree-switch-conversion -ftree-tail-merge -funconstrained-commons -funit-at-a-time -funsafe-math-optimizations -fuse-linker-plugin -fvect-cost-model -fwhole-program -fwpa -falign-functions=17696 -falign-jumps=20037 -finline-limit=25557 -fsched-stalled-insns-dep=64750 -fexcess-precision=standard -freorder-blocks-algorithm=stc 

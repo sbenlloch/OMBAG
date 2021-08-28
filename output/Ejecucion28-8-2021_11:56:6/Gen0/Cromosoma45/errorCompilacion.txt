@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma45/Cromosoma45  -fbranch-probabilities -fbranch-target-load-optimize2 -fcaller-saves -fconserve-stack -fcprop-registers -fcse-skip-blocks -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fexpensive-optimizations -ffat-lto-objects -ffinite-math-only -ffloat-store -fgcse -fgraphite-identity -fif-conversion -fif-conversion2 -findirect-inlining -finline-functions-called-once -fipa-bit-cp -fipa-cp -fipa-pta -fipa-stack-alignment -fipa-vrp -fira-loop-pressure -fivopts -fkeep-inline-functions -fkeep-static-functions -floop-parallelize-all -floop-unroll-and-jam -flra-remat -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -freorder-functions -frerun-cse-after-loop -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched2-use-superblocks -fschedule-fusion -fschedule-insns -fsel-sched-pipelining -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsingle-precision-constant -fsplit-wide-types -fstdarg-opt -fstore-merging -fstrict-aliasing -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-copy-prop -ftree-dce -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -funroll-all-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fwpa -falign-jumps=42199 -finline-limit=7499 -fsched-stalled-insns-dep=44717 -fsched-stalled-insns=18144 -fexcess-precision=fast -ffp-contract=on -fira-region=mixed -freorder-blocks-algorithm=stc 

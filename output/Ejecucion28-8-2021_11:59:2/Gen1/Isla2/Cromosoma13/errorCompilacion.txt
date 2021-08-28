@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla2/Cromosoma13/Cromosoma13  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fcompare-elim -fcprop-registers -fcse-skip-blocks -fcx-fortran-rules -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively -fearly-inlining -ffat-lto-objects -ffinite-math-only -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-after-reload -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-pure-const -fipa-ra -fipa-sra -fipa-stack-alignment -fipa-vrp -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -flimit-function-alignment -floop-interchange -floop-nest-optimize -floop-unroll-and-jam -flra-remat -flto -fmerge-constants -fno-branch-count-reg -fno-defer-pop -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-sched-spec -fno-trapping-math -fpartial-inlining -fpeel-loops -fprofile-correction -fprofile-reorder-functions -fprofile-values -freciprocal-math -freorder-blocks -freorder-blocks-and-partition -freorder-functions -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns -fselective-scheduling -fshrink-wrap -fsignaling-nans -fsplit-paths -fssa-backprop -fstrict-aliasing -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-im -ftree-loop-linear -ftree-partial-pre -ftree-phiprop -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vectorize -funconstrained-commons -funit-at-a-time -funsafe-math-optimizations -funswitch-loops -fwhole-program -falign-jumps=62355 -falign-loops=24000 -finline-limit=14719 -fsched-stalled-insns-dep=3644 -ffp-contract=off -fira-region=one -flto-partition=balanced -freorder-blocks-algorithm=stc 

@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma6/Cromosoma6  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-probabilities -fcombine-stack-adjustments -fcse-skip-blocks -fdata-sections -fdce -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -fearly-inlining -ffast-math -ffat-lto-objects -ffloat-store -ffunction-sections -fgcse -fgcse-las -fgcse-lm -fgraphite-identity -findirect-inlining -finline-functions -finline-functions-called-once -fipa-icf -fipa-ra -fipa-reference-addressable -fipa-sra -fisolate-erroneous-paths-attribute -fivopts -fkeep-inline-functions -fkeep-static-consts -flimit-function-alignment -floop-nest-optimize -floop-parallelize-all -flra-remat -fmerge-all-constants -fmerge-constants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-peephole -fno-peephole2 -fno-sched-interblock -fno-signed-zeros -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fprefetch-loop-arrays -fprofile-correction -fprofile-values -freciprocal-math -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fschedule-insns -fsel-sched-pipelining -fselective-scheduling -fshrink-wrap -fssa-phiopt -fstore-merging -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dce -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-vectorize -ftree-phiprop -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-tail-merge -ftree-vectorize -funconstrained-commons -fvariable-expansion-in-unroller -fvect-cost-model -fwhole-program -falign-loops=59664 -finline-limit=62984 -fsched-stalled-insns=16234 -ftree-parallelize-loops=1 -flto-partition=balanced -freorder-blocks-algorithm=simple 

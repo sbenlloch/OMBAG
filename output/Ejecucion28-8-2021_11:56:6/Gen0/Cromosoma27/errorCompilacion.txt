@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma27/Cromosoma27  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdce -fdelayed-branch -fdse -fearly-inlining -ffast-math -fgcse-lm -fif-conversion2 -findirect-inlining -fipa-cp -fipa-cp-clone -fipa-icf -fipa-ra -fipa-reference -fipa-vrp -fira-loop-pressure -fisolate-erroneous-paths-dereference -flive-range-shrinkage -floop-nest-optimize -floop-unroll-and-jam -fmerge-all-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -frename-registers -frerun-cse-after-loop -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load -fsched-spec-load-dangerous -fschedule-fusion -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fssa-backprop -fstdarg-opt -fstore-merging -fthread-jumps -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-tail-merge -ftree-ter -ftree-vrp -funit-at-a-time -funroll-all-loops -funroll-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fwhole-program -fwpa -falign-loops=33683 -finline-limit=39356 -fsched-stalled-insns-dep=3842 -ftree-parallelize-loops=1 -fexcess-precision=standard 

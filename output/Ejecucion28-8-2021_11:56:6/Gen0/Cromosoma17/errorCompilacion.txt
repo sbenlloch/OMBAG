@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma17/Cromosoma17  -fassociative-math -fbranch-target-load-optimize -fconserve-stack -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize-at-ltrans -ffinite-math-only -fforward-propagate -ffunction-sections -fgcse-sm -fgraphite-identity -fif-conversion -findirect-inlining -finline-small-functions -fipa-icf -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-vrp -fira-hoist-pressure -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -floop-block -floop-interchange -floop-parallelize-all -flto -fmerge-all-constants -fno-branch-count-reg -fno-function-cse -fno-inline -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-sched-interblock -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprofile-correction -fprofile-values -free -frename-registers -freorder-blocks -freorder-functions -frounding-math -fsched-dep-count-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load -fsched-spec-load-dangerous -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-paths -fssa-backprop -fstdarg-opt -fthread-jumps -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-partial-pre -ftree-pre -ftree-reassoc -ftree-sink -ftree-tail-merge -ftree-vrp -funconstrained-commons -funit-at-a-time -funswitch-loops -fvariable-expansion-in-unroller -fvpt -falign-jumps=8248 -falign-labels=54442 -falign-loops=17913 -finline-limit=42125 -fsched-stalled-insns=63157 -fexcess-precision=fast -ffp-contract=fast -fira-algorithm=CB -fira-region=all 

@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:58:27/Gen0/Isla0/Cromosoma17/Cromosoma17  -faggressive-loop-optimizations -fbranch-probabilities -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcx-limited-range -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively -fdse -fexpensive-optimizations -ffinite-math-only -ffloat-store -fgcse -fgcse-las -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -findirect-inlining -finline-small-functions -fipa-cp-clone -fipa-icf -fipa-reference -fipa-reference-addressable -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -fkeep-static-consts -flimit-function-alignment -floop-block -floop-interchange -floop-parallelize-all -flto -fmove-loop-invariants -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks-and-partition -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns2 -fsel-sched-pipelining-outer-loops -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fsignaling-nans -fsplit-loops -fsplit-paths -fsplit-wide-types -fstdarg-opt -fstore-merging -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-distribution -ftree-loop-linear -ftree-loop-optimize -ftree-phiprop -ftree-scev-cprop -ftree-sink -ftree-sra -ftree-tail-merge -ftree-vrp -funconstrained-commons -funroll-all-loops -funsafe-math-optimizations -funswitch-loops -fweb -fwhole-program -falign-functions=1319 -falign-loops=32894 -finline-limit=11281 -fsched-stalled-insns-dep=26666 -fsched-stalled-insns=24096 -ffp-contract=fast -fira-algorithm=CB -fira-region=one -flto-partition=1to1 

@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma36/Cromosoma36  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fcode-hoisting -fcprop-registers -fcse-follow-jumps -fcse-skip-blocks -fcx-limited-range -fdata-sections -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -ffat-lto-objects -ffinite-math-only -fforward-propagate -fgcse -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-cp-clone -fipa-pta -fipa-pure-const -fipa-reference-addressable -fipa-stack-alignment -fipa-vrp -fira-loop-pressure -fkeep-inline-functions -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-interchange -floop-unroll-and-jam -flra-remat -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-math-errno -fno-signed-zeros -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -free -frename-registers -freorder-blocks -freorder-blocks-and-partition -frerun-cse-after-loop -frounding-math -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fsemantic-interposition -fshrink-wrap -fsingle-precision-constant -fsplit-wide-types -fssa-phiopt -fstdarg-opt -fstore-merging -fthread-jumps -ftree-builtin-call-dce -ftree-ccp -ftree-copy-prop -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vectorize -ftree-vrp -funconstrained-commons -funroll-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvpt -fwhole-program -finline-limit=62984 -ftree-parallelize-loops=1 -fexcess-precision=fast -flto-partition=max -freorder-blocks-algorithm=simple 

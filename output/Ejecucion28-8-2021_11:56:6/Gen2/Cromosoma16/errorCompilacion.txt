@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen2/Cromosoma16/Cromosoma16  -fbranch-probabilities -fbranch-target-load-optimize2 -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcrossjumping -fcx-fortran-rules -fdata-sections -fdce -fdelayed-branch -fdse -fforward-propagate -ffunction-sections -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -findirect-inlining -fipa-bit-cp -fipa-cp -fipa-icf -fipa-reference -fipa-reference-addressable -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -flive-range-shrinkage -floop-block -floop-interchange -floop-strip-mine -floop-unroll-and-jam -flra-remat -fmodulo-sched -fmove-loop-invariants -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fprofile-correction -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks -freorder-blocks-and-partition -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fschedule-fusion -fsel-sched-pipelining-outer-loops -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstore-merging -fthread-jumps -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dse -ftree-fre -ftree-loop-vectorize -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-sra -ftree-vrp -funconstrained-commons -funsafe-math-optimizations -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fwhole-program -falign-functions=4068 -falign-labels=44356 -fira-algorithm=priority -freorder-blocks-algorithm=simple 

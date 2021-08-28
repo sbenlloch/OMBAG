@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla1/Cromosoma12/Cromosoma12  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcx-limited-range -fdata-sections -fdevirtualize-speculatively -fdse -fearly-inlining -ffat-lto-objects -ffinite-math-only -ffloat-store -ffunction-sections -fgcse -fgcse-after-reload -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-small-functions -fipa-icf -fipa-profile -fipa-reference -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fipa-vrp -fisolate-erroneous-paths-attribute -fivopts -fkeep-static-consts -fkeep-static-functions -flive-range-shrinkage -floop-block -floop-unroll-and-jam -flra-remat -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-inline -fno-ira-share-save-slots -fno-math-errno -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -fpredictive-commoning -fprefetch-loop-arrays -fprofile-reorder-functions -frename-registers -freorder-blocks-and-partition -freorder-functions -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched2-use-superblocks -fschedule-insns -fschedule-insns2 -fselective-scheduling -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-loops -fsplit-paths -fssa-backprop -fssa-phiopt -fstore-merging -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-im -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-vectorize -funconstrained-commons -funit-at-a-time -funroll-all-loops -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwpa -fsched-stalled-insns-dep=13806 -fsched-stalled-insns=14408 -ffp-contract=fast -fira-algorithm=CB -fira-region=one -freorder-blocks-algorithm=simple 

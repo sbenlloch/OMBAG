@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma1/Cromosoma1  -fauto-inc-dec -fbranch-probabilities -fcode-hoisting -fcompare-elim -fconserve-stack -fcprop-registers -fcse-skip-blocks -fcx-fortran-rules -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -ffinite-math-only -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-lm -fgcse-sm -fgraphite-identity -finline-functions -fipa-bit-cp -fipa-profile -fipa-pta -fipa-pure-const -fipa-reference -fipa-stack-alignment -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fkeep-static-functions -flive-range-shrinkage -floop-interchange -floop-parallelize-all -flra-remat -flto -fmerge-all-constants -fmerge-constants -fmove-loop-invariants -fno-defer-pop -fno-function-cse -fno-inline -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-sched-spec -fno-signed-zeros -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -fprofile-correction -fprofile-values -freciprocal-math -freorder-blocks -freorder-functions -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load-dangerous -fschedule-insns2 -fselective-scheduling -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fssa-phiopt -fstore-merging -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-ch -ftree-dce -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-linear -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-sra -ftree-tail-merge -ftree-ter -funconstrained-commons -funroll-all-loops -funroll-loops -funsafe-math-optimizations -fwpa -falign-functions=55553 -falign-jumps=3490 -falign-labels=16111 -falign-loops=5267 -finline-limit=46574 -fira-algorithm=priority -flto-partition=max 

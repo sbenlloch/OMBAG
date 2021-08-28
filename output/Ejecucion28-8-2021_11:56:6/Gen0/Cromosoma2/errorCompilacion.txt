@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma2/Cromosoma2  -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcode-hoisting -fcprop-registers -fcse-skip-blocks -fcx-limited-range -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffat-lto-objects -ffloat-store -fgcse -fgcse-after-reload -fgcse-las -fgcse-sm -fgraphite-identity -fif-conversion2 -findirect-inlining -finline-functions -fipa-cp -fipa-icf -fipa-profile -fipa-reference -fipa-vrp -fisolate-erroneous-paths-attribute -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-nest-optimize -floop-parallelize-all -flra-remat -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -freorder-blocks -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-insns -fschedule-insns2 -fselective-scheduling2 -fssa-phiopt -fstore-merging -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-fre -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-pre -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vectorize -funconstrained-commons -funit-at-a-time -funroll-all-loops -funroll-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fwhole-program -fwpa -falign-jumps=52424 -falign-labels=19261 -falign-loops=37652 -finline-limit=16305 -fsched-stalled-insns=7701 -ftree-parallelize-loops=2 -flto-partition=1to1 -freorder-blocks-algorithm=simple 

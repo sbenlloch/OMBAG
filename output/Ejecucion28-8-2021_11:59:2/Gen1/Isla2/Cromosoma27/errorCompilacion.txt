@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla2/Cromosoma27/Cromosoma27  -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcompare-elim -fconserve-stack -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fforward-propagate -ffunction-sections -fgcse -fgcse-lm -fgcse-sm -fhoist-adjacent-loads -fif-conversion2 -finline-functions-called-once -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-vrp -fira-loop-pressure -fisolate-erroneous-paths-attribute -fivopts -floop-interchange -floop-nest-optimize -floop-unroll-and-jam -flra-remat -flto -fmerge-all-constants -fmove-loop-invariants -fno-branch-count-reg -fno-guess-branch-probability -fno-ira-share-save-slots -fno-math-errno -fno-peephole -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-trapping-math -foptimize-sibling-calls -fpredictive-commoning -fprofile-correction -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks-and-partition -freorder-functions -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load -fsched2-use-superblocks -fselective-scheduling2 -fsemantic-interposition -fsignaling-nans -fsingle-precision-constant -fsplit-wide-types -fssa-backprop -fstrict-aliasing -fthread-jumps -ftracer -ftree-ccp -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-phiprop -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vectorize -funconstrained-commons -funit-at-a-time -funroll-all-loops -funroll-loops -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-jumps=5693 -finline-limit=14606 -fsched-stalled-insns=6638 -ftree-parallelize-loops=4 -ffp-contract=off -fira-algorithm=CB -fira-region=all -flto-partition=1to1 -freorder-blocks-algorithm=simple 

@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla0/Cromosoma16/Cromosoma16  -faggressive-loop-optimizations -fbranch-probabilities -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fcrossjumping -fcse-skip-blocks -fcx-limited-range -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fearly-inlining -ffat-lto-objects -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion2 -finline-small-functions -fipa-profile -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fivopts -flive-range-shrinkage -floop-nest-optimize -floop-parallelize-all -fmerge-constants -fno-defer-pop -fno-guess-branch-probability -fno-inline -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -freorder-blocks -freorder-functions -frounding-math -fsched-pressure -fsched-spec-load -fsched2-use-superblocks -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap-separate -fsingle-precision-constant -fsplit-wide-types -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-loop-distribution -ftree-loop-im -ftree-partial-pre -ftree-pre -ftree-scev-cprop -ftree-slsr -ftree-switch-conversion -ftree-ter -ftree-vectorize -funit-at-a-time -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fvect-cost-model -fwhole-program -fsched-stalled-insns-dep=32766 -fsched-stalled-insns=17695 -ftree-parallelize-loops=1 -fira-algorithm=CB 

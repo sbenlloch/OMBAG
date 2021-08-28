@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla1/Cromosoma8/Cromosoma8  -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffat-lto-objects -ffloat-store -ffunction-sections -fgcse-after-reload -fgcse-sm -fif-conversion -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-icf -fipa-pure-const -fipa-reference-addressable -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fivopts -fkeep-inline-functions -fkeep-static-functions -floop-interchange -floop-nest-optimize -floop-unroll-and-jam -fmerge-all-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -fprofile-values -free -frename-registers -freorder-blocks-and-partition -freorder-functions -frerun-cse-after-loop -frounding-math -fsched-critical-path-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling -fsemantic-interposition -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-paths -fssa-backprop -fstdarg-opt -fstore-merging -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-loop-distribution -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-scev-cprop -ftree-slsr -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-all-loops -fuse-linker-plugin -fvect-cost-model -fweb -fwhole-program -fwpa -falign-loops=6357 -finline-limit=33617 -fexcess-precision=fast -fira-algorithm=priority 

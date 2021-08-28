@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma51/Cromosoma51  -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fearly-inlining -ffast-math -ffloat-store -ffunction-sections -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-functions -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-vrp -fira-loop-pressure -fivopts -fkeep-static-consts -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-math-errno -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-trapping-math -foptimize-sibling-calls -fpredictive-commoning -fprofile-reorder-functions -fprofile-values -freciprocal-math -frename-registers -freschedule-modulo-scheduled-loops -frounding-math -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fsplit-ivs-in-unroller -fssa-phiopt -fstore-merging -fstrict-aliasing -ftracer -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-vectorize -ftree-pre -ftree-pta -ftree-slsr -ftree-switch-conversion -ftree-ter -ftree-vectorize -funit-at-a-time -funroll-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -falign-functions=48103 -falign-jumps=54655 -falign-labels=44582 -finline-limit=1220 -fsched-stalled-insns=8124 -ftree-parallelize-loops=1 -fexcess-precision=standard -ffp-contract=fast -fira-algorithm=CB -fira-region=all -flto-partition=one -freorder-blocks-algorithm=simple 

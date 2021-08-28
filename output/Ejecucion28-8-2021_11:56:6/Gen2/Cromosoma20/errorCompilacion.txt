@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen2/Cromosoma20/Cromosoma20  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcompare-elim -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -ffloat-store -ffunction-sections -fgcse -fgcse-after-reload -fgcse-las -fgcse-lm -fhoist-adjacent-loads -fif-conversion -findirect-inlining -fipa-cp-clone -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-sra -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -flimit-function-alignment -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flto -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-function-cse -fno-guess-branch-probability -fno-math-errno -fno-printf-return-value -fno-sched-interblock -fno-signed-zeros -fno-trapping-math -fomit-frame-pointer -foptimize-sibling-calls -fpredictive-commoning -fprefetch-loop-arrays -fprofile-values -free -frename-registers -freorder-functions -frerun-cse-after-loop -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt -fstrict-aliasing -ftree-bit-ccp -ftree-ccp -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-partial-pre -ftree-pta -ftree-scev-cprop -ftree-slsr -ftree-switch-conversion -ftree-ter -ftree-vectorize -funconstrained-commons -funit-at-a-time -funswitch-loops -fuse-linker-plugin -falign-loops=1280 -finline-limit=47742 -fsched-stalled-insns=63773 -ftree-parallelize-loops=2 -fexcess-precision=standard -fira-algorithm=priority -freorder-blocks-algorithm=stc 

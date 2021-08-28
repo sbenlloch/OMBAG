@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen2/Isla0/Cromosoma1/Cromosoma1  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcprop-registers -fcrossjumping -fcse-skip-blocks -fcx-limited-range -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -ffat-lto-objects -ffinite-math-only -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fif-conversion -fif-conversion2 -fipa-cp -fipa-pta -fipa-reference-addressable -fipa-stack-alignment -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-consts -fkeep-static-functions -flive-range-shrinkage -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -flto -fmerge-constants -fmodulo-sched -fno-defer-pop -fno-guess-branch-probability -fno-inline -fno-math-errno -fno-peephole2 -fno-printf-return-value -fno-sched-spec -fno-toplevel-reorder -fno-trapping-math -foptimize-sibling-calls -fpeel-loops -fprofile-reorder-functions -fprofile-values -free -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap-separate -fsingle-precision-constant -fsplit-loops -fsplit-wide-types -fstrict-aliasing -ftree-ch -ftree-coalesce-vars -ftree-dominator-opts -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-vectorize -ftree-phiprop -ftree-reassoc -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vrp -funconstrained-commons -falign-loops=21826 -finline-limit=15888 -ffp-contract=off -fira-region=all -freorder-blocks-algorithm=stc 

@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma26/Cromosoma26  -fbranch-probabilities -fbranch-target-load-optimize -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcse-follow-jumps -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -ffinite-math-only -ffloat-store -fgcse-after-reload -fgcse-sm -fif-conversion2 -findirect-inlining -finline-small-functions -fipa-cp -fipa-icf -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-sra -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-functions -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-peephole2 -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpeel-loops -fprofile-reorder-functions -freciprocal-math -free -frename-registers -freorder-blocks -freorder-functions -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-critical-path-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fselective-scheduling -fselective-scheduling2 -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fssa-backprop -fssa-phiopt -fstdarg-opt -fstore-merging -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-copy-prop -ftree-dominator-opts -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-linear -ftree-loop-optimize -ftree-phiprop -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-loops -funswitch-loops -fuse-linker-plugin -fvpt -fweb -fwpa -falign-jumps=47543 -fsched-stalled-insns=44914 -fexcess-precision=fast -ffp-contract=on -flto-partition=1to1 

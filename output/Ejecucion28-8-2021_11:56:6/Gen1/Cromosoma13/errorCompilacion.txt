@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen1/Cromosoma13/Cromosoma13  -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fcaller-saves -fcompare-elim -fconserve-stack -fcprop-registers -fcse-skip-blocks -fcx-limited-range -fdce -fdelete-null-pointer-checks -fdevirtualize -fearly-inlining -fexpensive-optimizations -ffat-lto-objects -ffinite-math-only -fgcse -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -findirect-inlining -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fivopts -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-interchange -floop-parallelize-all -floop-unroll-and-jam -flra-remat -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprofile-reorder-functions -free -frename-registers -freorder-blocks -freorder-blocks-and-partition -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load-dangerous -fsched2-use-superblocks -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-dce -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pta -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-ter -ftree-vrp -funit-at-a-time -funroll-loops -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvpt -fwpa -falign-jumps=57789 -falign-labels=45329 -ffp-contract=fast -fira-region=all -freorder-blocks-algorithm=stc 

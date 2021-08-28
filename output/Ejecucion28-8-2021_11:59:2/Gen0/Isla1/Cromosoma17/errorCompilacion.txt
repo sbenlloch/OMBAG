@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla1/Cromosoma17/Cromosoma17  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcprop-registers -fcse-skip-blocks -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -ffloat-store -fforward-propagate -fgcse-after-reload -fgcse-lm -findirect-inlining -fipa-bit-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-vrp -fisolate-erroneous-paths-attribute -fkeep-static-consts -flive-range-shrinkage -floop-block -floop-nest-optimize -fmerge-all-constants -fmerge-constants -fmodulo-sched-allow-regmoves -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-ira-share-spill-slots -fno-peephole -fno-sched-interblock -fno-sched-spec -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -freorder-blocks -frerun-cse-after-loop -frounding-math -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fschedule-fusion -fsel-sched-pipelining-outer-loops -fshrink-wrap -fsignaling-nans -fsingle-precision-constant -fsplit-loops -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-coalesce-vars -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-pre -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-sra -ftree-tail-merge -ftree-ter -ftree-vectorize -funconstrained-commons -funit-at-a-time -funroll-all-loops -funsafe-math-optimizations -fvpt -fweb -falign-functions=43030 -falign-jumps=52335 -finline-limit=14865 -fsched-stalled-insns=29053 -fira-algorithm=priority -freorder-blocks-algorithm=stc 

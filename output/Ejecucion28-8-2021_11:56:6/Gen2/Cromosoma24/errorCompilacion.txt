@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen2/Cromosoma24/Cromosoma24  -fbranch-probabilities -fbranch-target-load-optimize -fcode-hoisting -fcombine-stack-adjustments -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-limited-range -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -fdse -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -fgcse-after-reload -fgcse-las -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion2 -findirect-inlining -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-icf -fipa-profile -fipa-ra -fipa-reference -fipa-sra -fira-hoist-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -floop-interchange -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -flto -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-inline -fno-ira-share-spill-slots -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-signed-zeros -fno-trapping-math -fomit-frame-pointer -fpeel-loops -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -freorder-functions -frerun-cse-after-loop -fsched-dep-count-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fsplit-wide-types -fstore-merging -fstrict-aliasing -ftree-bit-ccp -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dse -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-partial-pre -ftree-pta -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-all-loops -funroll-loops -funswitch-loops -fuse-linker-plugin -fvect-cost-model -fvpt -finline-limit=47742 -fsched-stalled-insns-dep=4014 -fexcess-precision=fast -ffp-contract=fast -fira-algorithm=CB 

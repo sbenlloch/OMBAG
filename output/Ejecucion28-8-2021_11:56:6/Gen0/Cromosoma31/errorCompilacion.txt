@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma31/Cromosoma31  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcompare-elim -fconserve-stack -fcrossjumping -fcse-follow-jumps -fcx-fortran-rules -fdata-sections -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdse -fexpensive-optimizations -ffinite-math-only -fgcse -fgcse-las -fgraphite-identity -finline-functions -finline-functions-called-once -fipa-ra -fipa-reference -fipa-vrp -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-interchange -floop-nest-optimize -floop-parallelize-all -flra-remat -flto -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-peephole2 -fno-printf-return-value -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpeel-loops -fpredictive-commoning -fprefetch-loop-arrays -fprofile-reorder-functions -fprofile-values -freciprocal-math -free -frename-registers -freorder-blocks -freorder-blocks-and-partition -freorder-functions -frounding-math -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched2-use-superblocks -fschedule-fusion -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fssa-backprop -fssa-phiopt -fstore-merging -fstrict-aliasing -ftree-bit-ccp -ftree-ccp -ftree-copy-prop -ftree-dce -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-phiprop -ftree-pta -ftree-ter -funit-at-a-time -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fweb -fwhole-program -fwpa -falign-labels=38040 -falign-loops=53247 -finline-limit=34499 -fsched-stalled-insns-dep=57096 -fsched-stalled-insns=58671 -ftree-parallelize-loops=4 -freorder-blocks-algorithm=simple 

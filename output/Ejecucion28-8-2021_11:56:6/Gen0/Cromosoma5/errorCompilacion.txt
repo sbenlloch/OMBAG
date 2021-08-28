@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma5/Cromosoma5  -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcprop-registers -fcrossjumping -fcx-fortran-rules -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdse -fearly-inlining -ffast-math -ffinite-math-only -ffloat-store -ffunction-sections -fgcse -fgcse-las -fif-conversion2 -findirect-inlining -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-stack-alignment -fipa-vrp -fira-loop-pressure -fivopts -fkeep-inline-functions -fkeep-static-consts -flive-range-shrinkage -floop-block -floop-nest-optimize -floop-parallelize-all -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fno-branch-count-reg -fno-function-cse -fno-sched-interblock -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -fprofile-correction -freciprocal-math -frename-registers -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-critical-path-heuristic -fsched-pressure -fsched2-use-superblocks -fschedule-insns2 -fselective-scheduling2 -fsemantic-interposition -fsingle-precision-constant -fsplit-loops -fssa-phiopt -fstdarg-opt -fstore-merging -fstrict-aliasing -fthread-jumps -ftree-builtin-call-dce -ftree-ch -ftree-copy-prop -ftree-dominator-opts -ftree-forwprop -ftree-loop-distribute-patterns -ftree-partial-pre -ftree-pre -ftree-pta -ftree-sink -ftree-sra -ftree-ter -ftree-vectorize -ftree-vrp -funit-at-a-time -funroll-all-loops -funsafe-math-optimizations -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -fwpa -falign-jumps=41774 -falign-labels=31234 -falign-loops=31960 -fsched-stalled-insns-dep=14414 -fsched-stalled-insns=24619 -ftree-parallelize-loops=4 -fira-region=one -freorder-blocks-algorithm=stc 

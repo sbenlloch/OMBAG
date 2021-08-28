@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla0/Cromosoma21/Cromosoma21  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize -fcaller-saves -fcombine-stack-adjustments -fcprop-registers -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdelayed-branch -fdevirtualize-at-ltrans -fdse -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -ffloat-store -fforward-propagate -fgcse -fgcse-las -fhoist-adjacent-loads -fif-conversion -finline-functions -finline-functions-called-once -fipa-cp -fipa-cp-clone -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-strip-mine -fmove-loop-invariants -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-peephole2 -fno-sched-spec -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -free -frename-registers -freorder-blocks-and-partition -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-dep-count-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched2-use-superblocks -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fselective-scheduling -fselective-scheduling2 -fshrink-wrap -fsplit-wide-types -fstdarg-opt -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dse -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-im -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-reassoc -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-ter -ftree-vectorize -ftree-vrp -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-jumps=39302 -fsched-stalled-insns-dep=46946 -fsched-stalled-insns=17695 -ftree-parallelize-loops=4 -fexcess-precision=standard -fira-algorithm=CB -flto-partition=one 

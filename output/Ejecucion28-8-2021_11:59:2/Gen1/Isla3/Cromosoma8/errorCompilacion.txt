@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma8/Cromosoma8  -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcode-hoisting -fcombine-stack-adjustments -fcprop-registers -fcrossjumping -fcse-skip-blocks -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fexpensive-optimizations -ffinite-math-only -fgcse -fgcse-after-reload -fgcse-lm -fgraphite-identity -fif-conversion -fipa-bit-cp -fipa-cp -fipa-icf -fipa-profile -fipa-sra -fipa-stack-alignment -fira-loop-pressure -fisolate-erroneous-paths-attribute -fkeep-inline-functions -fkeep-static-consts -floop-block -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -fmerge-all-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-inline -fno-math-errno -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-trapping-math -foptimize-sibling-calls -freciprocal-math -free -frename-registers -freorder-functions -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fschedule-fusion -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fssa-phiopt -fstore-merging -fstrict-aliasing -ftree-bit-ccp -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-ivcanon -ftree-loop-optimize -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-scev-cprop -ftree-ter -funroll-all-loops -funroll-loops -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-jumps=23260 -falign-labels=51033 -falign-loops=64130 -finline-limit=41027 -fsched-stalled-insns-dep=51771 -fsched-stalled-insns=37270 -ffp-contract=off -fira-algorithm=CB -fira-region=mixed -flto-partition=max 

@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla3/Cromosoma18/Cromosoma18  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -fearly-inlining -ffat-lto-objects -ffunction-sections -fgcse -fgcse-after-reload -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -finline-functions -fipa-bit-cp -fipa-cp -fipa-profile -fipa-pta -fipa-ra -fipa-sra -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-parallelize-all -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-trapping-math -fno-zero-initialized-in-bss -fpartial-inlining -fpeel-loops -fpredictive-commoning -free -freorder-blocks-and-partition -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fschedule-fusion -fselective-scheduling -fshrink-wrap -fshrink-wrap-separate -fsplit-paths -fssa-phiopt -fstdarg-opt -ftree-builtin-call-dce -ftree-ccp -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-forwprop -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-phiprop -ftree-pre -ftree-pta -ftree-sink -ftree-slsr -ftree-sra -ftree-ter -ftree-vrp -funconstrained-commons -funroll-all-loops -funroll-loops -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fsched-stalled-insns=17194 -ftree-parallelize-loops=2 -flto-partition=one 

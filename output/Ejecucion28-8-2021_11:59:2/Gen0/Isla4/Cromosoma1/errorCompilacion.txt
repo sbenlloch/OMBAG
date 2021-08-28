@@ -1,0 +1,47 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla4/Cromosoma1/Cromosoma1  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcode-hoisting -fconserve-stack -fcprop-registers -fcse-skip-blocks -fdata-sections -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fdse -fexpensive-optimizations -ffat-lto-objects -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-las -fhoist-adjacent-loads -fif-conversion2 -finline-functions -fipa-bit-cp -fipa-ra -fipa-reference -fipa-sra -fipa-vrp -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -floop-block -floop-interchange -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-trapping-math -fomit-frame-pointer -foptimize-sibling-calls -fpredictive-commoning -fprefetch-loop-arrays -fprofile-values -free -frename-registers -freorder-blocks -freorder-functions -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-dep-count-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fschedule-insns -fschedule-insns2 -fselective-scheduling2 -fsemantic-interposition -fsplit-ivs-in-unroller -fsplit-paths -fssa-backprop -fssa-phiopt -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dce -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-partial-pre -ftree-sink -ftree-tail-merge -ftree-vrp -funroll-loops -fvariable-expansion-in-unroller -fwhole-program -falign-labels=48930 -falign-loops=33429 -finline-limit=20421 -fsched-stalled-insns=8788 -fexcess-precision=standard -fira-algorithm=priority -flto-partition=max -freorder-blocks-algorithm=stc 

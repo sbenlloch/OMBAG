@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma55/Cromosoma55  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcode-hoisting -fcompare-elim -fconserve-stack -fcprop-registers -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -ffloat-store -fforward-propagate -fgcse-lm -fgcse-sm -fif-conversion2 -findirect-inlining -fipa-icf -fipa-profile -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fivopts -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-nest-optimize -floop-unroll-and-jam -flra-remat -flto -fmerge-all-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-guess-branch-probability -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fno-trapping-math -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks -freorder-blocks-and-partition -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-dep-count-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fshrink-wrap-separate -fsingle-precision-constant -fsplit-loops -fsplit-paths -fssa-backprop -fssa-phiopt -fstore-merging -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-phiprop -ftree-pta -ftree-ter -ftree-vectorize -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-loops -funswitch-loops -fvariable-expansion-in-unroller -fweb -finline-limit=22570 -fexcess-precision=fast -fira-region=all 

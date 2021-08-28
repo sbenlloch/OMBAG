@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen1/Cromosoma28/Cromosoma28  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively -ffast-math -ffat-lto-objects -ffinite-math-only -fgcse-lm -fgraphite-identity -fif-conversion2 -findirect-inlining -finline-functions -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-sra -fira-loop-pressure -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -floop-block -floop-interchange -floop-unroll-and-jam -fmerge-all-constants -fno-branch-count-reg -fno-function-cse -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-sched-interblock -fno-signed-zeros -fno-toplevel-reorder -fomit-frame-pointer -fpartial-inlining -fprefetch-loop-arrays -fprofile-correction -free -freorder-blocks-and-partition -freorder-functions -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load -fschedule-fusion -fschedule-insns -fselective-scheduling2 -fsemantic-interposition -fsignaling-nans -fsingle-precision-constant -fssa-backprop -fstore-merging -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-fre -ftree-loop-if-convert -ftree-loop-linear -ftree-loop-optimize -ftree-scev-cprop -ftree-sink -ftree-switch-conversion -funroll-loops -funswitch-loops -fuse-linker-plugin -finline-limit=46782 -fsched-stalled-insns-dep=14733 -fsched-stalled-insns=15466 -fira-region=mixed -flto-partition=balanced 

@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma39/Cromosoma39  -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize2 -fcaller-saves -fcompare-elim -fconserve-stack -fcprop-registers -fcrossjumping -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -ffast-math -fforward-propagate -ffunction-sections -fgcse-after-reload -fgcse-lm -fgcse-sm -fif-conversion2 -fipa-bit-cp -fipa-cp -fipa-profile -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-sra -fipa-vrp -fisolate-erroneous-paths-dereference -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-unroll-and-jam -flra-remat -fmerge-all-constants -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-math-errno -fno-peephole -fno-peephole2 -fno-sched-interblock -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpeel-loops -fprofile-correction -fprofile-values -free -freorder-blocks-and-partition -freorder-functions -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-fusion -fsel-sched-pipelining -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fsplit-wide-types -fssa-backprop -fstdarg-opt -ftracer -ftree-ccp -ftree-ch -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-partial-pre -ftree-pta -ftree-reassoc -ftree-vectorize -ftree-vrp -funroll-loops -funswitch-loops -fvariable-expansion-in-unroller -fweb -fwpa -falign-functions=26523 -falign-loops=33152 -fira-algorithm=CB -fira-region=all -freorder-blocks-algorithm=stc 

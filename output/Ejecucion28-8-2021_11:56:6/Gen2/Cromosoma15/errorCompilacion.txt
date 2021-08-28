@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen2/Cromosoma15/Cromosoma15  -fbranch-probabilities -fbranch-target-load-optimize -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcrossjumping -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdce -fdelayed-branch -fdevirtualize-speculatively -fdse -ffinite-math-only -fgcse -fgraphite-identity -fif-conversion -fipa-bit-cp -fipa-cp-clone -fipa-icf -fipa-pta -fipa-pure-const -fipa-sra -fira-hoist-pressure -fivopts -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -fmerge-all-constants -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-inline -fno-ira-share-spill-slots -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-toplevel-reorder -fno-trapping-math -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -fprofile-correction -fprofile-reorder-functions -free -freorder-functions -frerun-cse-after-loop -frounding-math -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-insns2 -fsemantic-interposition -fshrink-wrap -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-wide-types -fssa-backprop -fstdarg-opt -fstore-merging -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-dce -ftree-dse -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-optimize -ftree-phiprop -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-sra -ftree-switch-conversion -ftree-tail-merge -funconstrained-commons -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fweb -falign-labels=20930 -falign-loops=50393 -finline-limit=22077 -fsched-stalled-insns-dep=50290 -fexcess-precision=standard -ffp-contract=off -fira-region=mixed -flto-partition=one 

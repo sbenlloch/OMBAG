@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla2/Cromosoma14/Cromosoma14  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fcaller-saves -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdelayed-branch -fdse -fearly-inlining -ffat-lto-objects -ffloat-store -fforward-propagate -ffunction-sections -fgcse-after-reload -fgcse-las -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp-clone -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -flive-range-shrinkage -floop-block -floop-strip-mine -flto -fmodulo-sched -fno-defer-pop -fno-fp-int-builtin-inexact -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fomit-frame-pointer -fpartial-inlining -fpeel-loops -fpredictive-commoning -fprofile-correction -freciprocal-math -free -freorder-blocks -freorder-blocks-and-partition -fsave-optimization-record -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-paths -fstdarg-opt -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-copy-prop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-tail-merge -ftree-ter -funconstrained-commons -funit-at-a-time -fuse-linker-plugin -fvariable-expansion-in-unroller -fvpt -fweb -fwhole-program -falign-loops=51135 -finline-limit=14606 -fsched-stalled-insns=58360 -ftree-parallelize-loops=1 -fexcess-precision=fast -fira-algorithm=CB -fira-region=all 

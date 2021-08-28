@@ -1,0 +1,16 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla0/Cromosoma4/Cromosoma4  -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcse-follow-jumps -fcx-fortran-rules -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fearly-inlining -ffast-math -ffloat-store -ffunction-sections -fgcse -fgcse-las -fgcse-lm -fgcse-sm -fhoist-adjacent-loads -fif-conversion -finline-functions -finline-functions-called-once -fipa-cp-clone -fipa-icf -fipa-pure-const -fipa-ra -fipa-reference-addressable -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-functions -floop-block -floop-nest-optimize -floop-unroll-and-jam -fmodulo-sched-allow-regmoves -fno-function-cse -fno-ira-share-spill-slots -fno-sched-interblock -fno-toplevel-reorder -fno-trapping-math -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-reorder-functions -fprofile-values -free -freorder-blocks -freorder-blocks-and-partition -frounding-math -fsave-optimization-record -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fschedule-fusion -fschedule-insns2 -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-loops -fsplit-wide-types -fssa-backprop -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-copy-prop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pta -ftree-sink -ftree-slsr -ftree-sra -funconstrained-commons -funit-at-a-time -fuse-linker-plugin -fvect-cost-model -fvpt -fwpa -falign-labels=36789 -finline-limit=32503 -fsched-stalled-insns-dep=61377 -ftree-parallelize-loops=1 -ffp-contract=off -flto-partition=one 

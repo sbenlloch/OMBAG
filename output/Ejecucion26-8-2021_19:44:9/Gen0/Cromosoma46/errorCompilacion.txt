@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma46/Cromosoma46  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcprop-registers -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdevirtualize -ffinite-math-only -fforward-propagate -fgcse-after-reload -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion -findirect-inlining -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-cp -fipa-pure-const -fipa-reference -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -floop-nest-optimize -floop-parallelize-all -floop-unroll-and-jam -flto -fmerge-all-constants -fmove-loop-invariants -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-math-errno -fno-peephole -fno-sched-spec -fno-trapping-math -fomit-frame-pointer -fpartial-inlining -fpeel-loops -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks-and-partition -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-pressure -fsched-rank-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns -fschedule-insns2 -fselective-scheduling -fselective-scheduling2 -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fssa-backprop -fstdarg-opt -fstrict-aliasing -fthread-jumps -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-optimize -ftree-loop-vectorize -ftree-reassoc -ftree-scev-cprop -ftree-slsr -ftree-tail-merge -ftree-ter -ftree-vectorize -funit-at-a-time -funroll-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fwhole-program -fwpa -falign-jumps=8687 -fsched-stalled-insns=13895 -ftree-parallelize-loops=4 -fexcess-precision=fast -ffp-contract=off -fira-algorithm=CB -freorder-blocks-algorithm=stc 

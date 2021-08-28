@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla1/Cromosoma7/Cromosoma7  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdce -fdelete-null-pointer-checks -fdevirtualize -fdse -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -fforward-propagate -ffunction-sections -fgcse -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -flive-range-shrinkage -flto -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-inline -fno-math-errno -fno-peephole -fno-peephole2 -fno-toplevel-reorder -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fpeel-loops -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -freciprocal-math -free -freorder-blocks -freorder-functions -frerun-cse-after-loop -fsave-optimization-record -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling -fshrink-wrap -fsignaling-nans -fsplit-paths -fssa-backprop -fssa-phiopt -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -funroll-all-loops -funswitch-loops -fuse-linker-plugin -fweb -fwpa -falign-loops=52561 -finline-limit=38758 -fsched-stalled-insns-dep=43567 -fexcess-precision=standard -fira-region=all -flto-partition=1to1 

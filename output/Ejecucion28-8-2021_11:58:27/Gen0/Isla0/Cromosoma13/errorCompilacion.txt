@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:58:27/Gen0/Isla0/Cromosoma13/Cromosoma13  -fauto-inc-dec -fbranch-probabilities -fbtr-bb-exclusive -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcse-skip-blocks -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively -fdse -ffast-math -ffat-lto-objects -ffloat-store -fforward-propagate -ffunction-sections -fgcse-las -fgcse-lm -fgraphite-identity -fif-conversion2 -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-icf -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-stack-alignment -fipa-vrp -fira-hoist-pressure -fivopts -fkeep-inline-functions -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-nest-optimize -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-peephole2 -fno-printf-return-value -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fomit-frame-pointer -fpartial-inlining -fpeel-loops -fprofile-values -freciprocal-math -free -freorder-blocks-and-partition -freorder-functions -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fsched2-use-superblocks -fschedule-fusion -fschedule-insns -fschedule-insns2 -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-wide-types -fstdarg-opt -fstore-merging -ftracer -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-phiprop -ftree-pta -ftree-slsr -ftree-tail-merge -ftree-vectorize -ftree-vrp -funroll-all-loops -funswitch-loops -fuse-linker-plugin -fweb -falign-functions=31585 -finline-limit=24542 -ffp-contract=fast -fira-region=mixed -freorder-blocks-algorithm=simple 

@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma51/Cromosoma51  -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcrossjumping -fcx-fortran-rules -fcx-limited-range -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fdse -fexpensive-optimizations -ffat-lto-objects -fforward-propagate -fgcse -fgcse-after-reload -fgcse-lm -fgcse-sm -fhoist-adjacent-loads -fif-conversion -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-cp-clone -fipa-pta -fipa-reference-addressable -fipa-sra -fipa-vrp -fira-hoist-pressure -fisolate-erroneous-paths-dereference -fkeep-inline-functions -flimit-function-alignment -floop-block -floop-interchange -floop-nest-optimize -flra-remat -flto -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-peephole -fno-printf-return-value -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -fprefetch-loop-arrays -fprofile-correction -freciprocal-math -freorder-blocks -freorder-functions -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns2 -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-wide-types -fssa-backprop -fstore-merging -fstrict-aliasing -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-forwprop -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-partial-pre -ftree-pre -ftree-pta -ftree-scev-cprop -ftree-tail-merge -ftree-ter -funit-at-a-time -funroll-all-loops -funroll-loops -funswitch-loops -fvariable-expansion-in-unroller -fweb -fwhole-program -falign-functions=20029 -falign-jumps=47666 -falign-labels=23485 -finline-limit=48640 -fsched-stalled-insns-dep=58137 -fsched-stalled-insns=60218 -ftree-parallelize-loops=3 -ffp-contract=off -fira-algorithm=priority 

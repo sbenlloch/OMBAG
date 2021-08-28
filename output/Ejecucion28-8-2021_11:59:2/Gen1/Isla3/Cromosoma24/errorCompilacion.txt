@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma24/Cromosoma24  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcprop-registers -fcse-follow-jumps -fcse-skip-blocks -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdse -fexpensive-optimizations -ffast-math -ffat-lto-objects -fforward-propagate -fgcse -fgcse-after-reload -fif-conversion -finline-functions -finline-functions-called-once -fipa-bit-cp -fipa-icf -fipa-pure-const -fipa-ra -fipa-reference -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -floop-interchange -floop-parallelize-all -floop-strip-mine -fmerge-constants -fmodulo-sched -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole2 -fno-printf-return-value -fno-signed-zeros -fno-trapping-math -fpeel-loops -fprefetch-loop-arrays -fprofile-correction -freciprocal-math -free -frename-registers -freorder-blocks-and-partition -freorder-functions -frerun-cse-after-loop -fsched-critical-path-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns -fshrink-wrap -fsignaling-nans -fsingle-precision-constant -fsplit-loops -fsplit-paths -fssa-phiopt -fstdarg-opt -fstore-merging -ftracer -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dse -ftree-forwprop -ftree-loop-if-convert -ftree-loop-im -ftree-phiprop -ftree-pre -ftree-scev-cprop -ftree-slsr -ftree-ter -ftree-vectorize -funconstrained-commons -funit-at-a-time -funswitch-loops -fvect-cost-model -fwhole-program -falign-jumps=56749 -falign-loops=37079 -finline-limit=1943 -ftree-parallelize-loops=1 -fira-region=mixed -flto-partition=one -freorder-blocks-algorithm=stc 

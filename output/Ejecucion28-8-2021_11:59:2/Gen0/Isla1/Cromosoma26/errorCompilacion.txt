@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla1/Cromosoma26/Cromosoma26  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fcrossjumping -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffat-lto-objects -ffunction-sections -fgcse-after-reload -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion2 -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-cp -fipa-cp-clone -fipa-profile -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference -fipa-sra -fipa-stack-alignment -fipa-vrp -fira-loop-pressure -fivopts -fkeep-static-consts -flive-range-shrinkage -floop-interchange -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -flto -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-ira-share-spill-slots -fno-peephole -fno-signed-zeros -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -foptimize-sibling-calls -fpeel-loops -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -freciprocal-math -free -frename-registers -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-pressure -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsingle-precision-constant -fsplit-wide-types -fstdarg-opt -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-ivcanon -ftree-loop-optimize -ftree-loop-vectorize -ftree-phiprop -ftree-pta -ftree-reassoc -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vrp -funroll-all-loops -funroll-loops -funswitch-loops -fuse-linker-plugin -fwhole-program -fwpa -falign-loops=49388 -fsched-stalled-insns=41627 -ftree-parallelize-loops=2 -fexcess-precision=fast -flto-partition=one 

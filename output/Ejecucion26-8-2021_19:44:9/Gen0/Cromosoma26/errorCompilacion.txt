@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen0/Cromosoma26/Cromosoma26  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbtr-bb-exclusive -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdevirtualize-speculatively -ffast-math -ffinite-math-only -ffloat-store -fforward-propagate -ffunction-sections -fgcse-after-reload -fgcse-las -fgraphite-identity -fhoist-adjacent-loads -findirect-inlining -finline-functions -fipa-icf -fipa-reference -fipa-sra -fipa-stack-alignment -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -floop-block -floop-interchange -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-sched-interblock -fno-signed-zeros -fno-toplevel-reorder -fomit-frame-pointer -fpeel-loops -fpredictive-commoning -fprofile-reorder-functions -freorder-blocks -freorder-functions -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling -fsemantic-interposition -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-wide-types -fssa-backprop -fssa-phiopt -fthread-jumps -ftree-bit-ccp -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dce -ftree-dominator-opts -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-optimize -ftree-loop-vectorize -ftree-phiprop -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-all-loops -funroll-loops -fvariable-expansion-in-unroller -fvpt -fweb -fwhole-program -fwpa -falign-jumps=60092 -finline-limit=7892 -fsched-stalled-insns-dep=64336 -fexcess-precision=standard -ffp-contract=on -fira-region=mixed -flto-partition=balanced 

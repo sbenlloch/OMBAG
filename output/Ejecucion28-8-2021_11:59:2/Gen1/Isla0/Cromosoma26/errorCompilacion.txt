@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla0/Cromosoma26/Cromosoma26  -fbranch-probabilities -fbranch-target-load-optimize -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcrossjumping -fcse-follow-jumps -fcx-limited-range -fdata-sections -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdse -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -ffloat-store -fforward-propagate -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion2 -finline-functions -finline-functions-called-once -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference-addressable -fipa-stack-alignment -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -floop-block -floop-nest-optimize -floop-strip-mine -floop-unroll-and-jam -flra-remat -fno-branch-count-reg -fno-peephole2 -fno-sched-interblock -fno-sched-spec -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpartial-inlining -fprofile-values -freciprocal-math -free -frename-registers -freorder-blocks -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fschedule-insns2 -fselective-scheduling -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsplit-ivs-in-unroller -fssa-phiopt -fstdarg-opt -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-fre -ftree-loop-distribution -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-partial-pre -ftree-pre -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vectorize -ftree-vrp -funroll-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-jumps=61982 -falign-loops=37943 -fsched-stalled-insns-dep=32766 -fexcess-precision=standard -ffp-contract=fast -freorder-blocks-algorithm=stc 

@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:58:27/Gen0/Isla0/Cromosoma11/Cromosoma11  -faggressive-loop-optimizations -fbranch-probabilities -fcaller-saves -fconserve-stack -fcrossjumping -fcse-skip-blocks -fcx-limited-range -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdevirtualize-speculatively -ffast-math -ffinite-math-only -fforward-propagate -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -finline-functions-called-once -finline-small-functions -fipa-profile -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -flimit-function-alignment -flive-range-shrinkage -floop-interchange -floop-nest-optimize -floop-parallelize-all -floop-unroll-and-jam -flto -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-guess-branch-probability -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fno-trapping-math -fomit-frame-pointer -fpeel-loops -fpredictive-commoning -fprofile-correction -fprofile-reorder-functions -freciprocal-math -frename-registers -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-pressure -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns -fschedule-insns2 -fshrink-wrap-separate -fsplit-ivs-in-unroller -fsplit-loops -fstdarg-opt -ftracer -ftree-bit-ccp -ftree-ch -ftree-copy-prop -ftree-dse -ftree-loop-distribute-patterns -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-scev-cprop -ftree-sra -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-all-loops -funroll-loops -funswitch-loops -fvpt -fweb -fwhole-program -fwpa -falign-functions=19484 -falign-jumps=63467 -falign-labels=41280 -fexcess-precision=fast -ffp-contract=off -fira-algorithm=CB -flto-partition=1to1 -freorder-blocks-algorithm=simple 

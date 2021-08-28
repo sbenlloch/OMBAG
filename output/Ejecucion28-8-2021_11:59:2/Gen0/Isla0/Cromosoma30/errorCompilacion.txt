@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla0/Cromosoma30/Cromosoma30  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcx-fortran-rules -fdelete-null-pointer-checks -fdevirtualize -ffast-math -ffinite-math-only -ffloat-store -fgcse-las -fgraphite-identity -fhoist-adjacent-loads -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-ra -fipa-sra -fipa-stack-alignment -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-consts -floop-block -floop-nest-optimize -floop-parallelize-all -flra-remat -fmerge-all-constants -fmerge-constants -fmodulo-sched -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-ira-share-spill-slots -fno-math-errno -fno-printf-return-value -fno-sched-interblock -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpeel-loops -freciprocal-math -frename-registers -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-fusion -fschedule-insns -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fshrink-wrap -fshrink-wrap-separate -fsplit-paths -fssa-backprop -fssa-phiopt -fstrict-aliasing -ftracer -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-pta -ftree-slsr -ftree-switch-conversion -funit-at-a-time -funroll-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -fwpa -falign-functions=20697 -finline-limit=25276 -fsched-stalled-insns-dep=15293 -fexcess-precision=fast -ffp-contract=fast -fira-region=one 

@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla0/Cromosoma12/Cromosoma12  -faggressive-loop-optimizations -fbranch-probabilities -fcode-hoisting -fcprop-registers -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize-speculatively -fearly-inlining -ffat-lto-objects -ffinite-math-only -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-after-reload -fgcse-lm -fgcse-sm -fgraphite-identity -fif-conversion2 -finline-functions -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-profile -fipa-reference -fipa-reference-addressable -fira-loop-pressure -fivopts -fkeep-inline-functions -fkeep-static-consts -flimit-function-alignment -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -fmodulo-sched -fno-branch-count-reg -fno-inline -fno-sched-spec -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpartial-inlining -fprofile-values -free -freorder-blocks -frounding-math -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fschedule-fusion -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fthread-jumps -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-pre -ftree-pta -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vectorize -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-all-loops -funsafe-math-optimizations -funswitch-loops -fvariable-expansion-in-unroller -fvpt -fweb -falign-jumps=28120 -falign-loops=60189 -finline-limit=4786 -fsched-stalled-insns-dep=13100 -fsched-stalled-insns=11795 -ftree-parallelize-loops=2 -fexcess-precision=fast -flto-partition=one 

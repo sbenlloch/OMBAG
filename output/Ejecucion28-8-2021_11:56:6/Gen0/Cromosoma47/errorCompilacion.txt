@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma47/Cromosoma47  -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcode-hoisting -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcx-limited-range -fdata-sections -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-speculatively -fexpensive-optimizations -ffat-lto-objects -fforward-propagate -fgcse -fgcse-las -fgcse-lm -fgcse-sm -fhoist-adjacent-loads -finline-functions-called-once -fipa-icf -fipa-pta -fipa-ra -fipa-sra -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fkeep-static-consts -fkeep-static-functions -floop-block -floop-parallelize-all -floop-strip-mine -floop-unroll-and-jam -flra-remat -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-printf-return-value -fno-signed-zeros -fno-trapping-math -fno-zero-initialized-in-bss -fpartial-inlining -fpeel-loops -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -free -frename-registers -freschedule-modulo-scheduled-loops -frounding-math -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-pressure -fsched-rank-heuristic -fsched2-use-superblocks -fschedule-insns -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap-separate -fsingle-precision-constant -fsplit-wide-types -fstore-merging -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-coalesce-vars -ftree-dce -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-partial-pre -ftree-phiprop -ftree-pre -ftree-scev-cprop -ftree-sink -ftree-vectorize -ftree-vrp -funconstrained-commons -funroll-all-loops -funroll-loops -funswitch-loops -fvpt -fwpa -falign-jumps=2190 -falign-labels=25459 -falign-loops=47223 -finline-limit=33445 -ftree-parallelize-loops=3 -fira-region=one -flto-partition=balanced -freorder-blocks-algorithm=stc 

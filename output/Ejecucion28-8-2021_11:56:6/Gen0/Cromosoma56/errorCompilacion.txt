@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma56/Cromosoma56  -fauto-inc-dec -fcompare-elim -fcprop-registers -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fdce -fdelayed-branch -fdevirtualize-speculatively -fdse -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -ffloat-store -fgcse -fgcse-las -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -findirect-inlining -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-pta -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-sra -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-unroll-and-jam -flra-remat -flto -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-peephole -fno-sched-interblock -fno-toplevel-reorder -fno-zero-initialized-in-bss -frename-registers -freorder-blocks -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-wide-types -fssa-backprop -fssa-phiopt -fstdarg-opt -fstore-merging -fstrict-aliasing -ftracer -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-scev-cprop -ftree-slsr -ftree-switch-conversion -ftree-tail-merge -ftree-vrp -funconstrained-commons -funit-at-a-time -funroll-loops -funsafe-math-optimizations -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -falign-labels=10341 -finline-limit=59921 -fsched-stalled-insns-dep=13237 -fsched-stalled-insns=4969 -ffp-contract=on -flto-partition=balanced -freorder-blocks-algorithm=stc 

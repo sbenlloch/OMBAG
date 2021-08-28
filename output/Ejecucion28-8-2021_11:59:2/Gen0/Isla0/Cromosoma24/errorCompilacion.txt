@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla0/Cromosoma24/Cromosoma24  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-after-reload -fgcse-lm -fgcse-sm -fif-conversion -fif-conversion2 -finline-small-functions -fipa-bit-cp -fipa-icf -fipa-profile -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference-addressable -fipa-stack-alignment -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -floop-block -floop-interchange -floop-parallelize-all -floop-unroll-and-jam -fmerge-all-constants -fmerge-constants -fmodulo-sched -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-toplevel-reorder -fno-trapping-math -fno-zero-initialized-in-bss -fomit-frame-pointer -fpeel-loops -fpredictive-commoning -fprofile-correction -fprofile-reorder-functions -fprofile-values -freciprocal-math -freorder-blocks -fsave-optimization-record -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns2 -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fsplit-wide-types -fssa-backprop -fssa-phiopt -fthread-jumps -ftracer -ftree-bit-ccp -ftree-coalesce-vars -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-phiprop -ftree-reassoc -ftree-scev-cprop -ftree-slsr -funconstrained-commons -funsafe-math-optimizations -fvpt -fwhole-program -fwpa -falign-loops=44918 -finline-limit=52208 -fsched-stalled-insns=33417 -fexcess-precision=fast -fira-algorithm=priority -flto-partition=1to1 

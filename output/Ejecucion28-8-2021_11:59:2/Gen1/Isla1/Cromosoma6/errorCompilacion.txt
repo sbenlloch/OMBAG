@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla1/Cromosoma6/Cromosoma6  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcode-hoisting -fconserve-stack -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdse -fexpensive-optimizations -ffast-math -ffat-lto-objects -ffinite-math-only -ffloat-store -fgcse-las -fgcse-lm -fgcse-sm -fif-conversion -finline-functions -finline-small-functions -fipa-bit-cp -fipa-cp-clone -fipa-ra -fipa-reference -fipa-sra -fipa-vrp -fisolate-erroneous-paths-dereference -fivopts -floop-interchange -floop-nest-optimize -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-all-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-signed-zeros -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -fprofile-reorder-functions -freciprocal-math -freorder-blocks -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched2-use-superblocks -fschedule-fusion -fschedule-insns -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap-separate -fsignaling-nans -fsplit-ivs-in-unroller -fstore-merging -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-dce -ftree-dominator-opts -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-vectorize -ftree-phiprop -ftree-sra -ftree-ter -ftree-vectorize -ftree-vrp -funconstrained-commons -funroll-all-loops -funroll-loops -funswitch-loops -fuse-linker-plugin -fvect-cost-model -fweb -fwhole-program -falign-labels=25489 -fsched-stalled-insns-dep=5835 -ftree-parallelize-loops=3 -ffp-contract=on -fira-region=one 

@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma22/Cromosoma22  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fconserve-stack -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize-speculatively -fexpensive-optimizations -ffast-math -ffat-lto-objects -fgcse -fgcse-after-reload -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -finline-functions -finline-small-functions -fipa-bit-cp -fipa-profile -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fivopts -fkeep-static-consts -fkeep-static-functions -floop-block -floop-nest-optimize -floop-parallelize-all -floop-unroll-and-jam -flra-remat -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-sched-interblock -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprefetch-loop-arrays -free -frename-registers -frerun-cse-after-loop -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns -fsel-sched-pipelining -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsplit-ivs-in-unroller -fsplit-paths -fssa-backprop -fstore-merging -fstrict-aliasing -ftree-bit-ccp -ftree-ccp -ftree-copy-prop -ftree-dce -ftree-forwprop -ftree-fre -ftree-loop-if-convert -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pta -ftree-sink -ftree-sra -ftree-tail-merge -ftree-ter -ftree-vrp -funroll-all-loops -funroll-loops -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvect-cost-model -fweb -falign-jumps=15625 -falign-loops=17352 -finline-limit=9828 -ftree-parallelize-loops=2 -flto-partition=one 

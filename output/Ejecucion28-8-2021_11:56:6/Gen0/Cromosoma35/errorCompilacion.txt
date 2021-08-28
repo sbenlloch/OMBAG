@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma35/Cromosoma35  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdevirtualize -fdevirtualize-speculatively -fdse -ffast-math -ffat-lto-objects -ffloat-store -fforward-propagate -fgcse-after-reload -fgcse-lm -fgcse-sm -fif-conversion2 -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-icf -fipa-ra -fipa-reference -fipa-stack-alignment -fira-hoist-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -floop-block -floop-interchange -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -fmerge-all-constants -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-signed-zeros -fno-toplevel-reorder -fomit-frame-pointer -foptimize-sibling-calls -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -fprofile-values -freorder-blocks -freorder-functions -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-load -fsel-sched-pipelining-outer-loops -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap-separate -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-paths -fssa-backprop -fstore-merging -fstrict-aliasing -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-dominator-opts -ftree-forwprop -ftree-loop-distribution -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-pta -ftree-tail-merge -ftree-ter -ftree-vrp -funconstrained-commons -funroll-all-loops -funsafe-math-optimizations -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fwhole-program -fwpa -finline-limit=3586 -ftree-parallelize-loops=2 -fexcess-precision=standard -ffp-contract=on -fira-algorithm=priority 

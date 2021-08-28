@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla3/Cromosoma14/Cromosoma14  -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcprop-registers -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fearly-inlining -ffat-lto-objects -ffloat-store -fforward-propagate -fgcse -fgcse-las -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -finline-functions -fipa-profile -fipa-pta -fipa-ra -fipa-reference-addressable -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-inline-functions -fkeep-static-functions -flimit-function-alignment -floop-nest-optimize -floop-unroll-and-jam -flra-remat -fmerge-constants -fmove-loop-invariants -fno-branch-count-reg -fno-function-cse -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-toplevel-reorder -foptimize-sibling-calls -fpartial-inlining -fprefetch-loop-arrays -fprofile-reorder-functions -free -freschedule-modulo-scheduled-loops -fsched-dep-count-heuristic -fsched-spec-load -fsched2-use-superblocks -fsel-sched-pipelining-outer-loops -fselective-scheduling -fshrink-wrap -fsingle-precision-constant -fsplit-paths -fstdarg-opt -fstore-merging -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-coalesce-vars -ftree-dce -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-vectorize -ftree-pre -ftree-sink -ftree-slsr -ftree-sra -ftree-ter -ftree-vectorize -ftree-vrp -funconstrained-commons -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fwhole-program -falign-jumps=46522 -fsched-stalled-insns=16234 -ftree-parallelize-loops=1 -flto-partition=one 

@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen1/Cromosoma0/Cromosoma0  -fassociative-math -fbranch-probabilities -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcompare-elim -fconserve-stack -fcrossjumping -fcse-follow-jumps -fcse-skip-blocks -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdce -fdelayed-branch -fdse -fexpensive-optimizations -ffat-lto-objects -ffinite-math-only -fforward-propagate -fgcse-las -fgcse-sm -fgraphite-identity -finline-functions -finline-functions-called-once -finline-small-functions -fipa-cp-clone -fipa-icf -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fira-hoist-pressure -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-parallelize-all -floop-strip-mine -fmerge-all-constants -fno-branch-count-reg -fno-defer-pop -fno-guess-branch-probability -fno-peephole -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fpeel-loops -fpredictive-commoning -fprefetch-loop-arrays -fprofile-correction -fprofile-values -freciprocal-math -free -frounding-math -fsched-pressure -fsched-rank-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fsplit-wide-types -fssa-phiopt -fstdarg-opt -fstore-merging -fstrict-aliasing -ftree-ccp -ftree-copy-prop -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -funconstrained-commons -funroll-loops -funswitch-loops -fvariable-expansion-in-unroller -fvpt -falign-loops=10422 -finline-limit=47742 -fsched-stalled-insns=56691 -ftree-parallelize-loops=2 -fexcess-precision=fast -fira-algorithm=CB -freorder-blocks-algorithm=stc 

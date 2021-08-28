@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla2/Cromosoma29/Cromosoma29  -fauto-inc-dec -fbranch-target-load-optimize2 -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcse-skip-blocks -fcx-limited-range -fdce -fdelayed-branch -fdevirtualize-speculatively -fearly-inlining -fexpensive-optimizations -ffloat-store -fforward-propagate -ffunction-sections -fgcse -fgcse-after-reload -fgcse-las -fgcse-lm -fhoist-adjacent-loads -fif-conversion2 -finline-functions-called-once -finline-small-functions -fipa-cp -fipa-icf -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-stack-alignment -fivopts -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -floop-interchange -floop-parallelize-all -flto -fmerge-all-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-branch-count-reg -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-math-errno -fno-printf-return-value -fno-sched-spec -fno-zero-initialized-in-bss -foptimize-sibling-calls -fprofile-reorder-functions -freciprocal-math -freorder-blocks -frerun-cse-after-loop -frounding-math -fsched-critical-path-heuristic -fsched-last-insn-heuristic -fschedule-insns -fschedule-insns2 -fselective-scheduling2 -fshrink-wrap -fshrink-wrap-separate -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-loops -fssa-phiopt -fstore-merging -ftree-bit-ccp -ftree-ccp -ftree-coalesce-vars -ftree-dominator-opts -ftree-dse -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-ivcanon -ftree-loop-linear -ftree-pre -ftree-reassoc -ftree-sink -ftree-slsr -ftree-sra -ftree-switch-conversion -ftree-tail-merge -funconstrained-commons -funroll-all-loops -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -fwpa -falign-functions=51966 -falign-labels=7846 -finline-limit=48437 -ftree-parallelize-loops=2 -fexcess-precision=fast -ffp-contract=on -fira-algorithm=CB -flto-partition=max 

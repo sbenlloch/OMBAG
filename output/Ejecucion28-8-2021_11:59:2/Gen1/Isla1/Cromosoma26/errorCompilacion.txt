@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla1/Cromosoma26/Cromosoma26  -faggressive-loop-optimizations -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcompare-elim -fconserve-stack -fcprop-registers -fcse-follow-jumps -fcse-skip-blocks -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdse -ffinite-math-only -ffloat-store -fgcse -fgcse-lm -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -findirect-inlining -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-pure-const -fipa-reference-addressable -fipa-sra -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-functions -floop-block -floop-interchange -floop-unroll-and-jam -fmerge-all-constants -fmerge-constants -fmodulo-sched-allow-regmoves -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-inline -fno-ira-share-spill-slots -fno-math-errno -fno-printf-return-value -fno-signed-zeros -fno-zero-initialized-in-bss -fpartial-inlining -fprefetch-loop-arrays -fprofile-reorder-functions -free -freorder-functions -frerun-cse-after-loop -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched2-use-superblocks -fschedule-insns -fsel-sched-pipelining-outer-loops -fselective-scheduling -fshrink-wrap -fsingle-precision-constant -fsplit-paths -fssa-backprop -fstdarg-opt -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-dce -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-vectorize -ftree-phiprop -ftree-pta -ftree-ter -ftree-vectorize -ftree-vrp -funroll-loops -funswitch-loops -fvect-cost-model -fvpt -falign-functions=24163 -fsched-stalled-insns-dep=39566 -ftree-parallelize-loops=3 -fexcess-precision=standard -fira-region=all 

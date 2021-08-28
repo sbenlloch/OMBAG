@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla1/Cromosoma4/Cromosoma4  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcse-follow-jumps -fdata-sections -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -fforward-propagate -fgcse -fgcse-after-reload -fgcse-las -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -finline-functions -finline-small-functions -fipa-cp -fipa-icf -fipa-profile -fipa-pure-const -fipa-reference -fipa-stack-alignment -fira-loop-pressure -fkeep-inline-functions -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -floop-parallelize-all -floop-unroll-and-jam -flra-remat -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-ira-share-spill-slots -fno-peephole -fno-printf-return-value -fno-sched-spec -fno-toplevel-reorder -fomit-frame-pointer -foptimize-sibling-calls -fpartial-inlining -fprofile-reorder-functions -freciprocal-math -free -frename-registers -frounding-math -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fstore-merging -fstrict-aliasing -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-copy-prop -ftree-dominator-opts -ftree-dse -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-im -ftree-loop-optimize -ftree-partial-pre -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-ter -ftree-vectorize -ftree-vrp -funit-at-a-time -funroll-all-loops -funsafe-math-optimizations -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fwhole-program -falign-jumps=53979 -falign-labels=2966 -falign-loops=58398 -fsched-stalled-insns=64495 -fira-algorithm=CB -fira-region=all -flto-partition=balanced 

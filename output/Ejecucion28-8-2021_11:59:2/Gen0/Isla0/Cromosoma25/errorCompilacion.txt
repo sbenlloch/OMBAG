@@ -1,0 +1,47 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: this target machine does not have delayed branches
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla0/Cromosoma25/Cromosoma25  -faggressive-loop-optimizations -fassociative-math -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcode-hoisting -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcrossjumping -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdata-sections -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdse -fearly-inlining -fexpensive-optimizations -ffast-math -ffinite-math-only -fforward-propagate -ffunction-sections -fgcse-las -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-functions-called-once -fipa-pta -fipa-pure-const -fipa-ra -fipa-reference-addressable -fipa-sra -fira-hoist-pressure -fira-loop-pressure -fivopts -fkeep-inline-functions -fkeep-static-consts -flive-range-shrinkage -floop-nest-optimize -floop-parallelize-all -floop-strip-mine -flra-remat -flto -fno-defer-pop -fno-guess-branch-probability -fno-inline -fno-ira-share-spill-slots -fno-math-errno -fno-peephole2 -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-trapping-math -foptimize-sibling-calls -fpeel-loops -fprofile-reorder-functions -freciprocal-math -freschedule-modulo-scheduled-loops -frounding-math -fsave-optimization-record -fsched-last-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fschedule-fusion -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling -fselective-scheduling2 -fshrink-wrap-separate -fsplit-wide-types -fstrict-aliasing -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dse -ftree-loop-im -ftree-loop-linear -ftree-phiprop -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-vectorize -ftree-vrp -funsafe-math-optimizations -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fwhole-program -falign-loops=37943 -fsched-stalled-insns-dep=32766 -fira-algorithm=CB -flto-partition=max 

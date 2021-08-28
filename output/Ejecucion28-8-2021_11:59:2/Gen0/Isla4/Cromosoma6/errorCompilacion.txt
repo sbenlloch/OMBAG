@@ -1,0 +1,17 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: this target machine does not have delayed branches
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla4/Cromosoma6/Cromosoma6  -fbranch-probabilities -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fcrossjumping -fcse-skip-blocks -fdata-sections -fdce -fdelayed-branch -fdevirtualize -fdevirtualize-speculatively -fdse -ffast-math -ffat-lto-objects -ffinite-math-only -ffunction-sections -fgcse -fgcse-las -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -fif-conversion2 -findirect-inlining -finline-functions -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-cp-clone -fipa-icf -fipa-profile -fipa-ra -fipa-reference -fipa-reference-addressable -fira-hoist-pressure -fira-loop-pressure -fkeep-inline-functions -flive-range-shrinkage -floop-interchange -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-constants -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-peephole2 -fno-sched-interblock -fno-toplevel-reorder -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpeel-loops -fpredictive-commoning -freciprocal-math -frename-registers -freorder-blocks-and-partition -frerun-cse-after-loop -fsched-dep-count-heuristic -fsched-spec-load -fschedule-fusion -fschedule-insns -fsel-sched-pipelining-outer-loops -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fsingle-precision-constant -fsplit-paths -fsplit-wide-types -fssa-backprop -fssa-phiopt -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-optimize -ftree-loop-vectorize -ftree-phiprop -ftree-sink -ftree-sra -ftree-switch-conversion -ftree-ter -ftree-vrp -funit-at-a-time -funroll-all-loops -fvariable-expansion-in-unroller -falign-functions=124 -falign-jumps=46749 -falign-loops=13971 -ftree-parallelize-loops=3 -fexcess-precision=fast -ffp-contract=on -fira-algorithm=CB -flto-partition=one -freorder-blocks-algorithm=stc 

@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:58:27/Gen0/Isla0/Cromosoma29/Cromosoma29  -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fconserve-stack -fcprop-registers -fcrossjumping -fcse-skip-blocks -fcx-fortran-rules -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdse -fearly-inlining -ffast-math -ffinite-math-only -ffloat-store -fforward-propagate -fgcse -fgcse-after-reload -fgcse-las -fgraphite-identity -fhoist-adjacent-loads -fif-conversion -findirect-inlining -fipa-icf -fipa-pta -fipa-pure-const -fipa-reference -fipa-reference-addressable -fipa-vrp -fira-hoist-pressure -fira-loop-pressure -fkeep-static-consts -fkeep-static-functions -flimit-function-alignment -floop-interchange -floop-nest-optimize -floop-strip-mine -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched -fno-branch-count-reg -fno-function-cse -fno-inline -fno-ira-share-save-slots -fno-peephole -fno-printf-return-value -fno-zero-initialized-in-bss -fprefetch-loop-arrays -fprofile-reorder-functions -freciprocal-math -free -freorder-blocks-and-partition -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsched-pressure -fsched-spec-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fschedule-insns -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fselective-scheduling -fsemantic-interposition -fsplit-loops -fssa-phiopt -fstore-merging -fthread-jumps -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dominator-opts -ftree-dse -ftree-loop-ivcanon -ftree-loop-optimize -ftree-partial-pre -ftree-pta -ftree-scev-cprop -ftree-sra -ftree-switch-conversion -ftree-vectorize -ftree-vrp -funit-at-a-time -funroll-all-loops -funroll-loops -fvariable-expansion-in-unroller -fweb -fwhole-program -fwpa -falign-jumps=19898 -falign-labels=7429 -finline-limit=38315 -fsched-stalled-insns-dep=51784 -fsched-stalled-insns=40195 -fexcess-precision=fast -ffp-contract=on 

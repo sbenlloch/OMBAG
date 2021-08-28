@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma46/Cromosoma46  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fconserve-stack -fcrossjumping -fdce -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fgcse -fgcse-after-reload -fgcse-las -fgcse-lm -fgraphite-identity -fif-conversion2 -finline-small-functions -fipa-icf -fipa-profile -fipa-ra -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-attribute -fivopts -fkeep-static-consts -fkeep-static-functions -floop-interchange -floop-parallelize-all -floop-unroll-and-jam -flra-remat -fmerge-constants -fmodulo-sched -fno-branch-count-reg -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-printf-return-value -fno-sched-interblock -foptimize-sibling-calls -fpartial-inlining -fpredictive-commoning -fprofile-correction -fprofile-reorder-functions -fprofile-values -free -frename-registers -freorder-blocks -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsave-optimization-record -fsched-critical-path-heuristic -fsched-group-heuristic -fsched-spec-insn-heuristic -fschedule-fusion -fschedule-insns -fschedule-insns2 -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fshrink-wrap-separate -fssa-backprop -fssa-phiopt -ftracer -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-dominator-opts -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-if-convert -ftree-loop-im -ftree-loop-linear -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-pre -ftree-reassoc -ftree-sink -ftree-switch-conversion -ftree-ter -ftree-vrp -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fwpa -falign-jumps=36153 -finline-limit=42343 -ftree-parallelize-loops=4 -fexcess-precision=standard -ffp-contract=on -fira-algorithm=CB -fira-region=mixed -flto-partition=balanced -freorder-blocks-algorithm=simple 

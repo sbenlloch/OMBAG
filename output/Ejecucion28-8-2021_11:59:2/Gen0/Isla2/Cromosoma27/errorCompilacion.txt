@@ -1,0 +1,12 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla2/Cromosoma27/Cromosoma27  -fassociative-math -fauto-inc-dec -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fconserve-stack -fcprop-registers -fcrossjumping -fcse-skip-blocks -fdata-sections -fdce -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fdse -fexpensive-optimizations -fforward-propagate -fgcse-after-reload -fgcse-las -fgcse-lm -fgcse-sm -fhoist-adjacent-loads -fif-conversion -finline-functions -finline-functions-called-once -finline-small-functions -fipa-bit-cp -fipa-pure-const -fipa-ra -fipa-reference-addressable -fipa-sra -fira-hoist-pressure -fisolate-erroneous-paths-attribute -fisolate-erroneous-paths-dereference -fivopts -fkeep-inline-functions -flimit-function-alignment -floop-parallelize-all -floop-unroll-and-jam -fmerge-constants -fmodulo-sched -fmove-loop-invariants -fno-branch-count-reg -fno-function-cse -fno-guess-branch-probability -fno-printf-return-value -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpartial-inlining -fprefetch-loop-arrays -fprofile-correction -fprofile-reorder-functions -fprofile-values -freciprocal-math -freorder-blocks -freorder-functions -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fschedule-fusion -fsel-sched-pipelining -fselective-scheduling -fshrink-wrap -fsplit-ivs-in-unroller -fstdarg-opt -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-ccp -ftree-coalesce-vars -ftree-fre -ftree-loop-distribution -ftree-pre -ftree-reassoc -ftree-slsr -ftree-switch-conversion -funroll-loops -fuse-linker-plugin -fvect-cost-model -fvpt -fweb -fwhole-program -fwpa -falign-functions=40540 -falign-labels=9086 -falign-loops=9897 -fsched-stalled-insns=26552 -ftree-parallelize-loops=2 -fexcess-precision=standard -ffp-contract=on -fira-algorithm=CB -flto-partition=one 

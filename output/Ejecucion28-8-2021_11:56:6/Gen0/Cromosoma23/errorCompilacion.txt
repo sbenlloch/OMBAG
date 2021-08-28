@@ -1,0 +1,15 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: command line option ‘-fwpa’ is valid for LTO but not for C
+cc1: warning: this target machine does not have delayed branches
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+../benchmarks/treebench.c: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:56:6/Gen0/Cromosoma23/Cromosoma23  -faggressive-loop-optimizations -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fbtr-bb-exclusive -fcaller-saves -fcode-hoisting -fcombine-stack-adjustments -fcprop-registers -fcse-skip-blocks -fcx-limited-range -fdata-sections -fdelayed-branch -fdelete-null-pointer-checks -fdevirtualize -fdse -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -fgcse -fgcse-after-reload -fgcse-las -fgcse-lm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-functions-called-once -finline-small-functions -fipa-cp-clone -fipa-profile -fipa-ra -fipa-reference -fipa-stack-alignment -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-functions -flimit-function-alignment -flive-range-shrinkage -floop-block -floop-interchange -floop-nest-optimize -floop-unroll-and-jam -flto -fmerge-all-constants -fmerge-constants -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fno-defer-pop -fno-function-cse -fno-ira-share-save-slots -fno-printf-return-value -fno-sched-interblock -fno-sched-spec -fno-signed-zeros -fno-toplevel-reorder -fno-zero-initialized-in-bss -fpartial-inlining -fprofile-reorder-functions -fprofile-values -free -frename-registers -freorder-functions -freschedule-modulo-scheduled-loops -fsched-group-heuristic -fsched-pressure -fsched-rank-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fsched-spec-load-dangerous -fsched2-use-superblocks -fschedule-insns -fsel-sched-pipelining -fselective-scheduling2 -fsemantic-interposition -fsingle-precision-constant -fsplit-loops -fsplit-paths -fstdarg-opt -fthread-jumps -ftree-bit-ccp -ftree-builtin-call-dce -ftree-copy-prop -ftree-dce -ftree-dse -ftree-forwprop -ftree-fre -ftree-loop-distribute-patterns -ftree-loop-im -ftree-loop-optimize -ftree-loop-vectorize -ftree-partial-pre -ftree-phiprop -ftree-pta -ftree-scev-cprop -ftree-ter -ftree-vectorize -ftree-vrp -funit-at-a-time -funroll-all-loops -funroll-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fweb -fwhole-program -fwpa -falign-jumps=47598 -falign-labels=24950 -finline-limit=26464 -ftree-parallelize-loops=4 -fexcess-precision=fast 

@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionTradicional/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion26-8-2021_19:44:9/Gen1/Cromosoma17/Cromosoma17  -fassociative-math -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize -fbranch-target-load-optimize2 -fcaller-saves -fcode-hoisting -fconserve-stack -fcprop-registers -fcrossjumping -fcse-skip-blocks -fcx-limited-range -fdata-sections -fdce -fdelayed-branch -fdevirtualize -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fexpensive-optimizations -ffinite-math-only -ffloat-store -fforward-propagate -fgcse-lm -fif-conversion -finline-functions -finline-small-functions -fipa-pta -fipa-ra -fipa-sra -fira-hoist-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -floop-block -floop-nest-optimize -floop-parallelize-all -fmerge-all-constants -fmove-loop-invariants -fno-branch-count-reg -fno-defer-pop -fno-fp-int-builtin-inexact -fno-peephole2 -fno-printf-return-value -fno-sched-spec -fno-trapping-math -fno-zero-initialized-in-bss -foptimize-sibling-calls -fpeel-loops -fprofile-correction -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-pressure -fsched-spec-load -fsched-spec-load-dangerous -fschedule-fusion -fschedule-insns2 -fselective-scheduling2 -fshrink-wrap-separate -fsignaling-nans -fsplit-loops -fsplit-paths -fssa-phiopt -fstdarg-opt -fstrict-aliasing -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-ivcanon -ftree-loop-linear -ftree-loop-vectorize -ftree-phiprop -ftree-pre -ftree-pta -ftree-reassoc -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-ter -ftree-vectorize -ftree-vrp -funit-at-a-time -funroll-loops -fuse-linker-plugin -fvpt -fwhole-program -falign-jumps=27914 -falign-labels=6400 -falign-loops=5904 -finline-limit=56187 -fsched-stalled-insns=25085 -ftree-parallelize-loops=3 -fira-region=one -flto-partition=max -freorder-blocks-algorithm=stc 

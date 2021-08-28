@@ -1,0 +1,13 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: this target machine does not have delayed branches
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen0/Isla2/Cromosoma34/Cromosoma34  -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcse-follow-jumps -fcx-fortran-rules -fcx-limited-range -fdelayed-branch -fdelete-null-pointer-checks -fearly-inlining -ffast-math -ffat-lto-objects -fgcse -fgcse-after-reload -fgcse-lm -fgcse-sm -fgraphite-identity -fhoist-adjacent-loads -fif-conversion2 -finline-small-functions -fipa-bit-cp -fipa-cp-clone -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fisolate-erroneous-paths-attribute -fivopts -fkeep-static-consts -floop-strip-mine -floop-unroll-and-jam -fmodulo-sched -fno-branch-count-reg -fno-defer-pop -fno-function-cse -fno-guess-branch-probability -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-sched-spec -fno-signed-zeros -fno-trapping-math -fprofile-reorder-functions -fprofile-values -free -freorder-blocks-and-partition -freorder-functions -frerun-cse-after-loop -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-last-insn-heuristic -fsched-pressure -fsched-spec-load -fsched2-use-superblocks -fschedule-insns2 -fsel-sched-pipelining-outer-loops -fselective-scheduling -fselective-scheduling2 -fsemantic-interposition -fsignaling-nans -fsingle-precision-constant -fsplit-ivs-in-unroller -fsplit-paths -fsplit-wide-types -fssa-backprop -fstdarg-opt -fstore-merging -fstrict-aliasing -fthread-jumps -ftracer -ftree-bit-ccp -ftree-builtin-call-dce -ftree-ch -ftree-coalesce-vars -ftree-dse -ftree-forwprop -ftree-loop-distribute-patterns -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon -ftree-phiprop -ftree-pta -ftree-scev-cprop -ftree-sink -ftree-slsr -ftree-switch-conversion -ftree-ter -funconstrained-commons -funit-at-a-time -funroll-all-loops -fvariable-expansion-in-unroller -fvect-cost-model -fweb -falign-jumps=25108 -falign-labels=12299 -falign-loops=51135 -finline-limit=14719 -fsched-stalled-insns-dep=63894 -ftree-parallelize-loops=1 -fexcess-precision=standard -fira-region=one -flto-partition=one 

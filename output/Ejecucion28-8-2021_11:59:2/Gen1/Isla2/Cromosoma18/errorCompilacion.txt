@@ -1,0 +1,14 @@
+Error en compilacion.
+Error GCC: 
+cc1: warning: ‘-fassociative-math’ disabled; other options take precedence
+../benchmarks/treebench.c: In function ‘main’:
+../benchmarks/treebench.c:1111:1: warning: ‘/home/sergio/Documents/TFG/TFG-optimization/versionModeloDeIslas/treebench.gcda’ profile count data file not found [-Wmissing-profile]
+ 1111 | }
+      | ^
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+lto1: warning: ‘-fassociative-math’ disabled; other options take precedence
+
+Salida GCC:
+
+Linea de compilacion:
+gcc ../benchmarks/treebench.c  -o /home/sergio/Documents/TFG/TFG-optimization/output/Ejecucion28-8-2021_11:59:2/Gen1/Isla2/Cromosoma18/Cromosoma18  -faggressive-loop-optimizations -fauto-inc-dec -fbranch-probabilities -fbranch-target-load-optimize2 -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fcprop-registers -fcse-skip-blocks -fcx-fortran-rules -fdata-sections -fdelete-null-pointer-checks -fdevirtualize-at-ltrans -fdevirtualize-speculatively -fearly-inlining -ffast-math -ffat-lto-objects -ffinite-math-only -fforward-propagate -fgcse-after-reload -fgcse-las -fgcse-sm -fgraphite-identity -fif-conversion2 -finline-functions-called-once -fipa-bit-cp -fipa-cp-clone -fipa-pure-const -fipa-ra -fipa-reference-addressable -fipa-sra -fipa-stack-alignment -fira-hoist-pressure -fira-loop-pressure -fisolate-erroneous-paths-dereference -fkeep-static-consts -floop-unroll-and-jam -flra-remat -flto -fno-defer-pop -fno-fp-int-builtin-inexact -fno-function-cse -fno-guess-branch-probability -fno-inline -fno-ira-share-save-slots -fno-ira-share-spill-slots -fno-math-errno -fno-peephole -fno-peephole2 -fno-printf-return-value -fno-toplevel-reorder -fomit-frame-pointer -fpartial-inlining -fpredictive-commoning -fprofile-correction -fprofile-reorder-functions -freciprocal-math -frename-registers -freorder-blocks-and-partition -fsave-optimization-record -fsched-critical-path-heuristic -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-spec-insn-heuristic -fsched-spec-load -fschedule-insns2 -fsel-sched-pipelining -fsel-sched-pipelining-outer-loops -fsemantic-interposition -fshrink-wrap -fsignaling-nans -fssa-backprop -fstore-merging -fthread-jumps -ftracer -ftree-builtin-call-dce -ftree-ccp -ftree-ch -ftree-forwprop -ftree-fre -ftree-loop-distribution -ftree-loop-if-convert -ftree-loop-optimize -ftree-loop-vectorize -ftree-phiprop -ftree-pre -ftree-scev-cprop -ftree-slsr -ftree-sra -ftree-ter -ftree-vectorize -funconstrained-commons -funroll-all-loops -funswitch-loops -fuse-linker-plugin -fvariable-expansion-in-unroller -fvect-cost-model -fvpt -fweb -falign-jumps=62355 -falign-labels=12299 -finline-limit=14719 -fsched-stalled-insns-dep=50725 -fsched-stalled-insns=58360 -ftree-parallelize-loops=1 -ffp-contract=off -fira-algorithm=priority -fira-region=all 
