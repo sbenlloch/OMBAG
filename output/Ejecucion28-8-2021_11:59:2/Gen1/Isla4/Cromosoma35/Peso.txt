@@ -1,3 +1,0 @@
-Salida: 39984
-
-Error: 
