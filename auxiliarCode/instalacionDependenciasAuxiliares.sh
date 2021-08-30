@@ -5,8 +5,8 @@
 #de los programas de optimización
 
 echo '[!]Para ejecutar este script debes tener instalado las dependencias de los programas de optimización'
-
-echo '\n[*]Instalando Matplotlib'
+echo ''
+echo '[*]Instalando Matplotlib'
 plot=$(pip list 2>/dev/null | grep matplotlib)
 
 if [ "$plot" ]
@@ -16,8 +16,8 @@ if [ "$plot" ]
         echo "[!]Matplotlib no satisfecho, se va a instalar"
 	sudo pip install matplotlib &>/dev/null
 fi
-
-echo '\n[*]Instalando Numpy'
+echo ''
+echo '[*]Instalando Numpy'
 mumpy=$(pip list 2>/dev/null | grep numpy)
 
 if [ "$numpy" ]
