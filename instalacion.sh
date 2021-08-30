@@ -1,8 +1,7 @@
 #!/bin/bash
 #Script creado por sg10, Sergio Benlloch
-#Este script incluye la instalación de las dependencias necesarias
+#Este script incluye la instalación y descarga de la aplicación de optimización
 #para ejecutar las pruebas del algoritmo genético.
-#Si quieres instalar las dependencias de todos los programas de optimización y descargar el código usa el archivo instalacion.sh
 #Este script esta testado en Ubuntu 20.04 LTS y Ubuntu Server 20.04 LTS Gen 2
 
 if [[ $EUID -ne 0 ]]; then
@@ -145,3 +144,10 @@ cmake ../src/ &>/dev/null && make -j &>/dev/null && sudo make install &>/dev/nul
 cd ../..
 rm -rf zofi/
 
+echo '[!]Dependencias de programa instaladas, se va a descargar la aplicación'
+
+git clone https://github.com/sg1o/TFG-optimization
+
+echo '[!] Programa descargado, disponible en directorio TFG-optimization'
+echo '[*]Para instalar las dependencias de los programas auxiliares ejecuta el script'
+echo '[+]instalacionDependenciasAuxiliares.sh dispnible en auxiliarCode/'
