@@ -18,7 +18,7 @@ if [ "$plot" ]
 fi
 echo ''
 echo '[*]Instalando Numpy'
-mumpy=$(pip list 2>/dev/null | grep numpy)
+numpy=$(pip list 2>/dev/null | grep numpy)
 
 if [ "$numpy" ]
     then
