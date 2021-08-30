@@ -4,7 +4,7 @@
 #para ejecutar lor programas auxiliares, es necesario haber instalado las dependencias
 #de los programas de optimización
 
-echo '[!]Para ejecutar este script debes tener instalado las dependencias de los programas de optimización' >
+echo '[!]Para ejecutar este script debes tener instalado las dependencias de los programas de optimización'
 
 echo '\n[*]Instalando Matplotlib'
 plot=$(pip list 2>/dev/null | grep matplotlib)
