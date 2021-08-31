@@ -1,4 +1,4 @@
-# Cálculo el número primo N
+/* Cálculo el número primo N */
 
 #include <stdio.h>
 #include <stdlib.h>

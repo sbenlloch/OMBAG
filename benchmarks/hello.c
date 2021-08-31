@@ -1,4 +1,4 @@
-# Ejemplo código C
+/* Ejemplo código C */
 
 #include <stdio.h>
 
