@@ -1,4 +1,4 @@
-# (EN CONSTRUCCIÓN) OMBAG: Optimización Multiobjetivo de Binarios con Algoritmos Genéticos
+# (EN CONSTRUCCIÓN) OMBAG: Optimización Multiobjetivo de Binarios usando Algoritmos Genéticos
 
 En este repositorio encontrarás una implementación de un Algoritmo Genético para optimizar respecto a varios objetivos la compilación de binarios usando las flags de GCC.
 
