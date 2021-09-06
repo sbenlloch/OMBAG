@@ -30,10 +30,20 @@ argparser.add_argument(
     help="Argumentos del programa para hacer pruebas",
 )
 argparser.add_argument(
-    "-i", "--imprimir", dest="imprimir", default=False, action="store_true"
+    "-i",
+    "--imprimir",
+    dest="imprimir",
+    default=False,
+    action="store_true",
+    help="Activar impresión de los resultados de cada cromosoma",
 )
 argparser.add_argument(
-    "-dF", "--debugFlags", dest="debug", default=False, action="store_true"
+    "-dF",
+    "--debugFlags",
+    dest="debug",
+    default=False,
+    action="store_true",
+    help="Activar depuración de compilación"
 )
 args = argparser.parse_args()
 # Programa a optimizar
