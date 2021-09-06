@@ -97,4 +97,5 @@ try:
 except:
     pass
 plt.scatter(x, y, c=x, cmap="turbo")
+
 plt.show()

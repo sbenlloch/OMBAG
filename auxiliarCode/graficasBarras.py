@@ -34,6 +34,7 @@ fig = plt.barh(x, y, width, align="center", color="mediumslateblue")
 plt.subplots_adjust(
     left=0.5, right=0.9, top=0.975, bottom=0.05, wspace=0.05, hspace=0.05
 )
+
 # plt.xticks(cantidad, flag, rotation=30)
 plt.ylabel("Cantidad")
 plt.xlabel("Flags")
