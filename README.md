@@ -1,6 +1,6 @@
-# (EN CONSTRUCCIÓN) OMBAG: Optimización Multiobjetivo de Binarios usando Algoritmos Genéticos
+# OMBAG: Optimización Multiobjetivo de Binarios usando Algoritmos Genéticos
 
-En este repositorio encontrarás una implementación de un Algoritmo Genético para optimizar respecto a varios objetivos la compilación de binarios usando las flags de GCC.
+En este repositorio encontrarás una implementación de un Algoritmo Genético para optimizar respecto a varios objetivos la compilación de binarios usando las flags de GCC. Este trabajo forma parte de un trabajo de final de grado creado por Sergio Benlloch.
 
 Puedes encontrar una versión de un Algoritmo genético tradicional y una solución siguiendo Modelo de Islas.
 
@@ -19,7 +19,7 @@ Para instalar las dependencias cuentas con un script de instalación. Puedes ins
 
 Una vez instaladas las dependencias ya puedes ejecutar los algoritmos genéticos.
 
-## Uso Algoritmo Genético 📚
+## Uso del Algoritmo Genético 📚
 
  Para hacer uso de cualquier versión los algoritmos genéticos puedes seguir los siguientes pasos:
 
@@ -48,14 +48,25 @@ También existen otros parámetros:
 ```
 ### Salida 📖
 
+En el archivo de configuración puedes definir el directorio donde se almacenarán los siguientes elementos:
+
+* Jerarquía AG con los binarios usados
+* Archivos con los resultados **[ID, GENERACIÓN, RESULTADO]**
+* Archivos con las flags más utilizadas.
+* Archivo con la comparación final.
+
 # Construido con 💻🖱️⌨️🛠️
+
+* [Bash](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html) - El lenguaje de scripting usado.
+* [Python 3](https://docs.python.org/3/) - El lenguaje de programación usado.
+* [C](https://devdocs.io/c/) - El lenguaje de programación a optimizar y usado para construir los benchmarks.
 
 # Autor 🪐🚀
 
-🔗 GitHub : [sgio](http://github.com/sgio)
+🔗 **Sergio Benlloch** - [sgio](http://github.com/sgio)
 
+🔗 Treebench benchmark creado por **Scott Robert Ladd**. [📫](scott@coyotegulch.com)
 
 # Licencia 📄
 
-GPL 3.0
-
+Esta herramienta está bajo una licencia GPL 3.0, puedes modificarla o usarla cuando quieras. Para más detalles leer [LICENSE](https://github.com/sg1o/OMBAG/blob/master/LICENSE).
