@@ -63,7 +63,7 @@ En el archivo de configuración puedes definir el directorio donde se almacenar�
 
 # Autor 🪐🚀
 
-🔗 **Sergio Benlloch** - [sgio](http://github.com/sgio)
+🔗 **Sergio Benlloch** - [sgio](http://github.com/sg1o)
 
 🔗 Treebench benchmark creado por **Scott Robert Ladd**. [📫](scott@coyotegulch.com)
 
